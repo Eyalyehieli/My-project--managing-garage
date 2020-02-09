@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="first_Name" Type="nvarchar(max)" />
           <Property Name="last_Name" Type="nvarchar(max)" />
           <Property Name="address" Type="nvarchar(max)" />
@@ -18,8 +18,23 @@
           <Property Name="notes" Type="nvarchar(max)" />
           <Property Name="active" Type="int" />
         </EntityType>
+        <EntityType Name="EmployeeTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="first_name" Type="nvarchar(max)" />
+          <Property Name="last_name" Type="nvarchar(max)" />
+          <Property Name="address" Type="nvarchar(max)" />
+          <Property Name="phoneNumber" Type="nvarchar(max)" />
+          <Property Name="E_mail" Type="nvarchar(max)" />
+          <Property Name="notes" Type="nvarchar(max)" />
+          <Property Name="active" Type="int" />
+          <Property Name="salary" Type="int" />
+        </EntityType>
         <EntityContainer Name="managingDataBaseModelStoreContainer">
           <EntitySet Name="CostumersTable" EntityType="Self.CostumersTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmployeeTable" EntityType="Self.EmployeeTable" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -27,6 +42,7 @@
       <Schema Namespace="managingDataBaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="managingDataBaseEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CostumersTable" EntityType="managingDataBaseModel.CostumersTable" />
+          <EntitySet Name="EmployeeTable" EntityType="managingDataBaseModel.EmployeeTable" />
         </EntityContainer>
         <EntityType Name="CostumersTable">
           <Key>
@@ -40,6 +56,20 @@
           <Property Name="E_mail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="active" Type="Int32" />
+        </EntityType>
+        <EntityType Name="EmployeeTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="first_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="last_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="phoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="E_mail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="active" Type="Int32" />
+          <Property Name="salary" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -57,6 +87,21 @@
                 <ScalarProperty Name="address" ColumnName="address" />
                 <ScalarProperty Name="last_Name" ColumnName="last_Name" />
                 <ScalarProperty Name="first_Name" ColumnName="first_Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeTable">
+            <EntityTypeMapping TypeName="managingDataBaseModel.EmployeeTable">
+              <MappingFragment StoreEntitySet="EmployeeTable">
+                <ScalarProperty Name="salary" ColumnName="salary" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="E_mail" ColumnName="E_mail" />
+                <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -26,5 +26,6 @@ namespace WpfApp1
         }
     
         public virtual DbSet<CostumersTable> CostumersTable { get; set; }
+        public virtual DbSet<EmployeeTable> EmployeeTable { get; set; }
     }
 }

@@ -26,10 +26,12 @@ namespace WpfApp1
             selected_costumer.active = active;
             db.SaveChanges();
         }
-        public static IList<CostumersTable> GetAllDL()
+        public static IList<CostumersTable> GetAllCostumersDL()
         {
             return db.CostumersTable.ToList();
         }
+
+        public static IList<> 
 
     }
 }

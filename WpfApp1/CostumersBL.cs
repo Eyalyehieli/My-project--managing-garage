@@ -22,7 +22,7 @@ namespace WpfApp1
 
         public  IList<CostumersTable> GetAll()
         {
-           return DataLayer.GetAllDL();
+           return DataLayer.GetAllCostumersDL();
         }
     }
 }

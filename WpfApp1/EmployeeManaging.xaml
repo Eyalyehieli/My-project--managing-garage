@@ -1,0 +1,12 @@
+﻿<Window x:Class="WpfApp1.EmployeeManaging"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="EmployeeManaging" Height="450" Width="800">
+    <Grid>
+        <Button Content="הוספת עובדים" HorizontalAlignment="Left" Margin="341,180,0,0" VerticalAlignment="Top" Width="136" Height="54"/>
+        <Button Content="רשימת עובדים" HorizontalAlignment="Left" Margin="589,180,0,0" VerticalAlignment="Top" Width="136" Height="52" Click="Button_Click"/>
+        <Button Content="עדכון פרטי עובדים " HorizontalAlignment="Left" Margin="76,180,0,0" VerticalAlignment="Top" Width="137" Height="54"/>
+
+
+    </Grid>
+</Window>

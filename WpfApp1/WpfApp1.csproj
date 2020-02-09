@@ -101,6 +101,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="EmployeeManaging.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EmployeesList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -120,6 +128,16 @@
     </Compile>
     <Compile Include="CostumerUpdating.xaml.cs">
       <DependentUpon>CostumerUpdating.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeManaging.xaml.cs">
+      <DependentUpon>EmployeeManaging.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeesBL.cs" />
+    <Compile Include="EmployeesList.xaml.cs">
+      <DependentUpon>EmployeesList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeTable.cs">
+      <DependentUpon>ManagingModel1.tt</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
