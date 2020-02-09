@@ -15,8 +15,8 @@ namespace WpfApp1
     public partial class EmployeeTable
     {
         public int Id { get; set; }
-        public string first_name { get; set; }
-        public string last_name { get; set; }
+        public string first_Name { get; set; }
+        public string last_Name { get; set; }
         public string address { get; set; }
         public string phoneNumber { get; set; }
         public string E_mail { get; set; }

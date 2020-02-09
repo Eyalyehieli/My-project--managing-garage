@@ -13,4 +13,12 @@ namespace WpfApp1
             get { return first_Name + " " + last_Name; }
         }
     }
+
+    partial class EmployeeTable
+    {
+        public string full_Name
+        {
+            get { return first_Name + " " + last_Name; }
+        }
+    }
 }

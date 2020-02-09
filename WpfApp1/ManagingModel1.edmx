@@ -22,9 +22,9 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="first_name" Type="nvarchar(max)" />
-          <Property Name="last_name" Type="nvarchar(max)" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="first_Name" Type="nvarchar(max)" />
+          <Property Name="last_Name" Type="nvarchar(max)" />
           <Property Name="address" Type="nvarchar(max)" />
           <Property Name="phoneNumber" Type="nvarchar(max)" />
           <Property Name="E_mail" Type="nvarchar(max)" />
@@ -61,9 +61,9 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="first_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="last_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="first_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="last_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="phoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="E_mail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -100,8 +100,8 @@
                 <ScalarProperty Name="E_mail" ColumnName="E_mail" />
                 <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
                 <ScalarProperty Name="address" ColumnName="address" />
-                <ScalarProperty Name="last_name" ColumnName="last_name" />
-                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="last_Name" ColumnName="last_Name" />
+                <ScalarProperty Name="first_Name" ColumnName="first_Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

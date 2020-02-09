@@ -15,31 +15,20 @@ using System.Windows.Shapes;
 namespace WpfApp1
 {
     /// <summary>
-    /// Interaction logic for EmployeeManaging.xaml
+    /// Interaction logic for AddEmployee.xaml
     /// </summary>
-    public partial class EmployeeManaging : Window
+    public partial class AddEmployee : Window
     {
-        public EmployeeManaging()
+        managingDataBaseEntities db = new managingDataBaseEntities();
+        public AddEmployee()
         {
             InitializeComponent();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            EmployeesList el= new EmployeesList();
-            el.ShowDialog();
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            AddEmployee ae= new AddEmployee();
-            ae.ShowDialog();
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-           EmployeeUpdaing eu=new EmployeeUpdaing();
-            eu.ShowDialog();
+            EmployeesBL.InsertBL(tb_firstName.Text, tb_lasrName.Text, tb_address.Text, tb_phone.Text, tb_mail.Text, 0, tb_notes.Text,Convert.ToInt32(tb_salary.Text));
+            this.Close();
         }
     }
 }

@@ -19,9 +19,12 @@ namespace WpfApp1
     /// </summary>
     public partial class EmployeesList : Window
     {
+        private EmployeesBL employeeBL = new EmployeesBL();
         public EmployeesList()
         {
             InitializeComponent();
+            CustomerSelectionComboBox.ItemsSource = employeeBL.GetAll();
+            CustomerSelectionComboBox.DisplayMemberPath = "full_Name";
         }
     }
 }
