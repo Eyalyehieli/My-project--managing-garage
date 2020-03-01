@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -31,6 +32,17 @@ namespace WpfApp1
             CostumersBL.InsertBL(tb_firstName.Text, tb_lasrName.Text, tb_address.Text, tb_phone.Text, tb_mail.Text,0,tb_notes.Text);
             this.Close();
            
+        }
+
+        private bool IsValidEmailAddress(string s)
+        {
+            Regex regex = new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
+            return regex.IsMatch(s);
+        }
+
+        private void EmailValidationTextBox(object sender, EventArgs e)
+        {
+            bool result = IsValidEmailAddress(tb_mail.Text);
         }
     }
 }

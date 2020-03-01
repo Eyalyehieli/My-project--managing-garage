@@ -13,7 +13,7 @@
         <TextBox HorizontalAlignment="Left" Height="159" Margin="56,99,0,0" TextWrapping="Wrap" Text="{Binding ElementName=CustomerSelectionComboBox, Path=SelectedItem.(local:EmployeeTable.notes), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="173"/>
         <TextBox x:Name="address_txb" HorizontalAlignment="Left" Height="23" Margin="459,188,0,0" TextWrapping="Wrap" Text="{Binding ElementName=CustomerSelectionComboBox, Path=SelectedItem.(local:EmployeeTable.address), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="phone_txb" HorizontalAlignment="Left" Height="23" Margin="459,235,0,0" TextWrapping="Wrap" Text="{Binding ElementName=CustomerSelectionComboBox, Path=SelectedItem.(local:EmployeeTable.phoneNumber), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="mail_txb" HorizontalAlignment="Left" Height="23" Margin="459,283,0,0" TextWrapping="Wrap" Text="{Binding ElementName=CustomerSelectionComboBox, Path=SelectedItem.(local:EmployeeTable.E_mail), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="mail_txb" HorizontalAlignment="Left" Height="23" Margin="459,283,0,0" TextWrapping="Wrap" Text="{Binding ElementName=CustomerSelectionComboBox, Path=SelectedItem.(local:EmployeeTable.E_mail), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120" TextChanged="EmailValidationTextBox"/>
         <TextBox x:Name="status_txb" HorizontalAlignment="Left" Height="23" Margin="459,338,0,0" TextWrapping="Wrap" Text="{Binding ElementName=CustomerSelectionComboBox, Path=SelectedItem.(local:EmployeeTable.active), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
         <ComboBox x:Name="CustomerSelectionComboBox" HorizontalAlignment="Left" Margin="459,31,0,0" VerticalAlignment="Top" Width="120"/>
         <Button Content="שמור שינויים" HorizontalAlignment="Left" Margin="56,362,0,0" VerticalAlignment="Top" Width="137" Height="43" Click="Button_Click"/>
@@ -22,7 +22,7 @@
         <TextBox x:Name="lastName_txb" HorizontalAlignment="Left" Height="23" Margin="459,148,0,0" TextWrapping="Wrap" Text="{Binding ElementName=CustomerSelectionComboBox, Path=SelectedItem.(local:EmployeeTable.last_Name), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
         <Label Content="שם משפחה" HorizontalAlignment="Left" Margin="619,145,0,0" VerticalAlignment="Top" Width="96"/>
         <Label Content="שכר" HorizontalAlignment="Left" Margin="619,389,0,0" VerticalAlignment="Top" Width="96"/>
-        <TextBox x:Name="salary_txb" HorizontalAlignment="Left" Height="23" Margin="459,389,0,0" TextWrapping="Wrap" Text="{Binding ElementName=CustomerSelectionComboBox, Path=SelectedItem.(local:EmployeeTable.salary), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="salary_txb" HorizontalAlignment="Left" Height="23" Margin="459,389,0,0" TextWrapping="Wrap" Text="{Binding ElementName=CustomerSelectionComboBox, Path=SelectedItem.(local:EmployeeTable.salary), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120" PreviewTextInput="NumberValidationTextBox"/>
 
     </Grid>
 </Window>

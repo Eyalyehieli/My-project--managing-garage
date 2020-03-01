@@ -12,22 +12,22 @@ namespace WpfApp1
     using System;
     using System.Collections.Generic;
     
-    public partial class CostumersTable
+    public partial class orderFromSupplierTable
     {
-        public CostumersTable()
+        public orderFromSupplierTable()
         {
-            this.OrdersTable = new HashSet<OrdersTable>();
+            this.supplierTable = new HashSet<supplierTable>();
         }
     
         public int Id { get; set; }
-        public string first_Name { get; set; }
-        public string last_Name { get; set; }
-        public string address { get; set; }
-        public string phoneNumber { get; set; }
-        public string E_mail { get; set; }
-        public string notes { get; set; }
+        public Nullable<int> dateOfOrder_id { get; set; }
+        public string material { get; set; }
+        public Nullable<int> amount { get; set; }
+        public Nullable<int> meters { get; set; }
+        public Nullable<int> price { get; set; }
         public Nullable<int> active { get; set; }
     
-        public virtual ICollection<OrdersTable> OrdersTable { get; set; }
+        public virtual DateTable DateTable { get; set; }
+        public virtual ICollection<supplierTable> supplierTable { get; set; }
     }
 }

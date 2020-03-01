@@ -17,7 +17,7 @@
         <Button Content="הוסף" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="81,350,0,0" Height="35" Click="Button_Click"/>
         <TextBox x:Name="tb_firstName" HorizontalAlignment="Left" Height="23" Margin="463,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label Content="שכר" HorizontalAlignment="Left" Margin="626,367,0,0" VerticalAlignment="Top" Width="86"/>
-        <TextBox  x:Name="tb_salary" HorizontalAlignment="Left" Height="23" Margin="463,371,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox  x:Name="tb_salary" HorizontalAlignment="Left" Height="23" Margin="463,371,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="NumberValidationTextBox"/>
 
     </Grid>
 </Window>

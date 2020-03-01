@@ -12,21 +12,19 @@ namespace WpfApp1
     using System;
     using System.Collections.Generic;
     
-    public partial class CostumersTable
+    public partial class ProductTable
     {
-        public CostumersTable()
+        public ProductTable()
         {
             this.OrdersTable = new HashSet<OrdersTable>();
         }
     
         public int Id { get; set; }
-        public string first_Name { get; set; }
-        public string last_Name { get; set; }
-        public string address { get; set; }
-        public string phoneNumber { get; set; }
-        public string E_mail { get; set; }
-        public string notes { get; set; }
-        public Nullable<int> active { get; set; }
+        public string name { get; set; }
+        public string type { get; set; }
+        public string typeOfTree { get; set; }
+        public string color { get; set; }
+        public string shoeing { get; set; }
     
         public virtual ICollection<OrdersTable> OrdersTable { get; set; }
     }
