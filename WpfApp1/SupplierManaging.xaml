@@ -1,0 +1,12 @@
+﻿<Window x:Class="WpfApp1.SupplierManaging"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SupplierManaging" Height="450" Width="800">
+    <Grid>
+        <Button Content="הוספת ספק" HorizontalAlignment="Left" Margin="560,83,0,0" VerticalAlignment="Top" Width="114" Height="86" Click="Button_Click"/>
+        <Button Content="עדכון פרטי ספק" HorizontalAlignment="Left" Margin="108,83,0,0" VerticalAlignment="Top" Width="106" Height="86" Click="Button_Click_1"/>
+        <Button Content="שליחת הודעה לספק" HorizontalAlignment="Left" Margin="560,268,0,0" VerticalAlignment="Top" Width="114" Height="72"/>
+        <Button Content="רשימת ספקים" HorizontalAlignment="Left" Margin="108,268,0,0" VerticalAlignment="Top" Width="106" Height="72" Click="Button_Click_2"/>
+
+    </Grid>
+</Window>

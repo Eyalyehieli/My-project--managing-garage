@@ -25,9 +25,12 @@ namespace WpfApp1
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<BuyingFromSupplier> BuyingFromSupplier { get; set; }
+        public virtual DbSet<BuyingTable> BuyingTable { get; set; }
         public virtual DbSet<CostumersTable> CostumersTable { get; set; }
         public virtual DbSet<DateTable> DateTable { get; set; }
         public virtual DbSet<EmployeeTable> EmployeeTable { get; set; }
+        public virtual DbSet<ExpensesTable> ExpensesTable { get; set; }
         public virtual DbSet<orderFromSupplierTable> orderFromSupplierTable { get; set; }
         public virtual DbSet<OrdersTable> OrdersTable { get; set; }
         public virtual DbSet<ProductTable> ProductTable { get; set; }

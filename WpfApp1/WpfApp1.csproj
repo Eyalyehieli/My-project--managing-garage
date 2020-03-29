@@ -82,12 +82,36 @@
     <Compile Include="AddEmployee.xaml.cs">
       <DependentUpon>AddEmployee.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BuyingFromSupplier.cs">
+      <DependentUpon>ManagingModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BuyingTable.cs">
+      <DependentUpon>ManagingModel1.tt</DependentUpon>
+    </Compile>
     <Compile Include="CostumersBL.cs" />
     <Compile Include="CostumersTable.cs">
       <DependentUpon>ManagingModel1.tt</DependentUpon>
     </Compile>
     <Compile Include="CostumersTableExt.cs" />
     <Compile Include="DataLayer.cs" />
+    <Compile Include="DateTable.cs">
+      <DependentUpon>ManagingModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExpensesTable.cs">
+      <DependentUpon>ManagingModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="orderFromSupplierTable.cs">
+      <DependentUpon>ManagingModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrdersTable.cs">
+      <DependentUpon>ManagingModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductTable.cs">
+      <DependentUpon>ManagingModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="supplierTable.cs">
+      <DependentUpon>ManagingModel1.tt</DependentUpon>
+    </Compile>
     <Page Include="AddCostumer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

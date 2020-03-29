@@ -37,5 +37,11 @@ namespace WpfApp1
             EmployeeManaging em=new EmployeeManaging();
             em.ShowDialog();
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            //SupplierManaging sm=new SupplierManaging();
+            //sm.ShowDialog();
+        }
     }
 }

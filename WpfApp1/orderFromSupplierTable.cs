@@ -16,6 +16,7 @@ namespace WpfApp1
     {
         public orderFromSupplierTable()
         {
+            this.BuyingFromSupplier = new HashSet<BuyingFromSupplier>();
             this.supplierTable = new HashSet<supplierTable>();
         }
     
@@ -26,8 +27,11 @@ namespace WpfApp1
         public Nullable<int> meters { get; set; }
         public Nullable<int> price { get; set; }
         public Nullable<int> active { get; set; }
+        public Nullable<int> employee_id { get; set; }
     
+        public virtual ICollection<BuyingFromSupplier> BuyingFromSupplier { get; set; }
         public virtual DateTable DateTable { get; set; }
+        public virtual EmployeeTable EmployeeTable { get; set; }
         public virtual ICollection<supplierTable> supplierTable { get; set; }
     }
 }

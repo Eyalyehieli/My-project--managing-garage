@@ -12,20 +12,13 @@ namespace WpfApp1
     using System;
     using System.Collections.Generic;
     
-    public partial class DateTable
+    public partial class ExpensesTable
     {
-        public DateTable()
-        {
-            this.orderFromSupplierTable = new HashSet<orderFromSupplierTable>();
-            this.OrdersTable = new HashSet<OrdersTable>();
-        }
-    
         public int Id { get; set; }
-        public Nullable<int> year { get; set; }
-        public Nullable<int> month { get; set; }
-        public Nullable<int> day { get; set; }
-    
-        public virtual ICollection<orderFromSupplierTable> orderFromSupplierTable { get; set; }
-        public virtual ICollection<OrdersTable> OrdersTable { get; set; }
+        public Nullable<int> water { get; set; }
+        public Nullable<int> elecricity { get; set; }
+        public Nullable<int> materials { get; set; }
+        public Nullable<int> workers_salary { get; set; }
+        public Nullable<int> office_workers_salary { get; set; }
     }
 }
