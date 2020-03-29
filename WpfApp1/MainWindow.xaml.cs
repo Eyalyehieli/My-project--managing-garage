@@ -40,8 +40,8 @@ namespace WpfApp1
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            //SupplierManaging sm=new SupplierManaging();
-            //sm.ShowDialog();
+            SupplierManaging sm=new SupplierManaging();
+           sm.ShowDialog();
         }
     }
 }

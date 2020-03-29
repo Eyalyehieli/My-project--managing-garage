@@ -82,6 +82,9 @@
     <Compile Include="AddEmployee.xaml.cs">
       <DependentUpon>AddEmployee.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddSupplier.xaml.cs">
+      <DependentUpon>AddSupplier.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BuyingFromSupplier.cs">
       <DependentUpon>ManagingModel1.tt</DependentUpon>
     </Compile>
@@ -109,8 +112,17 @@
     <Compile Include="ProductTable.cs">
       <DependentUpon>ManagingModel1.tt</DependentUpon>
     </Compile>
+    <Compile Include="SupplierList.xaml.cs">
+      <DependentUpon>SupplierList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierManaging.xaml.cs">
+      <DependentUpon>SupplierManaging.xaml</DependentUpon>
+    </Compile>
     <Compile Include="supplierTable.cs">
       <DependentUpon>ManagingModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierUpdating.xaml.cs">
+      <DependentUpon>SupplierUpdating.xaml</DependentUpon>
     </Compile>
     <Page Include="AddCostumer.xaml">
       <SubType>Designer</SubType>
@@ -119,6 +131,10 @@
     <Page Include="AddEmployee.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddSupplier.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="CostumersList.xaml">
       <SubType>Designer</SubType>
@@ -181,6 +197,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="SupplierList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SupplierManaging.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SupplierUpdating.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ManagingModel1.Context.cs">
