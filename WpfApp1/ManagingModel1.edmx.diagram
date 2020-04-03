@@ -4,26 +4,27 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f143f02ce0754284a2bd2c095705bf18" Name="Diagram1" ZoomLevel="74">
-        <EntityTypeShape EntityType="managingDataBaseModel.BuyingFromSupplier" Width="1.5" PointX="5.25" PointY="9.625" />
-        <EntityTypeShape EntityType="managingDataBaseModel.BuyingTable" Width="1.5" PointX="8.25" PointY="5.75" />
+      <Diagram DiagramId="f143f02ce0754284a2bd2c095705bf18" Name="Diagram1" ZoomLevel="64">
         <EntityTypeShape EntityType="managingDataBaseModel.CostumersTable" Width="1.5" PointX="3.75" PointY="15.75" />
-        <EntityTypeShape EntityType="managingDataBaseModel.DateTable" Width="1.5" PointX="0.75" PointY="5.375" />
-        <EntityTypeShape EntityType="managingDataBaseModel.EmployeeTable" Width="1.5" PointX="0.75" PointY="1" />
-        <EntityTypeShape EntityType="managingDataBaseModel.ExpensesTable" Width="1.5" PointX="7.75" PointY="1.125" />
-        <EntityTypeShape EntityType="managingDataBaseModel.orderFromSupplierTable" Width="1.5" PointX="3" PointY="4.75" />
-        <EntityTypeShape EntityType="managingDataBaseModel.OrdersTable" Width="1.5" PointX="6" PointY="4.875" />
-        <EntityTypeShape EntityType="managingDataBaseModel.ProductTable" Width="1.5" PointX="3.75" PointY="11.625" />
+        <EntityTypeShape EntityType="managingDataBaseModel.BuyingFromSupplier" Width="1.5" PointX="5.25" PointY="5.25" />
+        <EntityTypeShape EntityType="managingDataBaseModel.BuyingTable" Width="1.5" PointX="8.625" PointY="12.625" />
+        <EntityTypeShape EntityType="managingDataBaseModel.DateTable" Width="1.5" PointX="0.75" PointY="6.875" />
+        <EntityTypeShape EntityType="managingDataBaseModel.EmployeeTable" Width="1.5" PointX="0.75" PointY="2.5" />
+        <EntityTypeShape EntityType="managingDataBaseModel.ExpensesTable" Width="1.5" PointX="5.75" PointY="8.125" />
+        <EntityTypeShape EntityType="managingDataBaseModel.orderFromSupplierTable" Width="1.5" PointX="3" PointY="6.25" />
+        <EntityTypeShape EntityType="managingDataBaseModel.OrdersTable" Width="1.5" PointX="6.375" PointY="11.25" />
+        <EntityTypeShape EntityType="managingDataBaseModel.ProductTable" Width="1.5" PointX="4.125" PointY="12.125" />
         <EntityTypeShape EntityType="managingDataBaseModel.supplierTable" Width="1.5" PointX="5.25" PointY="0.75" />
         <AssociationConnector Association="managingDataBaseModel.FK_BuyingFromSupplier_OrdersFromSupplier" />
         <AssociationConnector Association="managingDataBaseModel.FK_BuyingTable_OrdersTable" />
         <AssociationConnector Association="managingDataBaseModel.FK_OrdersTable_CostumersTable" />
         <AssociationConnector Association="managingDataBaseModel.FK_orderFromSupplierTable_DateTable" />
-        <AssociationConnector Association="managingDataBaseModel.FK_OrdersTable_DateTable" />
+        <AssociationConnector Association="managingDataBaseModel.FK_OrdersTable_DateTable_order" />
+        <AssociationConnector Association="managingDataBaseModel.FK_OrdersTable_supplying" />
         <AssociationConnector Association="managingDataBaseModel.FK_orderFromSupplierTable_employeeTable" />
         <AssociationConnector Association="managingDataBaseModel.FK_supplierTable_orderFromSupplierTable" />
         <AssociationConnector Association="managingDataBaseModel.FK_OrdersTable_ProductTable" />
-      </Diagram>
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

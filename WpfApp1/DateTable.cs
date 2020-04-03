@@ -18,6 +18,7 @@ namespace WpfApp1
         {
             this.orderFromSupplierTable = new HashSet<orderFromSupplierTable>();
             this.OrdersTable = new HashSet<OrdersTable>();
+            this.OrdersTable1 = new HashSet<OrdersTable>();
         }
     
         public int Id { get; set; }
@@ -27,5 +28,6 @@ namespace WpfApp1
     
         public virtual ICollection<orderFromSupplierTable> orderFromSupplierTable { get; set; }
         public virtual ICollection<OrdersTable> OrdersTable { get; set; }
+        public virtual ICollection<OrdersTable> OrdersTable1 { get; set; }
     }
 }

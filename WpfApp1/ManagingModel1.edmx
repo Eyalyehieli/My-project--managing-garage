@@ -89,7 +89,11 @@
           <Property Name="costPrice" Type="int" />
           <Property Name="invoiceNumber" Type="nvarchar(max)" />
           <Property Name="product_id" Type="int" />
-          <Property Name="date_id" Type="int" />
+          <Property Name="date_id_order" Type="int" />
+          <Property Name="date_id_supplying" Type="int" />
+          <Property Name="shipping_address" Type="nvarchar(max)" />
+          <Property Name="shipping_number" Type="nvarchar(max)" />
+          <Property Name="reception_number" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="ProductTable">
           <Key>
@@ -176,7 +180,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_OrdersTable_DateTable">
+        <Association Name="FK_OrdersTable_DateTable_order">
           <End Role="DateTable" Type="Self.DateTable" Multiplicity="0..1" />
           <End Role="OrdersTable" Type="Self.OrdersTable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -184,7 +188,7 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="OrdersTable">
-              <PropertyRef Name="date_id" />
+              <PropertyRef Name="date_id_order" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -197,6 +201,18 @@
             </Principal>
             <Dependent Role="OrdersTable">
               <PropertyRef Name="product_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrdersTable_supplying">
+          <End Role="DateTable" Type="Self.DateTable" Multiplicity="0..1" />
+          <End Role="OrdersTable" Type="Self.OrdersTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DateTable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrdersTable">
+              <PropertyRef Name="date_id_supplying" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -243,12 +259,16 @@
             <End Role="CostumersTable" EntitySet="CostumersTable" />
             <End Role="OrdersTable" EntitySet="OrdersTable" />
           </AssociationSet>
-          <AssociationSet Name="FK_OrdersTable_DateTable" Association="Self.FK_OrdersTable_DateTable">
+          <AssociationSet Name="FK_OrdersTable_DateTable_order" Association="Self.FK_OrdersTable_DateTable_order">
             <End Role="DateTable" EntitySet="DateTable" />
             <End Role="OrdersTable" EntitySet="OrdersTable" />
           </AssociationSet>
           <AssociationSet Name="FK_OrdersTable_ProductTable" Association="Self.FK_OrdersTable_ProductTable">
             <End Role="ProductTable" EntitySet="ProductTable" />
+            <End Role="OrdersTable" EntitySet="OrdersTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrdersTable_supplying" Association="Self.FK_OrdersTable_supplying">
+            <End Role="DateTable" EntitySet="DateTable" />
             <End Role="OrdersTable" EntitySet="OrdersTable" />
           </AssociationSet>
           <AssociationSet Name="FK_supplierTable_orderFromSupplierTable" Association="Self.FK_supplierTable_orderFromSupplierTable">
@@ -261,9 +281,9 @@
     <edmx:ConceptualModels>
       <Schema Namespace="managingDataBaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="managingDataBaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CostumersTable" EntityType="managingDataBaseModel.CostumersTable" />
           <EntitySet Name="BuyingFromSupplier" EntityType="managingDataBaseModel.BuyingFromSupplier" />
           <EntitySet Name="BuyingTable" EntityType="managingDataBaseModel.BuyingTable" />
-          <EntitySet Name="CostumersTable" EntityType="managingDataBaseModel.CostumersTable" />
           <EntitySet Name="DateTable" EntityType="managingDataBaseModel.DateTable" />
           <EntitySet Name="EmployeeTable" EntityType="managingDataBaseModel.EmployeeTable" />
           <EntitySet Name="ExpensesTable" EntityType="managingDataBaseModel.ExpensesTable" />
@@ -287,7 +307,11 @@
             <End Role="DateTable" EntitySet="DateTable" />
             <End Role="orderFromSupplierTable" EntitySet="orderFromSupplierTable" />
           </AssociationSet>
-          <AssociationSet Name="FK_OrdersTable_DateTable" Association="managingDataBaseModel.FK_OrdersTable_DateTable">
+          <AssociationSet Name="FK_OrdersTable_DateTable_order" Association="managingDataBaseModel.FK_OrdersTable_DateTable_order">
+            <End Role="DateTable" EntitySet="DateTable" />
+            <End Role="OrdersTable" EntitySet="OrdersTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrdersTable_supplying" Association="managingDataBaseModel.FK_OrdersTable_supplying">
             <End Role="DateTable" EntitySet="DateTable" />
             <End Role="OrdersTable" EntitySet="OrdersTable" />
           </AssociationSet>
@@ -303,7 +327,21 @@
             <End Role="ProductTable" EntitySet="ProductTable" />
             <End Role="OrdersTable" EntitySet="OrdersTable" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
+        <EntityType Name="CostumersTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="first_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="last_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="phoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="E_mail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="active" Type="Int32" />
+          <NavigationProperty Name="OrdersTable" Relationship="managingDataBaseModel.FK_OrdersTable_CostumersTable" FromRole="CostumersTable" ToRole="OrdersTable" />
+        </EntityType>
         <EntityType Name="BuyingFromSupplier">
           <Key>
             <PropertyRef Name="Id" />
@@ -320,20 +358,6 @@
           <Property Name="order_id" Type="Int32" />
           <NavigationProperty Name="OrdersTable" Relationship="managingDataBaseModel.FK_BuyingTable_OrdersTable" FromRole="BuyingTable" ToRole="OrdersTable" />
         </EntityType>
-        <EntityType Name="CostumersTable">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="first_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="last_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="phoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="E_mail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="active" Type="Int32" />
-          <NavigationProperty Name="OrdersTable" Relationship="managingDataBaseModel.FK_OrdersTable_CostumersTable" FromRole="CostumersTable" ToRole="OrdersTable" />
-        </EntityType>
         <EntityType Name="DateTable">
           <Key>
             <PropertyRef Name="Id" />
@@ -343,7 +367,8 @@
           <Property Name="month" Type="Int32" />
           <Property Name="day" Type="Int32" />
           <NavigationProperty Name="orderFromSupplierTable" Relationship="managingDataBaseModel.FK_orderFromSupplierTable_DateTable" FromRole="DateTable" ToRole="orderFromSupplierTable" />
-          <NavigationProperty Name="OrdersTable" Relationship="managingDataBaseModel.FK_OrdersTable_DateTable" FromRole="DateTable" ToRole="OrdersTable" />
+          <NavigationProperty Name="OrdersTable" Relationship="managingDataBaseModel.FK_OrdersTable_DateTable_order" FromRole="DateTable" ToRole="OrdersTable" />
+          <NavigationProperty Name="OrdersTable1" Relationship="managingDataBaseModel.FK_OrdersTable_supplying" FromRole="DateTable" ToRole="OrdersTable" />
         </EntityType>
         <EntityType Name="EmployeeTable">
           <Key>
@@ -398,10 +423,15 @@
           <Property Name="costPrice" Type="Int32" />
           <Property Name="invoiceNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="product_id" Type="Int32" />
-          <Property Name="date_id" Type="Int32" />
+          <Property Name="date_id_order" Type="Int32" />
+          <Property Name="date_id_supplying" Type="Int32" />
+          <Property Name="shipping_address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="shipping_number" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="reception_number" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="BuyingTable" Relationship="managingDataBaseModel.FK_BuyingTable_OrdersTable" FromRole="OrdersTable" ToRole="BuyingTable" />
           <NavigationProperty Name="CostumersTable" Relationship="managingDataBaseModel.FK_OrdersTable_CostumersTable" FromRole="OrdersTable" ToRole="CostumersTable" />
-          <NavigationProperty Name="DateTable" Relationship="managingDataBaseModel.FK_OrdersTable_DateTable" FromRole="OrdersTable" ToRole="DateTable" />
+          <NavigationProperty Name="DateTable" Relationship="managingDataBaseModel.FK_OrdersTable_DateTable_order" FromRole="OrdersTable" ToRole="DateTable" />
+          <NavigationProperty Name="DateTable1" Relationship="managingDataBaseModel.FK_OrdersTable_supplying" FromRole="OrdersTable" ToRole="DateTable" />
           <NavigationProperty Name="ProductTable" Relationship="managingDataBaseModel.FK_OrdersTable_ProductTable" FromRole="OrdersTable" ToRole="ProductTable" />
         </EntityType>
         <EntityType Name="ProductTable">
@@ -479,7 +509,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_OrdersTable_DateTable">
+        <Association Name="FK_OrdersTable_DateTable_order">
           <End Type="managingDataBaseModel.DateTable" Role="DateTable" Multiplicity="0..1" />
           <End Type="managingDataBaseModel.OrdersTable" Role="OrdersTable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -487,7 +517,19 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="OrdersTable">
-              <PropertyRef Name="date_id" />
+              <PropertyRef Name="date_id_order" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrdersTable_supplying">
+          <End Type="managingDataBaseModel.DateTable" Role="DateTable" Multiplicity="0..1" />
+          <End Type="managingDataBaseModel.OrdersTable" Role="OrdersTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DateTable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrdersTable">
+              <PropertyRef Name="date_id_supplying" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -533,6 +575,20 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="managingDataBaseModelStoreContainer" CdmEntityContainer="managingDataBaseEntities">
+          <EntitySetMapping Name="CostumersTable">
+            <EntityTypeMapping TypeName="managingDataBaseModel.CostumersTable">
+              <MappingFragment StoreEntitySet="CostumersTable">
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="E_mail" ColumnName="E_mail" />
+                <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="last_Name" ColumnName="last_Name" />
+                <ScalarProperty Name="first_Name" ColumnName="first_Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="BuyingFromSupplier">
             <EntityTypeMapping TypeName="managingDataBaseModel.BuyingFromSupplier">
               <MappingFragment StoreEntitySet="BuyingFromSupplier">
@@ -545,20 +601,6 @@
             <EntityTypeMapping TypeName="managingDataBaseModel.BuyingTable">
               <MappingFragment StoreEntitySet="BuyingTable">
                 <ScalarProperty Name="order_id" ColumnName="order_id" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CostumersTable">
-            <EntityTypeMapping TypeName="managingDataBaseModel.CostumersTable">
-              <MappingFragment StoreEntitySet="CostumersTable">
-                <ScalarProperty Name="active" ColumnName="active" />
-                <ScalarProperty Name="notes" ColumnName="notes" />
-                <ScalarProperty Name="E_mail" ColumnName="E_mail" />
-                <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
-                <ScalarProperty Name="address" ColumnName="address" />
-                <ScalarProperty Name="last_Name" ColumnName="last_Name" />
-                <ScalarProperty Name="first_Name" ColumnName="first_Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -617,7 +659,11 @@
           <EntitySetMapping Name="OrdersTable">
             <EntityTypeMapping TypeName="managingDataBaseModel.OrdersTable">
               <MappingFragment StoreEntitySet="OrdersTable">
-                <ScalarProperty Name="date_id" ColumnName="date_id" />
+                <ScalarProperty Name="reception_number" ColumnName="reception_number" />
+                <ScalarProperty Name="shipping_number" ColumnName="shipping_number" />
+                <ScalarProperty Name="shipping_address" ColumnName="shipping_address" />
+                <ScalarProperty Name="date_id_supplying" ColumnName="date_id_supplying" />
+                <ScalarProperty Name="date_id_order" ColumnName="date_id_order" />
                 <ScalarProperty Name="product_id" ColumnName="product_id" />
                 <ScalarProperty Name="invoiceNumber" ColumnName="invoiceNumber" />
                 <ScalarProperty Name="costPrice" ColumnName="costPrice" />
@@ -654,7 +700,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\Eyal_git\My-project--managing-garage-master\WpfApp1\ManagingModel1.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\LiorProjectManage\My-project--managing-garage\WpfApp1\ManagingModel1.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

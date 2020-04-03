@@ -25,11 +25,16 @@ namespace WpfApp1
         public Nullable<int> costPrice { get; set; }
         public string invoiceNumber { get; set; }
         public Nullable<int> product_id { get; set; }
-        public Nullable<int> date_id { get; set; }
+        public Nullable<int> date_id_order { get; set; }
+        public Nullable<int> date_id_supplying { get; set; }
+        public string shipping_address { get; set; }
+        public string shipping_number { get; set; }
+        public string reception_number { get; set; }
     
         public virtual ICollection<BuyingTable> BuyingTable { get; set; }
         public virtual CostumersTable CostumersTable { get; set; }
         public virtual DateTable DateTable { get; set; }
+        public virtual DateTable DateTable1 { get; set; }
         public virtual ProductTable ProductTable { get; set; }
     }
 }
