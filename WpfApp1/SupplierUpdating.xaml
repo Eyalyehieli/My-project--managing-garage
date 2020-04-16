@@ -13,12 +13,12 @@
         <TextBox  x:Name="firstName_txb" HorizontalAlignment="Left" Height="23" Margin="481,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox  x:Name="lastName_txb" HorizontalAlignment="Left" Height="23" Margin="481,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox  x:Name="country_txb" HorizontalAlignment="Left" Height="23" Margin="481,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox  x:Name="phone_txb" HorizontalAlignment="Left" Height="23" Margin="481,228,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox  x:Name="Email_txb" HorizontalAlignment="Left" Height="23" Margin="481,282,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox  x:Name="phone_txb" HorizontalAlignment="Left" Height="23" Margin="481,228,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="NumberValidationTextBox"/>
+        <TextBox  x:Name="Email_txb" HorizontalAlignment="Left" Height="23" Margin="481,282,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="EmailValidationTextBox"/>
         <TextBox x:Name="address_txb" HorizontalAlignment="Left" Height="23" Margin="481,332,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox  x:Name="Notes_txb" HorizontalAlignment="Left" Height="171" Margin="66,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153"/>
-        <ComboBox  x:Name="CustomerSelectionComboBox" HorizontalAlignment="Left" Margin="323,27,0,0" VerticalAlignment="Top" Width="120"/>
-        <Button Content="עדכן" HorizontalAlignment="Left" Margin="66,309,0,0" VerticalAlignment="Top" Width="137" Height="46"/>
+        <ComboBox x:Name="SupllierSelectionComboBox" HorizontalAlignment="Left" Margin="323,27,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button Content="עדכן" HorizontalAlignment="Left" Margin="66,309,0,0" VerticalAlignment="Top" Width="137" Height="46" Click="Button_Click"/>
         <Label Content="מצב" HorizontalAlignment="Left" Margin="642,388,0,0" VerticalAlignment="Top" Width="102"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="481,388,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
     </Grid>

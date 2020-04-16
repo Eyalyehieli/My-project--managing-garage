@@ -32,6 +32,22 @@ namespace WpfApp1
             db.SaveChanges();
         }
 
+        public static void InsertSupplierDL(string FirstName, string LastName, string Country, string PhoneNumber,
+            string Email, string Notes, string Address)
+        {
+            db.supplierTable.Add(new supplierTable
+            {
+                firstName = FirstName,
+                lastName = LastName,
+                country = Country,
+                phoneNumber = PhoneNumber,
+                E_mail = Email,
+                notes = Notes,
+                address = Address
+            });
+            db.SaveChanges();
+        }
+
         public static void UpdateCostumerDL(CostumersTable ct,string firstName,string lastName,string address, string phone,string mail, int active)
         {
             CostumersTable selected_costumer = ct;
@@ -57,6 +73,22 @@ namespace WpfApp1
             selected_employee.salary = salary;
             db.SaveChanges();
         }
+
+        public static void UpdateSupplierDL(supplierTable st, string FirstName, string LastName, string Country,
+            string PhoneNumber, string Email, string Notes, string Address)
+        {
+            supplierTable selected_supplier = st;
+            selected_supplier.firstName = FirstName;
+            selected_supplier.lastName = LastName;
+            selected_supplier.country = Country;
+            selected_supplier.phoneNumber = PhoneNumber;
+            selected_supplier.E_mail = Email;
+            selected_supplier.notes = Notes;
+            selected_supplier.address = Address;
+            db.SaveChanges();
+        }
+
+       
         public static IList<CostumersTable> GetAllCostumersDL()
         {
             return db.CostumersTable.ToList();
@@ -67,5 +99,10 @@ namespace WpfApp1
             return db.EmployeeTable.ToList();
         }
 
+        public static IList<supplierTable> GetAllSupplierDL()
+
+        {
+            return db.supplierTable.ToList();
+        }
     }
 }

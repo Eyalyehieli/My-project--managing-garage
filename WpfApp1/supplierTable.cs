@@ -14,6 +14,12 @@ namespace WpfApp1
     
     public partial class supplierTable
     {
+        public supplierTable()
+        {
+            this.ExpensesTable = new HashSet<ExpensesTable>();
+            this.orderFromSupplierTable = new HashSet<orderFromSupplierTable>();
+        }
+    
         public int Id { get; set; }
         public string firstName { get; set; }
         public string lastName { get; set; }
@@ -24,6 +30,7 @@ namespace WpfApp1
         public string notes { get; set; }
         public string address { get; set; }
     
-        public virtual orderFromSupplierTable orderFromSupplierTable { get; set; }
+        public virtual ICollection<ExpensesTable> ExpensesTable { get; set; }
+        public virtual ICollection<orderFromSupplierTable> orderFromSupplierTable { get; set; }
     }
 }

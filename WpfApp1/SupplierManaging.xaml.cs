@@ -24,6 +24,33 @@ namespace WpfApp1
             InitializeComponent();
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            AddSupplier asl  = new AddSupplier();
+            asl.ShowDialog();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            SupplierList sl=new SupplierList();
+            sl.ShowDialog();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            SupplierUpdating su=new SupplierUpdating();
+            su.ShowDialog();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            supplierEmailSending ses=new supplierEmailSending();
+            ses.ShowDialog();
+        }
+
+
+
+
        
     }
 }

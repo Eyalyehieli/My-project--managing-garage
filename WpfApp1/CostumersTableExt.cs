@@ -21,4 +21,12 @@ namespace WpfApp1
             get { return first_Name + " " + last_Name; }
         }
     }
+
+    partial class supplierTable
+    {
+        public string full_Name
+        {
+            get { return firstName + " " + lastName; }
+        }
+    }
 }

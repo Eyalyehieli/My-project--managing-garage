@@ -19,9 +19,12 @@ namespace WpfApp1
     /// </summary>
     public partial class SupplierList : Window
     {
+        private SupplierBL supplierBL=new SupplierBL();
         public SupplierList()
         {
             InitializeComponent();
+            supplierSelectionComboBox.ItemsSource = supplierBL.GetAll();
+            supplierSelectionComboBox.DisplayMemberPath = "full_Name";
         }
     }
 }

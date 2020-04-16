@@ -15,10 +15,15 @@ namespace WpfApp1
     public partial class ExpensesTable
     {
         public int Id { get; set; }
-        public Nullable<int> water { get; set; }
-        public Nullable<int> elecricity { get; set; }
-        public Nullable<int> materials { get; set; }
-        public Nullable<int> workers_salary { get; set; }
-        public Nullable<int> office_workers_salary { get; set; }
+        public string name { get; set; }
+        public Nullable<int> cost { get; set; }
+        public Nullable<int> year { get; set; }
+        public Nullable<int> month { get; set; }
+        public Nullable<int> day { get; set; }
+        public Nullable<int> supplier_id { get; set; }
+        public Nullable<int> employee_id { get; set; }
+    
+        public virtual EmployeeTable EmployeeTable { get; set; }
+        public virtual supplierTable supplierTable { get; set; }
     }
 }

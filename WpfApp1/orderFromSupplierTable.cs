@@ -17,21 +17,20 @@ namespace WpfApp1
         public orderFromSupplierTable()
         {
             this.BuyingFromSupplier = new HashSet<BuyingFromSupplier>();
-            this.supplierTable = new HashSet<supplierTable>();
         }
     
         public int Id { get; set; }
-        public Nullable<int> dateOfOrder_id { get; set; }
         public string material { get; set; }
         public Nullable<int> amount { get; set; }
         public Nullable<int> meters { get; set; }
         public Nullable<int> price { get; set; }
         public Nullable<int> active { get; set; }
-        public Nullable<int> employee_id { get; set; }
+        public Nullable<int> supplier_id { get; set; }
+        public Nullable<int> year { get; set; }
+        public Nullable<int> month { get; set; }
+        public Nullable<int> day { get; set; }
     
         public virtual ICollection<BuyingFromSupplier> BuyingFromSupplier { get; set; }
-        public virtual DateTable DateTable { get; set; }
-        public virtual EmployeeTable EmployeeTable { get; set; }
-        public virtual ICollection<supplierTable> supplierTable { get; set; }
+        public virtual supplierTable supplierTable { get; set; }
     }
 }

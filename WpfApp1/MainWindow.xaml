@@ -9,7 +9,7 @@
     <Grid>
         <Button Content="ניהול לקוחות" HorizontalAlignment="Left" Margin="573,95,0,0" VerticalAlignment="Top" Width="120" Height="49" Click="Button_Click"/>
         <Button Content="דוחות" HorizontalAlignment="Left" Margin="338,165,0,0" VerticalAlignment="Top" Width="120" Height="49"/>
-        <Button Content="ניהול ספקים" HorizontalAlignment="Left" Margin="68,95,0,0" VerticalAlignment="Top" Width="116" Height="49"/>
+        <Button Content="ניהול ספקים" HorizontalAlignment="Left" Margin="68,95,0,0" VerticalAlignment="Top" Width="116" Height="49" Click="Button_Click_3"/>
         <Button Content="ניהול הזמנות" HorizontalAlignment="Left" Margin="68,220,0,0" VerticalAlignment="Top" Width="116" Height="49"/>
         <Button Content="ניהול עובדים" HorizontalAlignment="Left" Margin="573,231,0,0" VerticalAlignment="Top" Width="120" Height="47" Click="Button_Click_1"/>
 

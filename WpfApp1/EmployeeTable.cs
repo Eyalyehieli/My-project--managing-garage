@@ -16,7 +16,8 @@ namespace WpfApp1
     {
         public EmployeeTable()
         {
-            this.orderFromSupplierTable = new HashSet<orderFromSupplierTable>();
+            this.ExpensesTable = new HashSet<ExpensesTable>();
+            this.OrdersTable = new HashSet<OrdersTable>();
         }
     
         public int Id { get; set; }
@@ -29,6 +30,7 @@ namespace WpfApp1
         public Nullable<int> active { get; set; }
         public Nullable<int> salary { get; set; }
     
-        public virtual ICollection<orderFromSupplierTable> orderFromSupplierTable { get; set; }
+        public virtual ICollection<ExpensesTable> ExpensesTable { get; set; }
+        public virtual ICollection<OrdersTable> OrdersTable { get; set; }
     }
 }

@@ -8,7 +8,7 @@
         Title="CostumersList" Height="450" Width="800">
     <Grid>
         <Label Content="שם לקוח" HorizontalAlignment="Left" Margin="455,50,0,0" VerticalAlignment="Top" Width="63"/>
-        <ComboBox Name="CustomerSelectionComboBox" HorizontalAlignment="Left" Margin="301,54,0,0" VerticalAlignment="Top" Width="120" />
+        <ComboBox Name="CustomerSelectionComboBox" HorizontalAlignment="Left" Margin="301,54,0,0" VerticalAlignment="Top" Width="120"/>
         <Label Content="שם פרטי" HorizontalAlignment="Left" Margin="654,121,0,0" VerticalAlignment="Top" Width="64"/>
         <Label Content="שם משפחה" HorizontalAlignment="Left" Margin="654,164,0,0" VerticalAlignment="Top" Width="77"/>
         <Label Content="כתובת" HorizontalAlignment="Left" Margin="654,208,0,0" VerticalAlignment="Top" Width="77"/>
