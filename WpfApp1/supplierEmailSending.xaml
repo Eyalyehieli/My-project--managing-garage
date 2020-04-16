@@ -1,0 +1,18 @@
+﻿<Window x:Class="WpfApp1.supplierEmailSending"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="supplierEmailSending" Height="450" Width="800">
+    <Grid>
+        <ComboBox x:Name="supplierEmailSendingComboBox" HorizontalAlignment="Left" Margin="626,69,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="supplierEmailSendingComboBox_SelectionChanged"/>
+        <Label Content="רשימת ספקים" HorizontalAlignment="Left" Margin="626,31,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="אל" HorizontalAlignment="Left" Margin="298,39,0,0" VerticalAlignment="Top" Width="71"/>
+        <TextBlock HorizontalAlignment="Left" Margin="298,525,0,-137" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <Label x:Name="toLabel" Content="" HorizontalAlignment="Left" Margin="71,31,0,0" VerticalAlignment="Top" Width="143" Height="60"/>
+        <Label Content="נושא" HorizontalAlignment="Left" Margin="298,153,0,0" VerticalAlignment="Top" Width="71"/>
+        <Label Content="הודעה" HorizontalAlignment="Left" Margin="298,260,0,0" VerticalAlignment="Top" Width="71"/>
+        <TextBox x:Name="subjuct_txb" HorizontalAlignment="Left" Height="72" Margin="70,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144"/>
+        <TextBox x:Name="body_txb" HorizontalAlignment="Left" Height="140" Margin="70,240,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144"/>
+        <Button Content="שלח" HorizontalAlignment="Left" Margin="626,339,0,0" VerticalAlignment="Top" Width="94" Click="Button_Click"/>
+
+    </Grid>
+</Window>
