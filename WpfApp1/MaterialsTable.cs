@@ -12,25 +12,25 @@ namespace WpfApp1
     using System;
     using System.Collections.Generic;
     
-    public partial class supplierTable
+    public partial class MaterialsTable
     {
-        public supplierTable()
+        public MaterialsTable()
         {
             this.MatrialPrice = new HashSet<MatrialPrice>();
-            this.orderFromSupplierTable = new HashSet<orderFromSupplierTable>();
+            this.MaterialsTable1 = new HashSet<MaterialsTable>();
+            this.orderFromSupplierDetailTable = new HashSet<orderFromSupplierDetailTable>();
         }
     
         public int Id { get; set; }
-        public string firstName { get; set; }
-        public string lastName { get; set; }
-        public string country { get; set; }
-        public string phoneNumber { get; set; }
-        public string E_mail { get; set; }
+        public string name { get; set; }
+        public string materialType { get; set; }
+        public Nullable<int> materialPrice_id { get; set; }
         public string notes { get; set; }
-        public string address { get; set; }
         public Nullable<int> active { get; set; }
     
         public virtual ICollection<MatrialPrice> MatrialPrice { get; set; }
-        public virtual ICollection<orderFromSupplierTable> orderFromSupplierTable { get; set; }
+        public virtual ICollection<MaterialsTable> MaterialsTable1 { get; set; }
+        public virtual MaterialsTable MaterialsTable2 { get; set; }
+        public virtual ICollection<orderFromSupplierDetailTable> orderFromSupplierDetailTable { get; set; }
     }
 }

@@ -12,11 +12,15 @@ namespace WpfApp1
     using System;
     using System.Collections.Generic;
     
-    public partial class BuyingFromSupplier
+    public partial class CurrentExpendsTable
     {
         public int Id { get; set; }
-        public Nullable<int> order_from_supplier_id { get; set; }
+        public Nullable<int> employee_id { get; set; }
+        public Nullable<int> currExpType_id { get; set; }
+        public string notes { get; set; }
+        public Nullable<int> active { get; set; }
     
-        public virtual orderFromSupplierTable orderFromSupplierTable { get; set; }
+        public virtual currentExpendsTypeTable currentExpendsTypeTable { get; set; }
+        public virtual EmployeeTable EmployeeTable { get; set; }
     }
 }

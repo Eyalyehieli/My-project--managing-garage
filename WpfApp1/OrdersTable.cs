@@ -14,31 +14,20 @@ namespace WpfApp1
     
     public partial class OrdersTable
     {
-        public OrdersTable()
-        {
-            this.BuyingTable = new HashSet<BuyingTable>();
-        }
-    
         public int Id { get; set; }
         public Nullable<int> costumer_id { get; set; }
-        public Nullable<int> price { get; set; }
-        public Nullable<int> costPrice { get; set; }
         public string invoiceNumber { get; set; }
-        public Nullable<int> product_id { get; set; }
-        public string shipping_address { get; set; }
         public string shipping_number { get; set; }
         public string reception_number { get; set; }
-        public Nullable<int> year_order { get; set; }
-        public Nullable<int> month_order { get; set; }
-        public Nullable<int> day_order { get; set; }
-        public Nullable<int> year_supplying { get; set; }
-        public Nullable<int> month_supplying { get; set; }
-        public string day_supplying { get; set; }
         public Nullable<int> employee_id { get; set; }
+        public Nullable<int> orderDetail_id { get; set; }
+        public Nullable<System.DateTime> orderDate { get; set; }
+        public Nullable<System.DateTime> supplyingDate { get; set; }
+        public string notes { get; set; }
+        public Nullable<int> active { get; set; }
     
-        public virtual ICollection<BuyingTable> BuyingTable { get; set; }
         public virtual CostumersTable CostumersTable { get; set; }
         public virtual EmployeeTable EmployeeTable { get; set; }
-        public virtual ProductTable ProductTable { get; set; }
+        public virtual orderDetailsTable orderDetailsTable { get; set; }
     }
 }

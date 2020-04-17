@@ -5,20 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="managingDataBaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="BuyingFromSupplier">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="order_from_supplier_id" Type="int" />
-        </EntityType>
-        <EntityType Name="BuyingTable">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="order_id" Type="int" />
-        </EntityType>
         <EntityType Name="CostumersTable">
           <Key>
             <PropertyRef Name="Id" />
@@ -29,6 +15,27 @@
           <Property Name="address" Type="nvarchar(max)" />
           <Property Name="phoneNumber" Type="nvarchar(max)" />
           <Property Name="E_mail" Type="nvarchar(max)" />
+          <Property Name="notes" Type="nvarchar(max)" />
+          <Property Name="active" Type="int" />
+        </EntityType>
+        <EntityType Name="CurrentExpendsTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="employee_id" Type="int" />
+          <Property Name="currExpType_id" Type="int" />
+          <Property Name="notes" Type="nvarchar(max)" />
+          <Property Name="active" Type="int" />
+        </EntityType>
+        <EntityType Name="currentExpendsTypeTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar(max)" />
+          <Property Name="cost" Type="int" />
+          <Property Name="date" Type="datetime" />
           <Property Name="notes" Type="nvarchar(max)" />
           <Property Name="active" Type="int" />
         </EntityType>
@@ -46,33 +53,63 @@
           <Property Name="active" Type="int" />
           <Property Name="salary" Type="int" />
         </EntityType>
-        <EntityType Name="ExpensesTable">
+        <EntityType Name="MaterialsTable">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="name" Type="nvarchar" MaxLength="50" />
-          <Property Name="cost" Type="int" />
-          <Property Name="year" Type="int" />
-          <Property Name="month" Type="int" />
-          <Property Name="day" Type="int" />
+          <Property Name="name" Type="nvarchar(max)" />
+          <Property Name="materialType" Type="nvarchar(max)" />
+          <Property Name="materialPrice_id" Type="int" />
+          <Property Name="notes" Type="nvarchar(max)" />
+          <Property Name="active" Type="int" />
+        </EntityType>
+        <EntityType Name="MatrialPrice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="supplier_id" Type="int" />
-          <Property Name="employee_id" Type="int" />
+          <Property Name="material_id" Type="int" />
+          <Property Name="price" Type="int" />
+          <Property Name="notes" Type="nvarchar(max)" />
+          <Property Name="active" Type="int" />
+        </EntityType>
+        <EntityType Name="orderDetailsTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="product_id" Type="int" />
+          <Property Name="discount" Type="int" />
+          <Property Name="amount" Type="int" />
+          <Property Name="notes" Type="nvarchar(max)" />
+          <Property Name="active" Type="int" />
+        </EntityType>
+        <EntityType Name="orderFromSupplierDetailTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="material_id" Type="int" />
+          <Property Name="amount" Type="int" />
+          <Property Name="notes" Type="nvarchar(max)" />
+          <Property Name="active" Type="int" />
         </EntityType>
         <EntityType Name="orderFromSupplierTable">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="material" Type="nvarchar(max)" />
-          <Property Name="amount" Type="int" />
-          <Property Name="meters" Type="int" />
-          <Property Name="price" Type="int" />
-          <Property Name="active" Type="int" />
           <Property Name="supplier_id" Type="int" />
-          <Property Name="year" Type="int" />
-          <Property Name="month" Type="int" />
-          <Property Name="day" Type="int" />
+          <Property Name="shippingNumber" Type="nvarchar(max)" />
+          <Property Name="receptionNumber" Type="nvarchar(max)" />
+          <Property Name="employee_id" Type="int" />
+          <Property Name="orderFromSupplierDetail_id" Type="int" />
+          <Property Name="orderDate" Type="datetime" />
+          <Property Name="supplyingDate" Type="datetime" />
+          <Property Name="notes" Type="nvarchar(max)" />
+          <Property Name="active" Type="int" />
         </EntityType>
         <EntityType Name="OrdersTable">
           <Key>
@@ -80,20 +117,15 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="costumer_id" Type="int" />
-          <Property Name="price" Type="int" />
-          <Property Name="costPrice" Type="int" />
           <Property Name="invoiceNumber" Type="nvarchar(max)" />
-          <Property Name="product_id" Type="int" />
-          <Property Name="shipping_address" Type="nvarchar(max)" />
           <Property Name="shipping_number" Type="nvarchar(max)" />
           <Property Name="reception_number" Type="nvarchar(max)" />
-          <Property Name="year_order" Type="int" />
-          <Property Name="month_order" Type="int" />
-          <Property Name="day_order" Type="int" />
-          <Property Name="year_supplying" Type="int" />
-          <Property Name="month_supplying" Type="int" />
-          <Property Name="day_supplying" Type="nchar" MaxLength="10" />
           <Property Name="employee_id" Type="int" />
+          <Property Name="orderDetail_id" Type="int" />
+          <Property Name="orderDate" Type="datetime" />
+          <Property Name="supplyingDate" Type="datetime" />
+          <Property Name="notes" Type="nvarchar(max)" />
+          <Property Name="active" Type="int" />
         </EntityType>
         <EntityType Name="ProductTable">
           <Key>
@@ -105,6 +137,10 @@
           <Property Name="typeOfTree" Type="nvarchar(max)" />
           <Property Name="color" Type="nvarchar(max)" />
           <Property Name="shoeing" Type="nvarchar(max)" />
+          <Property Name="cost" Type="int" />
+          <Property Name="costPrice" Type="int" />
+          <Property Name="active" Type="int" />
+          <Property Name="notes" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="supplierTable">
           <Key>
@@ -114,57 +150,138 @@
           <Property Name="firstName" Type="nvarchar(max)" />
           <Property Name="lastName" Type="nvarchar(max)" />
           <Property Name="country" Type="nvarchar(max)" />
-          <Property Name="orderFromSupplier_id" Type="int" />
           <Property Name="phoneNumber" Type="nvarchar(max)" />
           <Property Name="E-mail" Type="nvarchar(max)" />
           <Property Name="notes" Type="nvarchar(max)" />
           <Property Name="address" Type="nvarchar(max)" />
+          <Property Name="active" Type="int" />
         </EntityType>
-        <Association Name="FK_BuyingFromSupplier_OrdersFromSupplier">
-          <End Role="orderFromSupplierTable" Type="Self.orderFromSupplierTable" Multiplicity="0..1" />
-          <End Role="BuyingFromSupplier" Type="Self.BuyingFromSupplier" Multiplicity="*" />
+        <EntityType Name="variableExpendsTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="employee_id" Type="int" />
+          <Property Name="varExpType_id" Type="int" />
+          <Property Name="notes" Type="nvarchar(max)" />
+          <Property Name="active" Type="int" />
+        </EntityType>
+        <EntityType Name="variableExpendsTypeTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar(max)" />
+          <Property Name="cost" Type="int" />
+          <Property Name="date" Type="datetime" />
+          <Property Name="notes" Type="nvarchar(max)" />
+          <Property Name="active" Type="int" />
+        </EntityType>
+        <Association Name="FK_CurrentExpendsTable_currentExpendsTypeTable">
+          <End Role="currentExpendsTypeTable" Type="Self.currentExpendsTypeTable" Multiplicity="0..1" />
+          <End Role="CurrentExpendsTable" Type="Self.CurrentExpendsTable" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="orderFromSupplierTable">
+            <Principal Role="currentExpendsTypeTable">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="BuyingFromSupplier">
-              <PropertyRef Name="order_from_supplier_id" />
+            <Dependent Role="CurrentExpendsTable">
+              <PropertyRef Name="currExpType_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_BuyingTable_OrdersTable">
-          <End Role="OrdersTable" Type="Self.OrdersTable" Multiplicity="0..1" />
-          <End Role="BuyingTable" Type="Self.BuyingTable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="OrdersTable">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="BuyingTable">
-              <PropertyRef Name="order_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ExpensesTable_Employee_table">
+        <Association Name="FK_CurrentExpendsTable_EmployeeTable">
           <End Role="EmployeeTable" Type="Self.EmployeeTable" Multiplicity="0..1" />
-          <End Role="ExpensesTable" Type="Self.ExpensesTable" Multiplicity="*" />
+          <End Role="CurrentExpendsTable" Type="Self.CurrentExpendsTable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="EmployeeTable">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="ExpensesTable">
+            <Dependent Role="CurrentExpendsTable">
               <PropertyRef Name="employee_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ExpensesTable_supplierTable">
+        <Association Name="FK_MaterialPrice_MaterialsTable">
+          <End Role="MaterialsTable" Type="Self.MaterialsTable" Multiplicity="0..1" />
+          <End Role="MatrialPrice" Type="Self.MatrialPrice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialsTable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MatrialPrice">
+              <PropertyRef Name="material_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaterialPrice_supplierTable">
           <End Role="supplierTable" Type="Self.supplierTable" Multiplicity="0..1" />
-          <End Role="ExpensesTable" Type="Self.ExpensesTable" Multiplicity="*" />
+          <End Role="MatrialPrice" Type="Self.MatrialPrice" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="supplierTable">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="ExpensesTable">
+            <Dependent Role="MatrialPrice">
               <PropertyRef Name="supplier_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaterialsTable_materialPriceTable">
+          <End Role="MaterialsTable" Type="Self.MaterialsTable" Multiplicity="0..1" />
+          <End Role="MaterialsTable1" Type="Self.MaterialsTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialsTable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MaterialsTable1">
+              <PropertyRef Name="materialPrice_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_orderDetailsTable_ProductTable">
+          <End Role="ProductTable" Type="Self.ProductTable" Multiplicity="0..1" />
+          <End Role="orderDetailsTable" Type="Self.orderDetailsTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductTable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="orderDetailsTable">
+              <PropertyRef Name="product_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_orderFromSupplierDetailTable_MaterialsTable">
+          <End Role="MaterialsTable" Type="Self.MaterialsTable" Multiplicity="0..1" />
+          <End Role="orderFromSupplierDetailTable" Type="Self.orderFromSupplierDetailTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialsTable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="orderFromSupplierDetailTable">
+              <PropertyRef Name="material_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_orderFromSupplierTable_EmployeeTable">
+          <End Role="EmployeeTable" Type="Self.EmployeeTable" Multiplicity="0..1" />
+          <End Role="orderFromSupplierTable" Type="Self.orderFromSupplierTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeTable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="orderFromSupplierTable">
+              <PropertyRef Name="employee_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_orderFromSupplierTable_orderFromSupplierDetailTable">
+          <End Role="orderFromSupplierDetailTable" Type="Self.orderFromSupplierDetailTable" Multiplicity="0..1" />
+          <End Role="orderFromSupplierTable" Type="Self.orderFromSupplierTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="orderFromSupplierDetailTable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="orderFromSupplierTable">
+              <PropertyRef Name="orderFromSupplierDetail_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -204,43 +321,92 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_OrdersTable_ProductTable">
-          <End Role="ProductTable" Type="Self.ProductTable" Multiplicity="0..1" />
+        <Association Name="FK_OrdersTable_orderDetailsTable">
+          <End Role="orderDetailsTable" Type="Self.orderDetailsTable" Multiplicity="0..1" />
           <End Role="OrdersTable" Type="Self.OrdersTable" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ProductTable">
+            <Principal Role="orderDetailsTable">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="OrdersTable">
-              <PropertyRef Name="product_id" />
+              <PropertyRef Name="orderDetail_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_variableExpendsTable_EmployeeTable">
+          <End Role="EmployeeTable" Type="Self.EmployeeTable" Multiplicity="0..1" />
+          <End Role="variableExpendsTable" Type="Self.variableExpendsTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeTable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="variableExpendsTable">
+              <PropertyRef Name="employee_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_variableExpendsTable_variableExpendsTypeTable">
+          <End Role="variableExpendsTypeTable" Type="Self.variableExpendsTypeTable" Multiplicity="0..1" />
+          <End Role="variableExpendsTable" Type="Self.variableExpendsTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="variableExpendsTypeTable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="variableExpendsTable">
+              <PropertyRef Name="varExpType_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="managingDataBaseModelStoreContainer">
-          <EntitySet Name="BuyingFromSupplier" EntityType="Self.BuyingFromSupplier" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="BuyingTable" EntityType="Self.BuyingTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CostumersTable" EntityType="Self.CostumersTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CurrentExpendsTable" EntityType="Self.CurrentExpendsTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="currentExpendsTypeTable" EntityType="Self.currentExpendsTypeTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EmployeeTable" EntityType="Self.EmployeeTable" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ExpensesTable" EntityType="Self.ExpensesTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MaterialsTable" EntityType="Self.MaterialsTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MatrialPrice" EntityType="Self.MatrialPrice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="orderDetailsTable" EntityType="Self.orderDetailsTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="orderFromSupplierDetailTable" EntityType="Self.orderFromSupplierDetailTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="orderFromSupplierTable" EntityType="Self.orderFromSupplierTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OrdersTable" EntityType="Self.OrdersTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProductTable" EntityType="Self.ProductTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="supplierTable" EntityType="Self.supplierTable" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_BuyingFromSupplier_OrdersFromSupplier" Association="Self.FK_BuyingFromSupplier_OrdersFromSupplier">
-            <End Role="orderFromSupplierTable" EntitySet="orderFromSupplierTable" />
-            <End Role="BuyingFromSupplier" EntitySet="BuyingFromSupplier" />
+          <EntitySet Name="variableExpendsTable" EntityType="Self.variableExpendsTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="variableExpendsTypeTable" EntityType="Self.variableExpendsTypeTable" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CurrentExpendsTable_currentExpendsTypeTable" Association="Self.FK_CurrentExpendsTable_currentExpendsTypeTable">
+            <End Role="currentExpendsTypeTable" EntitySet="currentExpendsTypeTable" />
+            <End Role="CurrentExpendsTable" EntitySet="CurrentExpendsTable" />
           </AssociationSet>
-          <AssociationSet Name="FK_BuyingTable_OrdersTable" Association="Self.FK_BuyingTable_OrdersTable">
-            <End Role="OrdersTable" EntitySet="OrdersTable" />
-            <End Role="BuyingTable" EntitySet="BuyingTable" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ExpensesTable_Employee_table" Association="Self.FK_ExpensesTable_Employee_table">
+          <AssociationSet Name="FK_CurrentExpendsTable_EmployeeTable" Association="Self.FK_CurrentExpendsTable_EmployeeTable">
             <End Role="EmployeeTable" EntitySet="EmployeeTable" />
-            <End Role="ExpensesTable" EntitySet="ExpensesTable" />
+            <End Role="CurrentExpendsTable" EntitySet="CurrentExpendsTable" />
           </AssociationSet>
-          <AssociationSet Name="FK_ExpensesTable_supplierTable" Association="Self.FK_ExpensesTable_supplierTable">
+          <AssociationSet Name="FK_MaterialPrice_MaterialsTable" Association="Self.FK_MaterialPrice_MaterialsTable">
+            <End Role="MaterialsTable" EntitySet="MaterialsTable" />
+            <End Role="MatrialPrice" EntitySet="MatrialPrice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaterialPrice_supplierTable" Association="Self.FK_MaterialPrice_supplierTable">
             <End Role="supplierTable" EntitySet="supplierTable" />
-            <End Role="ExpensesTable" EntitySet="ExpensesTable" />
+            <End Role="MatrialPrice" EntitySet="MatrialPrice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaterialsTable_materialPriceTable" Association="Self.FK_MaterialsTable_materialPriceTable">
+            <End Role="MaterialsTable" EntitySet="MaterialsTable" />
+            <End Role="MaterialsTable1" EntitySet="MaterialsTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_orderDetailsTable_ProductTable" Association="Self.FK_orderDetailsTable_ProductTable">
+            <End Role="ProductTable" EntitySet="ProductTable" />
+            <End Role="orderDetailsTable" EntitySet="orderDetailsTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_orderFromSupplierDetailTable_MaterialsTable" Association="Self.FK_orderFromSupplierDetailTable_MaterialsTable">
+            <End Role="MaterialsTable" EntitySet="MaterialsTable" />
+            <End Role="orderFromSupplierDetailTable" EntitySet="orderFromSupplierDetailTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_orderFromSupplierTable_EmployeeTable" Association="Self.FK_orderFromSupplierTable_EmployeeTable">
+            <End Role="EmployeeTable" EntitySet="EmployeeTable" />
+            <End Role="orderFromSupplierTable" EntitySet="orderFromSupplierTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_orderFromSupplierTable_orderFromSupplierDetailTable" Association="Self.FK_orderFromSupplierTable_orderFromSupplierDetailTable">
+            <End Role="orderFromSupplierDetailTable" EntitySet="orderFromSupplierDetailTable" />
+            <End Role="orderFromSupplierTable" EntitySet="orderFromSupplierTable" />
           </AssociationSet>
           <AssociationSet Name="FK_orderFromSupplierTable_supplierTable" Association="Self.FK_orderFromSupplierTable_supplierTable">
             <End Role="supplierTable" EntitySet="supplierTable" />
@@ -254,9 +420,17 @@
             <End Role="EmployeeTable" EntitySet="EmployeeTable" />
             <End Role="OrdersTable" EntitySet="OrdersTable" />
           </AssociationSet>
-          <AssociationSet Name="FK_OrdersTable_ProductTable" Association="Self.FK_OrdersTable_ProductTable">
-            <End Role="ProductTable" EntitySet="ProductTable" />
+          <AssociationSet Name="FK_OrdersTable_orderDetailsTable" Association="Self.FK_OrdersTable_orderDetailsTable">
+            <End Role="orderDetailsTable" EntitySet="orderDetailsTable" />
             <End Role="OrdersTable" EntitySet="OrdersTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_variableExpendsTable_EmployeeTable" Association="Self.FK_variableExpendsTable_EmployeeTable">
+            <End Role="EmployeeTable" EntitySet="EmployeeTable" />
+            <End Role="variableExpendsTable" EntitySet="variableExpendsTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_variableExpendsTable_variableExpendsTypeTable" Association="Self.FK_variableExpendsTable_variableExpendsTypeTable">
+            <End Role="variableExpendsTypeTable" EntitySet="variableExpendsTypeTable" />
+            <End Role="variableExpendsTable" EntitySet="variableExpendsTable" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -264,64 +438,81 @@
     <edmx:ConceptualModels>
       <Schema Namespace="managingDataBaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="managingDataBaseEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="BuyingFromSupplier" EntityType="managingDataBaseModel.BuyingFromSupplier" />
-          <EntitySet Name="BuyingTable" EntityType="managingDataBaseModel.BuyingTable" />
           <EntitySet Name="CostumersTable" EntityType="managingDataBaseModel.CostumersTable" />
+          <EntitySet Name="CurrentExpendsTable" EntityType="managingDataBaseModel.CurrentExpendsTable" />
+          <EntitySet Name="currentExpendsTypeTable" EntityType="managingDataBaseModel.currentExpendsTypeTable" />
           <EntitySet Name="EmployeeTable" EntityType="managingDataBaseModel.EmployeeTable" />
-          <EntitySet Name="ExpensesTable" EntityType="managingDataBaseModel.ExpensesTable" />
+          <EntitySet Name="MaterialsTable" EntityType="managingDataBaseModel.MaterialsTable" />
+          <EntitySet Name="MatrialPrice" EntityType="managingDataBaseModel.MatrialPrice" />
+          <EntitySet Name="orderDetailsTable" EntityType="managingDataBaseModel.orderDetailsTable" />
+          <EntitySet Name="orderFromSupplierDetailTable" EntityType="managingDataBaseModel.orderFromSupplierDetailTable" />
           <EntitySet Name="orderFromSupplierTable" EntityType="managingDataBaseModel.orderFromSupplierTable" />
           <EntitySet Name="OrdersTable" EntityType="managingDataBaseModel.OrdersTable" />
           <EntitySet Name="ProductTable" EntityType="managingDataBaseModel.ProductTable" />
           <EntitySet Name="supplierTable" EntityType="managingDataBaseModel.supplierTable" />
-          <AssociationSet Name="FK_BuyingFromSupplier_OrdersFromSupplier" Association="managingDataBaseModel.FK_BuyingFromSupplier_OrdersFromSupplier">
-            <End Role="orderFromSupplierTable" EntitySet="orderFromSupplierTable" />
-            <End Role="BuyingFromSupplier" EntitySet="BuyingFromSupplier" />
-          </AssociationSet>
-          <AssociationSet Name="FK_BuyingTable_OrdersTable" Association="managingDataBaseModel.FK_BuyingTable_OrdersTable">
-            <End Role="OrdersTable" EntitySet="OrdersTable" />
-            <End Role="BuyingTable" EntitySet="BuyingTable" />
-          </AssociationSet>
+          <EntitySet Name="variableExpendsTable" EntityType="managingDataBaseModel.variableExpendsTable" />
+          <EntitySet Name="variableExpendsTypeTable" EntityType="managingDataBaseModel.variableExpendsTypeTable" />
           <AssociationSet Name="FK_OrdersTable_CostumersTable" Association="managingDataBaseModel.FK_OrdersTable_CostumersTable">
             <End Role="CostumersTable" EntitySet="CostumersTable" />
             <End Role="OrdersTable" EntitySet="OrdersTable" />
           </AssociationSet>
-          <AssociationSet Name="FK_ExpensesTable_Employee_table" Association="managingDataBaseModel.FK_ExpensesTable_Employee_table">
+          <AssociationSet Name="FK_CurrentExpendsTable_currentExpendsTypeTable" Association="managingDataBaseModel.FK_CurrentExpendsTable_currentExpendsTypeTable">
+            <End Role="currentExpendsTypeTable" EntitySet="currentExpendsTypeTable" />
+            <End Role="CurrentExpendsTable" EntitySet="CurrentExpendsTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CurrentExpendsTable_EmployeeTable" Association="managingDataBaseModel.FK_CurrentExpendsTable_EmployeeTable">
             <End Role="EmployeeTable" EntitySet="EmployeeTable" />
-            <End Role="ExpensesTable" EntitySet="ExpensesTable" />
+            <End Role="CurrentExpendsTable" EntitySet="CurrentExpendsTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_orderFromSupplierTable_EmployeeTable" Association="managingDataBaseModel.FK_orderFromSupplierTable_EmployeeTable">
+            <End Role="EmployeeTable" EntitySet="EmployeeTable" />
+            <End Role="orderFromSupplierTable" EntitySet="orderFromSupplierTable" />
           </AssociationSet>
           <AssociationSet Name="FK_OrdersTable_EmployeeTable" Association="managingDataBaseModel.FK_OrdersTable_EmployeeTable">
             <End Role="EmployeeTable" EntitySet="EmployeeTable" />
             <End Role="OrdersTable" EntitySet="OrdersTable" />
           </AssociationSet>
-          <AssociationSet Name="FK_ExpensesTable_supplierTable" Association="managingDataBaseModel.FK_ExpensesTable_supplierTable">
+          <AssociationSet Name="FK_variableExpendsTable_EmployeeTable" Association="managingDataBaseModel.FK_variableExpendsTable_EmployeeTable">
+            <End Role="EmployeeTable" EntitySet="EmployeeTable" />
+            <End Role="variableExpendsTable" EntitySet="variableExpendsTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaterialPrice_MaterialsTable" Association="managingDataBaseModel.FK_MaterialPrice_MaterialsTable">
+            <End Role="MaterialsTable" EntitySet="MaterialsTable" />
+            <End Role="MatrialPrice" EntitySet="MatrialPrice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaterialsTable_materialPriceTable" Association="managingDataBaseModel.FK_MaterialsTable_materialPriceTable">
+            <End Role="MaterialsTable" EntitySet="MaterialsTable" />
+            <End Role="MaterialsTable1" EntitySet="MaterialsTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_orderFromSupplierDetailTable_MaterialsTable" Association="managingDataBaseModel.FK_orderFromSupplierDetailTable_MaterialsTable">
+            <End Role="MaterialsTable" EntitySet="MaterialsTable" />
+            <End Role="orderFromSupplierDetailTable" EntitySet="orderFromSupplierDetailTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaterialPrice_supplierTable" Association="managingDataBaseModel.FK_MaterialPrice_supplierTable">
             <End Role="supplierTable" EntitySet="supplierTable" />
-            <End Role="ExpensesTable" EntitySet="ExpensesTable" />
+            <End Role="MatrialPrice" EntitySet="MatrialPrice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_orderDetailsTable_ProductTable" Association="managingDataBaseModel.FK_orderDetailsTable_ProductTable">
+            <End Role="ProductTable" EntitySet="ProductTable" />
+            <End Role="orderDetailsTable" EntitySet="orderDetailsTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrdersTable_orderDetailsTable" Association="managingDataBaseModel.FK_OrdersTable_orderDetailsTable">
+            <End Role="orderDetailsTable" EntitySet="orderDetailsTable" />
+            <End Role="OrdersTable" EntitySet="OrdersTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_orderFromSupplierTable_orderFromSupplierDetailTable" Association="managingDataBaseModel.FK_orderFromSupplierTable_orderFromSupplierDetailTable">
+            <End Role="orderFromSupplierDetailTable" EntitySet="orderFromSupplierDetailTable" />
+            <End Role="orderFromSupplierTable" EntitySet="orderFromSupplierTable" />
           </AssociationSet>
           <AssociationSet Name="FK_orderFromSupplierTable_supplierTable" Association="managingDataBaseModel.FK_orderFromSupplierTable_supplierTable">
             <End Role="supplierTable" EntitySet="supplierTable" />
             <End Role="orderFromSupplierTable" EntitySet="orderFromSupplierTable" />
           </AssociationSet>
-          <AssociationSet Name="FK_OrdersTable_ProductTable" Association="managingDataBaseModel.FK_OrdersTable_ProductTable">
-            <End Role="ProductTable" EntitySet="ProductTable" />
-            <End Role="OrdersTable" EntitySet="OrdersTable" />
+          <AssociationSet Name="FK_variableExpendsTable_variableExpendsTypeTable" Association="managingDataBaseModel.FK_variableExpendsTable_variableExpendsTypeTable">
+            <End Role="variableExpendsTypeTable" EntitySet="variableExpendsTypeTable" />
+            <End Role="variableExpendsTable" EntitySet="variableExpendsTable" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="BuyingFromSupplier">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="order_from_supplier_id" Type="Int32" />
-          <NavigationProperty Name="orderFromSupplierTable" Relationship="managingDataBaseModel.FK_BuyingFromSupplier_OrdersFromSupplier" FromRole="BuyingFromSupplier" ToRole="orderFromSupplierTable" />
-        </EntityType>
-        <EntityType Name="BuyingTable">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="order_id" Type="Int32" />
-          <NavigationProperty Name="OrdersTable" Relationship="managingDataBaseModel.FK_BuyingTable_OrdersTable" FromRole="BuyingTable" ToRole="OrdersTable" />
-        </EntityType>
         <EntityType Name="CostumersTable">
           <Key>
             <PropertyRef Name="Id" />
@@ -336,6 +527,30 @@
           <Property Name="active" Type="Int32" />
           <NavigationProperty Name="OrdersTable" Relationship="managingDataBaseModel.FK_OrdersTable_CostumersTable" FromRole="CostumersTable" ToRole="OrdersTable" />
         </EntityType>
+        <EntityType Name="CurrentExpendsTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="employee_id" Type="Int32" />
+          <Property Name="currExpType_id" Type="Int32" />
+          <Property Name="notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="active" Type="Int32" />
+          <NavigationProperty Name="currentExpendsTypeTable" Relationship="managingDataBaseModel.FK_CurrentExpendsTable_currentExpendsTypeTable" FromRole="CurrentExpendsTable" ToRole="currentExpendsTypeTable" />
+          <NavigationProperty Name="EmployeeTable" Relationship="managingDataBaseModel.FK_CurrentExpendsTable_EmployeeTable" FromRole="CurrentExpendsTable" ToRole="EmployeeTable" />
+        </EntityType>
+        <EntityType Name="currentExpendsTypeTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="cost" Type="Int32" />
+          <Property Name="date" Type="DateTime" Precision="3" />
+          <Property Name="notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="active" Type="Int32" />
+          <NavigationProperty Name="CurrentExpendsTable" Relationship="managingDataBaseModel.FK_CurrentExpendsTable_currentExpendsTypeTable" FromRole="currentExpendsTypeTable" ToRole="CurrentExpendsTable" />
+        </EntityType>
         <EntityType Name="EmployeeTable">
           <Key>
             <PropertyRef Name="Id" />
@@ -349,39 +564,80 @@
           <Property Name="notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="active" Type="Int32" />
           <Property Name="salary" Type="Int32" />
-          <NavigationProperty Name="ExpensesTable" Relationship="managingDataBaseModel.FK_ExpensesTable_Employee_table" FromRole="EmployeeTable" ToRole="ExpensesTable" />
+          <NavigationProperty Name="CurrentExpendsTable" Relationship="managingDataBaseModel.FK_CurrentExpendsTable_EmployeeTable" FromRole="EmployeeTable" ToRole="CurrentExpendsTable" />
+          <NavigationProperty Name="orderFromSupplierTable" Relationship="managingDataBaseModel.FK_orderFromSupplierTable_EmployeeTable" FromRole="EmployeeTable" ToRole="orderFromSupplierTable" />
           <NavigationProperty Name="OrdersTable" Relationship="managingDataBaseModel.FK_OrdersTable_EmployeeTable" FromRole="EmployeeTable" ToRole="OrdersTable" />
+          <NavigationProperty Name="variableExpendsTable" Relationship="managingDataBaseModel.FK_variableExpendsTable_EmployeeTable" FromRole="EmployeeTable" ToRole="variableExpendsTable" />
         </EntityType>
-        <EntityType Name="ExpensesTable">
+        <EntityType Name="MaterialsTable">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="cost" Type="Int32" />
-          <Property Name="year" Type="Int32" />
-          <Property Name="month" Type="Int32" />
-          <Property Name="day" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="materialType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="materialPrice_id" Type="Int32" />
+          <Property Name="notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="active" Type="Int32" />
+          <NavigationProperty Name="MatrialPrice" Relationship="managingDataBaseModel.FK_MaterialPrice_MaterialsTable" FromRole="MaterialsTable" ToRole="MatrialPrice" />
+          <NavigationProperty Name="MaterialsTable1" Relationship="managingDataBaseModel.FK_MaterialsTable_materialPriceTable" FromRole="MaterialsTable" ToRole="MaterialsTable1" />
+          <NavigationProperty Name="MaterialsTable2" Relationship="managingDataBaseModel.FK_MaterialsTable_materialPriceTable" FromRole="MaterialsTable1" ToRole="MaterialsTable" />
+          <NavigationProperty Name="orderFromSupplierDetailTable" Relationship="managingDataBaseModel.FK_orderFromSupplierDetailTable_MaterialsTable" FromRole="MaterialsTable" ToRole="orderFromSupplierDetailTable" />
+        </EntityType>
+        <EntityType Name="MatrialPrice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="supplier_id" Type="Int32" />
-          <Property Name="employee_id" Type="Int32" />
-          <NavigationProperty Name="EmployeeTable" Relationship="managingDataBaseModel.FK_ExpensesTable_Employee_table" FromRole="ExpensesTable" ToRole="EmployeeTable" />
-          <NavigationProperty Name="supplierTable" Relationship="managingDataBaseModel.FK_ExpensesTable_supplierTable" FromRole="ExpensesTable" ToRole="supplierTable" />
+          <Property Name="material_id" Type="Int32" />
+          <Property Name="price" Type="Int32" />
+          <Property Name="notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="active" Type="Int32" />
+          <NavigationProperty Name="MaterialsTable" Relationship="managingDataBaseModel.FK_MaterialPrice_MaterialsTable" FromRole="MatrialPrice" ToRole="MaterialsTable" />
+          <NavigationProperty Name="supplierTable" Relationship="managingDataBaseModel.FK_MaterialPrice_supplierTable" FromRole="MatrialPrice" ToRole="supplierTable" />
+        </EntityType>
+        <EntityType Name="orderDetailsTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="product_id" Type="Int32" />
+          <Property Name="discount" Type="Int32" />
+          <Property Name="amount" Type="Int32" />
+          <Property Name="notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="active" Type="Int32" />
+          <NavigationProperty Name="ProductTable" Relationship="managingDataBaseModel.FK_orderDetailsTable_ProductTable" FromRole="orderDetailsTable" ToRole="ProductTable" />
+          <NavigationProperty Name="OrdersTable" Relationship="managingDataBaseModel.FK_OrdersTable_orderDetailsTable" FromRole="orderDetailsTable" ToRole="OrdersTable" />
+        </EntityType>
+        <EntityType Name="orderFromSupplierDetailTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="material_id" Type="Int32" />
+          <Property Name="amount" Type="Int32" />
+          <Property Name="notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="active" Type="Int32" />
+          <NavigationProperty Name="MaterialsTable" Relationship="managingDataBaseModel.FK_orderFromSupplierDetailTable_MaterialsTable" FromRole="orderFromSupplierDetailTable" ToRole="MaterialsTable" />
+          <NavigationProperty Name="orderFromSupplierTable" Relationship="managingDataBaseModel.FK_orderFromSupplierTable_orderFromSupplierDetailTable" FromRole="orderFromSupplierDetailTable" ToRole="orderFromSupplierTable" />
         </EntityType>
         <EntityType Name="orderFromSupplierTable">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="material" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="amount" Type="Int32" />
-          <Property Name="meters" Type="Int32" />
-          <Property Name="price" Type="Int32" />
-          <Property Name="active" Type="Int32" />
           <Property Name="supplier_id" Type="Int32" />
-          <Property Name="year" Type="Int32" />
-          <Property Name="month" Type="Int32" />
-          <Property Name="day" Type="Int32" />
-          <NavigationProperty Name="BuyingFromSupplier" Relationship="managingDataBaseModel.FK_BuyingFromSupplier_OrdersFromSupplier" FromRole="orderFromSupplierTable" ToRole="BuyingFromSupplier" />
+          <Property Name="shippingNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="receptionNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="employee_id" Type="Int32" />
+          <Property Name="orderFromSupplierDetail_id" Type="Int32" />
+          <Property Name="orderDate" Type="DateTime" Precision="3" />
+          <Property Name="supplyingDate" Type="DateTime" Precision="3" />
+          <Property Name="notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="active" Type="Int32" />
+          <NavigationProperty Name="EmployeeTable" Relationship="managingDataBaseModel.FK_orderFromSupplierTable_EmployeeTable" FromRole="orderFromSupplierTable" ToRole="EmployeeTable" />
+          <NavigationProperty Name="orderFromSupplierDetailTable" Relationship="managingDataBaseModel.FK_orderFromSupplierTable_orderFromSupplierDetailTable" FromRole="orderFromSupplierTable" ToRole="orderFromSupplierDetailTable" />
           <NavigationProperty Name="supplierTable" Relationship="managingDataBaseModel.FK_orderFromSupplierTable_supplierTable" FromRole="orderFromSupplierTable" ToRole="supplierTable" />
         </EntityType>
         <EntityType Name="OrdersTable">
@@ -390,24 +646,18 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="costumer_id" Type="Int32" />
-          <Property Name="price" Type="Int32" />
-          <Property Name="costPrice" Type="Int32" />
           <Property Name="invoiceNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="product_id" Type="Int32" />
-          <Property Name="shipping_address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="shipping_number" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="reception_number" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="year_order" Type="Int32" />
-          <Property Name="month_order" Type="Int32" />
-          <Property Name="day_order" Type="Int32" />
-          <Property Name="year_supplying" Type="Int32" />
-          <Property Name="month_supplying" Type="Int32" />
-          <Property Name="day_supplying" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="employee_id" Type="Int32" />
-          <NavigationProperty Name="BuyingTable" Relationship="managingDataBaseModel.FK_BuyingTable_OrdersTable" FromRole="OrdersTable" ToRole="BuyingTable" />
+          <Property Name="orderDetail_id" Type="Int32" />
+          <Property Name="orderDate" Type="DateTime" Precision="3" />
+          <Property Name="supplyingDate" Type="DateTime" Precision="3" />
+          <Property Name="notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="active" Type="Int32" />
           <NavigationProperty Name="CostumersTable" Relationship="managingDataBaseModel.FK_OrdersTable_CostumersTable" FromRole="OrdersTable" ToRole="CostumersTable" />
           <NavigationProperty Name="EmployeeTable" Relationship="managingDataBaseModel.FK_OrdersTable_EmployeeTable" FromRole="OrdersTable" ToRole="EmployeeTable" />
-          <NavigationProperty Name="ProductTable" Relationship="managingDataBaseModel.FK_OrdersTable_ProductTable" FromRole="OrdersTable" ToRole="ProductTable" />
+          <NavigationProperty Name="orderDetailsTable" Relationship="managingDataBaseModel.FK_OrdersTable_orderDetailsTable" FromRole="OrdersTable" ToRole="orderDetailsTable" />
         </EntityType>
         <EntityType Name="ProductTable">
           <Key>
@@ -419,7 +669,11 @@
           <Property Name="typeOfTree" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="color" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="shoeing" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="OrdersTable" Relationship="managingDataBaseModel.FK_OrdersTable_ProductTable" FromRole="ProductTable" ToRole="OrdersTable" />
+          <Property Name="cost" Type="Int32" />
+          <Property Name="costPrice" Type="Int32" />
+          <Property Name="active" Type="Int32" />
+          <Property Name="notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="orderDetailsTable" Relationship="managingDataBaseModel.FK_orderDetailsTable_ProductTable" FromRole="ProductTable" ToRole="orderDetailsTable" />
         </EntityType>
         <EntityType Name="supplierTable">
           <Key>
@@ -429,38 +683,38 @@
           <Property Name="firstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="lastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="country" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="orderFromSupplier_id" Type="Int32" />
           <Property Name="phoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="E_mail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="ExpensesTable" Relationship="managingDataBaseModel.FK_ExpensesTable_supplierTable" FromRole="supplierTable" ToRole="ExpensesTable" />
+          <Property Name="active" Type="Int32" />
+          <NavigationProperty Name="MatrialPrice" Relationship="managingDataBaseModel.FK_MaterialPrice_supplierTable" FromRole="supplierTable" ToRole="MatrialPrice" />
           <NavigationProperty Name="orderFromSupplierTable" Relationship="managingDataBaseModel.FK_orderFromSupplierTable_supplierTable" FromRole="supplierTable" ToRole="orderFromSupplierTable" />
         </EntityType>
-        <Association Name="FK_BuyingFromSupplier_OrdersFromSupplier">
-          <End Type="managingDataBaseModel.orderFromSupplierTable" Role="orderFromSupplierTable" Multiplicity="0..1" />
-          <End Type="managingDataBaseModel.BuyingFromSupplier" Role="BuyingFromSupplier" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="orderFromSupplierTable">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="BuyingFromSupplier">
-              <PropertyRef Name="order_from_supplier_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_BuyingTable_OrdersTable">
-          <End Type="managingDataBaseModel.OrdersTable" Role="OrdersTable" Multiplicity="0..1" />
-          <End Type="managingDataBaseModel.BuyingTable" Role="BuyingTable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="OrdersTable">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="BuyingTable">
-              <PropertyRef Name="order_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
+        <EntityType Name="variableExpendsTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="employee_id" Type="Int32" />
+          <Property Name="varExpType_id" Type="Int32" />
+          <Property Name="notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="active" Type="Int32" />
+          <NavigationProperty Name="EmployeeTable" Relationship="managingDataBaseModel.FK_variableExpendsTable_EmployeeTable" FromRole="variableExpendsTable" ToRole="EmployeeTable" />
+          <NavigationProperty Name="variableExpendsTypeTable" Relationship="managingDataBaseModel.FK_variableExpendsTable_variableExpendsTypeTable" FromRole="variableExpendsTable" ToRole="variableExpendsTypeTable" />
+        </EntityType>
+        <EntityType Name="variableExpendsTypeTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="cost" Type="Int32" />
+          <Property Name="date" Type="DateTime" Precision="3" />
+          <Property Name="notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="active" Type="Int32" />
+          <NavigationProperty Name="variableExpendsTable" Relationship="managingDataBaseModel.FK_variableExpendsTable_variableExpendsTypeTable" FromRole="variableExpendsTypeTable" ToRole="variableExpendsTable" />
+        </EntityType>
         <Association Name="FK_OrdersTable_CostumersTable">
           <End Type="managingDataBaseModel.CostumersTable" Role="CostumersTable" Multiplicity="0..1" />
           <End Type="managingDataBaseModel.OrdersTable" Role="OrdersTable" Multiplicity="*" />
@@ -473,14 +727,38 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ExpensesTable_Employee_table">
+        <Association Name="FK_CurrentExpendsTable_currentExpendsTypeTable">
+          <End Type="managingDataBaseModel.currentExpendsTypeTable" Role="currentExpendsTypeTable" Multiplicity="0..1" />
+          <End Type="managingDataBaseModel.CurrentExpendsTable" Role="CurrentExpendsTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="currentExpendsTypeTable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CurrentExpendsTable">
+              <PropertyRef Name="currExpType_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CurrentExpendsTable_EmployeeTable">
           <End Type="managingDataBaseModel.EmployeeTable" Role="EmployeeTable" Multiplicity="0..1" />
-          <End Type="managingDataBaseModel.ExpensesTable" Role="ExpensesTable" Multiplicity="*" />
+          <End Type="managingDataBaseModel.CurrentExpendsTable" Role="CurrentExpendsTable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="EmployeeTable">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="ExpensesTable">
+            <Dependent Role="CurrentExpendsTable">
+              <PropertyRef Name="employee_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_orderFromSupplierTable_EmployeeTable">
+          <End Type="managingDataBaseModel.EmployeeTable" Role="EmployeeTable" Multiplicity="0..1" />
+          <End Type="managingDataBaseModel.orderFromSupplierTable" Role="orderFromSupplierTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeTable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="orderFromSupplierTable">
               <PropertyRef Name="employee_id" />
             </Dependent>
           </ReferentialConstraint>
@@ -497,15 +775,99 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ExpensesTable_supplierTable">
+        <Association Name="FK_variableExpendsTable_EmployeeTable">
+          <End Type="managingDataBaseModel.EmployeeTable" Role="EmployeeTable" Multiplicity="0..1" />
+          <End Type="managingDataBaseModel.variableExpendsTable" Role="variableExpendsTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeTable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="variableExpendsTable">
+              <PropertyRef Name="employee_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaterialPrice_MaterialsTable">
+          <End Type="managingDataBaseModel.MaterialsTable" Role="MaterialsTable" Multiplicity="0..1" />
+          <End Type="managingDataBaseModel.MatrialPrice" Role="MatrialPrice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialsTable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MatrialPrice">
+              <PropertyRef Name="material_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaterialsTable_materialPriceTable">
+          <End Type="managingDataBaseModel.MaterialsTable" Role="MaterialsTable" Multiplicity="0..1" />
+          <End Type="managingDataBaseModel.MaterialsTable" Role="MaterialsTable1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialsTable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MaterialsTable1">
+              <PropertyRef Name="materialPrice_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_orderFromSupplierDetailTable_MaterialsTable">
+          <End Type="managingDataBaseModel.MaterialsTable" Role="MaterialsTable" Multiplicity="0..1" />
+          <End Type="managingDataBaseModel.orderFromSupplierDetailTable" Role="orderFromSupplierDetailTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialsTable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="orderFromSupplierDetailTable">
+              <PropertyRef Name="material_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaterialPrice_supplierTable">
           <End Type="managingDataBaseModel.supplierTable" Role="supplierTable" Multiplicity="0..1" />
-          <End Type="managingDataBaseModel.ExpensesTable" Role="ExpensesTable" Multiplicity="*" />
+          <End Type="managingDataBaseModel.MatrialPrice" Role="MatrialPrice" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="supplierTable">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="ExpensesTable">
+            <Dependent Role="MatrialPrice">
               <PropertyRef Name="supplier_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_orderDetailsTable_ProductTable">
+          <End Type="managingDataBaseModel.ProductTable" Role="ProductTable" Multiplicity="0..1" />
+          <End Type="managingDataBaseModel.orderDetailsTable" Role="orderDetailsTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductTable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="orderDetailsTable">
+              <PropertyRef Name="product_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrdersTable_orderDetailsTable">
+          <End Type="managingDataBaseModel.orderDetailsTable" Role="orderDetailsTable" Multiplicity="0..1" />
+          <End Type="managingDataBaseModel.OrdersTable" Role="OrdersTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="orderDetailsTable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrdersTable">
+              <PropertyRef Name="orderDetail_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_orderFromSupplierTable_orderFromSupplierDetailTable">
+          <End Type="managingDataBaseModel.orderFromSupplierDetailTable" Role="orderFromSupplierDetailTable" Multiplicity="0..1" />
+          <End Type="managingDataBaseModel.orderFromSupplierTable" Role="orderFromSupplierTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="orderFromSupplierDetailTable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="orderFromSupplierTable">
+              <PropertyRef Name="orderFromSupplierDetail_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -521,15 +883,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_OrdersTable_ProductTable">
-          <End Type="managingDataBaseModel.ProductTable" Role="ProductTable" Multiplicity="0..1" />
-          <End Type="managingDataBaseModel.OrdersTable" Role="OrdersTable" Multiplicity="*" />
+        <Association Name="FK_variableExpendsTable_variableExpendsTypeTable">
+          <End Type="managingDataBaseModel.variableExpendsTypeTable" Role="variableExpendsTypeTable" Multiplicity="0..1" />
+          <End Type="managingDataBaseModel.variableExpendsTable" Role="variableExpendsTable" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ProductTable">
+            <Principal Role="variableExpendsTypeTable">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="OrdersTable">
-              <PropertyRef Name="product_id" />
+            <Dependent Role="variableExpendsTable">
+              <PropertyRef Name="varExpType_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -539,22 +901,6 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="managingDataBaseModelStoreContainer" CdmEntityContainer="managingDataBaseEntities">
-          <EntitySetMapping Name="BuyingFromSupplier">
-            <EntityTypeMapping TypeName="managingDataBaseModel.BuyingFromSupplier">
-              <MappingFragment StoreEntitySet="BuyingFromSupplier">
-                <ScalarProperty Name="order_from_supplier_id" ColumnName="order_from_supplier_id" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="BuyingTable">
-            <EntityTypeMapping TypeName="managingDataBaseModel.BuyingTable">
-              <MappingFragment StoreEntitySet="BuyingTable">
-                <ScalarProperty Name="order_id" ColumnName="order_id" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="CostumersTable">
             <EntityTypeMapping TypeName="managingDataBaseModel.CostumersTable">
               <MappingFragment StoreEntitySet="CostumersTable">
@@ -565,6 +911,29 @@
                 <ScalarProperty Name="address" ColumnName="address" />
                 <ScalarProperty Name="last_Name" ColumnName="last_Name" />
                 <ScalarProperty Name="first_Name" ColumnName="first_Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CurrentExpendsTable">
+            <EntityTypeMapping TypeName="managingDataBaseModel.CurrentExpendsTable">
+              <MappingFragment StoreEntitySet="CurrentExpendsTable">
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="currExpType_id" ColumnName="currExpType_id" />
+                <ScalarProperty Name="employee_id" ColumnName="employee_id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="currentExpendsTypeTable">
+            <EntityTypeMapping TypeName="managingDataBaseModel.currentExpendsTypeTable">
+              <MappingFragment StoreEntitySet="currentExpendsTypeTable">
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="cost" ColumnName="cost" />
+                <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -584,16 +953,49 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ExpensesTable">
-            <EntityTypeMapping TypeName="managingDataBaseModel.ExpensesTable">
-              <MappingFragment StoreEntitySet="ExpensesTable">
-                <ScalarProperty Name="employee_id" ColumnName="employee_id" />
-                <ScalarProperty Name="supplier_id" ColumnName="supplier_id" />
-                <ScalarProperty Name="day" ColumnName="day" />
-                <ScalarProperty Name="month" ColumnName="month" />
-                <ScalarProperty Name="year" ColumnName="year" />
-                <ScalarProperty Name="cost" ColumnName="cost" />
+          <EntitySetMapping Name="MaterialsTable">
+            <EntityTypeMapping TypeName="managingDataBaseModel.MaterialsTable">
+              <MappingFragment StoreEntitySet="MaterialsTable">
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="materialPrice_id" ColumnName="materialPrice_id" />
+                <ScalarProperty Name="materialType" ColumnName="materialType" />
                 <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MatrialPrice">
+            <EntityTypeMapping TypeName="managingDataBaseModel.MatrialPrice">
+              <MappingFragment StoreEntitySet="MatrialPrice">
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="material_id" ColumnName="material_id" />
+                <ScalarProperty Name="supplier_id" ColumnName="supplier_id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="orderDetailsTable">
+            <EntityTypeMapping TypeName="managingDataBaseModel.orderDetailsTable">
+              <MappingFragment StoreEntitySet="orderDetailsTable">
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="discount" ColumnName="discount" />
+                <ScalarProperty Name="product_id" ColumnName="product_id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="orderFromSupplierDetailTable">
+            <EntityTypeMapping TypeName="managingDataBaseModel.orderFromSupplierDetailTable">
+              <MappingFragment StoreEntitySet="orderFromSupplierDetailTable">
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="material_id" ColumnName="material_id" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -601,15 +1003,15 @@
           <EntitySetMapping Name="orderFromSupplierTable">
             <EntityTypeMapping TypeName="managingDataBaseModel.orderFromSupplierTable">
               <MappingFragment StoreEntitySet="orderFromSupplierTable">
-                <ScalarProperty Name="day" ColumnName="day" />
-                <ScalarProperty Name="month" ColumnName="month" />
-                <ScalarProperty Name="year" ColumnName="year" />
-                <ScalarProperty Name="supplier_id" ColumnName="supplier_id" />
                 <ScalarProperty Name="active" ColumnName="active" />
-                <ScalarProperty Name="price" ColumnName="price" />
-                <ScalarProperty Name="meters" ColumnName="meters" />
-                <ScalarProperty Name="amount" ColumnName="amount" />
-                <ScalarProperty Name="material" ColumnName="material" />
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="supplyingDate" ColumnName="supplyingDate" />
+                <ScalarProperty Name="orderDate" ColumnName="orderDate" />
+                <ScalarProperty Name="orderFromSupplierDetail_id" ColumnName="orderFromSupplierDetail_id" />
+                <ScalarProperty Name="employee_id" ColumnName="employee_id" />
+                <ScalarProperty Name="receptionNumber" ColumnName="receptionNumber" />
+                <ScalarProperty Name="shippingNumber" ColumnName="shippingNumber" />
+                <ScalarProperty Name="supplier_id" ColumnName="supplier_id" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -617,20 +1019,15 @@
           <EntitySetMapping Name="OrdersTable">
             <EntityTypeMapping TypeName="managingDataBaseModel.OrdersTable">
               <MappingFragment StoreEntitySet="OrdersTable">
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="supplyingDate" ColumnName="supplyingDate" />
+                <ScalarProperty Name="orderDate" ColumnName="orderDate" />
+                <ScalarProperty Name="orderDetail_id" ColumnName="orderDetail_id" />
                 <ScalarProperty Name="employee_id" ColumnName="employee_id" />
-                <ScalarProperty Name="day_supplying" ColumnName="day_supplying" />
-                <ScalarProperty Name="month_supplying" ColumnName="month_supplying" />
-                <ScalarProperty Name="year_supplying" ColumnName="year_supplying" />
-                <ScalarProperty Name="day_order" ColumnName="day_order" />
-                <ScalarProperty Name="month_order" ColumnName="month_order" />
-                <ScalarProperty Name="year_order" ColumnName="year_order" />
                 <ScalarProperty Name="reception_number" ColumnName="reception_number" />
                 <ScalarProperty Name="shipping_number" ColumnName="shipping_number" />
-                <ScalarProperty Name="shipping_address" ColumnName="shipping_address" />
-                <ScalarProperty Name="product_id" ColumnName="product_id" />
                 <ScalarProperty Name="invoiceNumber" ColumnName="invoiceNumber" />
-                <ScalarProperty Name="costPrice" ColumnName="costPrice" />
-                <ScalarProperty Name="price" ColumnName="price" />
                 <ScalarProperty Name="costumer_id" ColumnName="costumer_id" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
@@ -639,6 +1036,10 @@
           <EntitySetMapping Name="ProductTable">
             <EntityTypeMapping TypeName="managingDataBaseModel.ProductTable">
               <MappingFragment StoreEntitySet="ProductTable">
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="costPrice" ColumnName="costPrice" />
+                <ScalarProperty Name="cost" ColumnName="cost" />
                 <ScalarProperty Name="shoeing" ColumnName="shoeing" />
                 <ScalarProperty Name="color" ColumnName="color" />
                 <ScalarProperty Name="typeOfTree" ColumnName="typeOfTree" />
@@ -651,14 +1052,37 @@
           <EntitySetMapping Name="supplierTable">
             <EntityTypeMapping TypeName="managingDataBaseModel.supplierTable">
               <MappingFragment StoreEntitySet="supplierTable">
+                <ScalarProperty Name="active" ColumnName="active" />
                 <ScalarProperty Name="address" ColumnName="address" />
                 <ScalarProperty Name="notes" ColumnName="notes" />
                 <ScalarProperty Name="E_mail" ColumnName="E-mail" />
                 <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
-                <ScalarProperty Name="orderFromSupplier_id" ColumnName="orderFromSupplier_id" />
                 <ScalarProperty Name="country" ColumnName="country" />
                 <ScalarProperty Name="lastName" ColumnName="lastName" />
                 <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="variableExpendsTable">
+            <EntityTypeMapping TypeName="managingDataBaseModel.variableExpendsTable">
+              <MappingFragment StoreEntitySet="variableExpendsTable">
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="varExpType_id" ColumnName="varExpType_id" />
+                <ScalarProperty Name="employee_id" ColumnName="employee_id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="variableExpendsTypeTable">
+            <EntityTypeMapping TypeName="managingDataBaseModel.variableExpendsTypeTable">
+              <MappingFragment StoreEntitySet="variableExpendsTypeTable">
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="cost" ColumnName="cost" />
+                <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

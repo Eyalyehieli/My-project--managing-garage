@@ -12,18 +12,20 @@ namespace WpfApp1
     using System;
     using System.Collections.Generic;
     
-    public partial class ExpensesTable
+    public partial class variableExpendsTypeTable
     {
+        public variableExpendsTypeTable()
+        {
+            this.variableExpendsTable = new HashSet<variableExpendsTable>();
+        }
+    
         public int Id { get; set; }
         public string name { get; set; }
         public Nullable<int> cost { get; set; }
-        public Nullable<int> year { get; set; }
-        public Nullable<int> month { get; set; }
-        public Nullable<int> day { get; set; }
-        public Nullable<int> supplier_id { get; set; }
-        public Nullable<int> employee_id { get; set; }
+        public Nullable<System.DateTime> date { get; set; }
+        public string notes { get; set; }
+        public Nullable<int> active { get; set; }
     
-        public virtual EmployeeTable EmployeeTable { get; set; }
-        public virtual supplierTable supplierTable { get; set; }
+        public virtual ICollection<variableExpendsTable> variableExpendsTable { get; set; }
     }
 }

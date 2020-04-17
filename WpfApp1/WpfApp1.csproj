@@ -85,19 +85,28 @@
     <Compile Include="AddSupplier.xaml.cs">
       <DependentUpon>AddSupplier.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BuyingFromSupplier.cs">
-      <DependentUpon>ManagingModel1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BuyingTable.cs">
-      <DependentUpon>ManagingModel1.tt</DependentUpon>
-    </Compile>
     <Compile Include="CostumersBL.cs" />
     <Compile Include="CostumersTable.cs">
       <DependentUpon>ManagingModel1.tt</DependentUpon>
     </Compile>
     <Compile Include="CostumersTableExt.cs" />
+    <Compile Include="CurrentExpendsTable.cs">
+      <DependentUpon>ManagingModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="currentExpendsTypeTable.cs">
+      <DependentUpon>ManagingModel1.tt</DependentUpon>
+    </Compile>
     <Compile Include="DataLayer.cs" />
-    <Compile Include="ExpensesTable.cs">
+    <Compile Include="MaterialsTable.cs">
+      <DependentUpon>ManagingModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MatrialPrice.cs">
+      <DependentUpon>ManagingModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="orderDetailsTable.cs">
+      <DependentUpon>ManagingModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="orderFromSupplierDetailTable.cs">
       <DependentUpon>ManagingModel1.tt</DependentUpon>
     </Compile>
     <Compile Include="orderFromSupplierTable.cs">
@@ -124,6 +133,12 @@
     </Compile>
     <Compile Include="SupplierUpdating.xaml.cs">
       <DependentUpon>SupplierUpdating.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="variableExpendsTable.cs">
+      <DependentUpon>ManagingModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="variableExpendsTypeTable.cs">
+      <DependentUpon>ManagingModel1.tt</DependentUpon>
     </Compile>
     <Page Include="AddCostumer.xaml">
       <SubType>Designer</SubType>

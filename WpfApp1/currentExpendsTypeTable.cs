@@ -12,24 +12,20 @@ namespace WpfApp1
     using System;
     using System.Collections.Generic;
     
-    public partial class ProductTable
+    public partial class currentExpendsTypeTable
     {
-        public ProductTable()
+        public currentExpendsTypeTable()
         {
-            this.orderDetailsTable = new HashSet<orderDetailsTable>();
+            this.CurrentExpendsTable = new HashSet<CurrentExpendsTable>();
         }
     
         public int Id { get; set; }
         public string name { get; set; }
-        public string type { get; set; }
-        public string typeOfTree { get; set; }
-        public string color { get; set; }
-        public string shoeing { get; set; }
         public Nullable<int> cost { get; set; }
-        public Nullable<int> costPrice { get; set; }
-        public Nullable<int> active { get; set; }
+        public Nullable<System.DateTime> date { get; set; }
         public string notes { get; set; }
+        public Nullable<int> active { get; set; }
     
-        public virtual ICollection<orderDetailsTable> orderDetailsTable { get; set; }
+        public virtual ICollection<CurrentExpendsTable> CurrentExpendsTable { get; set; }
     }
 }
