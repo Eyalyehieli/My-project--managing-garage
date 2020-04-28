@@ -1,0 +1,24 @@
+﻿<Window x:Class="WpfApp1.PurchasingList"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:WpfApp1"
+        Title="PurchasingList" Height="450" Width="800">
+    <Grid>
+        <Label Content="מספר משלוח" HorizontalAlignment="Left" Margin="679,242,0,0" VerticalAlignment="Top" Width="103"/>
+        <Label Content="הערות" HorizontalAlignment="Left" Margin="109,52,0,0" VerticalAlignment="Top" Width="103"/>
+        <Label Content="תאריך הספקה" HorizontalAlignment="Left" Margin="679,161,0,0" VerticalAlignment="Top" Width="103"/>
+        <Label Content="תאריך הזמנה" HorizontalAlignment="Left" Margin="679,114,0,0" VerticalAlignment="Top" Width="103"/>
+        <Label Content="מספר קבלה" HorizontalAlignment="Left" Margin="679,273,0,0" VerticalAlignment="Top" Width="103"/>
+        <TextBox x:Name="shippingNumber_txb" HorizontalAlignment="Left" Height="23"  Text="{Binding ElementName=purchasingUpdateComboBox, Path=SelectedItem.(local:orderFromSupplierTable.shippingNumber), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="554,242,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="notes_txb" HorizontalAlignment="Left" Height="168"  Text="{Binding ElementName=purchasingUpdateComboBox, Path=SelectedItem.(local:orderFromSupplierTable.notes), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="38,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="supplyingDate_txb" HorizontalAlignment="Left" Height="23" Text="{Binding ElementName=purchasingUpdateComboBox, Path=SelectedItem.(local:orderFromSupplierTable.supplyingDate), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="554,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="OrderDate_txb" HorizontalAlignment="Left" Height="23" Text="{Binding ElementName=purchasingUpdateComboBox, Path=SelectedItem.(local:orderFromSupplierTable.orderDate), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="554,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="receptoionNumber_txb" HorizontalAlignment="Left" Height="23"  Text="{Binding ElementName=purchasingUpdateComboBox, Path=SelectedItem.(local:orderFromSupplierTable.receptionNumber), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="554,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="עובד שרכש" HorizontalAlignment="Left" Margin="679,206,0,0" VerticalAlignment="Top" Width="103"/>
+        <TextBox x:Name="employee_txb" HorizontalAlignment="Left" Height="23" Text="{Binding ElementName=purchasingUpdateComboBox, Path=SelectedItem.(local:orderFromSupplierTable.EmployeeTable).full_Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="554,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="מספר קנייה" HorizontalAlignment="Left" Margin="679,52,0,0" VerticalAlignment="Top" Width="86"/>
+        <ComboBox x:Name="purchasingUpdateComboBox" HorizontalAlignment="Left" Margin="554,56,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="מצב" HorizontalAlignment="Left" Margin="679,304,0,0" VerticalAlignment="Top" Width="86"/>
+        <TextBox x:Name="activity_txb" HorizontalAlignment="Left" Height="23"  Text="{Binding ElementName=purchasingUpdateComboBox, Path=SelectedItem.(local:orderFromSupplierTable.active), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="554,307,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+    </Grid>
+</Window>

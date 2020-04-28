@@ -16,7 +16,6 @@ namespace WpfApp1
     {
         public int Id { get; set; }
         public Nullable<int> costumer_id { get; set; }
-        public string invoiceNumber { get; set; }
         public string shipping_number { get; set; }
         public string reception_number { get; set; }
         public Nullable<int> employee_id { get; set; }
@@ -25,6 +24,7 @@ namespace WpfApp1
         public Nullable<System.DateTime> supplyingDate { get; set; }
         public string notes { get; set; }
         public Nullable<int> active { get; set; }
+        public string shippingAddress { get; set; }
     
         public virtual CostumersTable CostumersTable { get; set; }
         public virtual EmployeeTable EmployeeTable { get; set; }

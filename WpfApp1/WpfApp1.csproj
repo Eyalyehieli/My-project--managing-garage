@@ -79,11 +79,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddCustomerOrder.xaml.cs">
+      <DependentUpon>AddCustomerOrder.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddEmployee.xaml.cs">
       <DependentUpon>AddEmployee.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddOrderFromSupplier.xaml.cs">
+      <DependentUpon>AddOrderFromSupplier.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddSupplier.xaml.cs">
       <DependentUpon>AddSupplier.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ContinueOrderingMessage.xaml.cs">
+      <DependentUpon>ContinueOrderingMessage.xaml</DependentUpon>
     </Compile>
     <Compile Include="CostumersBL.cs" />
     <Compile Include="CostumersTable.cs">
@@ -96,16 +105,20 @@
     <Compile Include="currentExpendsTypeTable.cs">
       <DependentUpon>ManagingModel1.tt</DependentUpon>
     </Compile>
+    <Compile Include="CustomerOrderList.xaml.cs">
+      <DependentUpon>CustomerOrderList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="customerOrderManaging.xaml.cs">
+      <DependentUpon>customerOrderManaging.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DataLayer.cs" />
-    <Compile Include="MaterialsTable.cs">
-      <DependentUpon>ManagingModel1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MatrialPrice.cs">
-      <DependentUpon>ManagingModel1.tt</DependentUpon>
-    </Compile>
     <Compile Include="orderDetailsTable.cs">
       <DependentUpon>ManagingModel1.tt</DependentUpon>
     </Compile>
+    <Compile Include="OrderFromSupllierList.xaml.cs">
+      <DependentUpon>OrderFromSupllierList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OrderFromSupplierBL.cs" />
     <Compile Include="orderFromSupplierDetailTable.cs">
       <DependentUpon>ManagingModel1.tt</DependentUpon>
     </Compile>
@@ -115,8 +128,18 @@
     <Compile Include="OrdersTable.cs">
       <DependentUpon>ManagingModel1.tt</DependentUpon>
     </Compile>
-    <Compile Include="ProductTable.cs">
-      <DependentUpon>ManagingModel1.tt</DependentUpon>
+    <Compile Include="ordersType.xaml.cs">
+      <DependentUpon>ordersType.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="purchaseFromSupllier.xaml.cs">
+      <DependentUpon>purchaseFromSupllier.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PurchasingFromSupplierBL.cs" />
+    <Compile Include="PurchasingList.xaml.cs">
+      <DependentUpon>PurchasingList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PurchasingUpdate.xaml.cs">
+      <DependentUpon>PurchasingUpdate.xaml</DependentUpon>
     </Compile>
     <Compile Include="SupplierBL.cs" />
     <Compile Include="supplierEmailSending.xaml.cs">
@@ -128,11 +151,20 @@
     <Compile Include="SupplierManaging.xaml.cs">
       <DependentUpon>SupplierManaging.xaml</DependentUpon>
     </Compile>
+    <Compile Include="supplierOrderManaging.xaml.cs">
+      <DependentUpon>supplierOrderManaging.xaml</DependentUpon>
+    </Compile>
     <Compile Include="supplierTable.cs">
       <DependentUpon>ManagingModel1.tt</DependentUpon>
     </Compile>
     <Compile Include="SupplierUpdating.xaml.cs">
       <DependentUpon>SupplierUpdating.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateOrderFromSupplier.xaml.cs">
+      <DependentUpon>UpdateOrderFromSupplier.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateOrderOfCustomer.xaml.cs">
+      <DependentUpon>UpdateOrderOfCustomer.xaml</DependentUpon>
     </Compile>
     <Compile Include="variableExpendsTable.cs">
       <DependentUpon>ManagingModel1.tt</DependentUpon>
@@ -144,13 +176,25 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="AddCustomerOrder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AddEmployee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddOrderFromSupplier.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AddSupplier.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ContinueOrderingMessage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CostumersList.xaml">
       <SubType>Designer</SubType>
@@ -161,6 +205,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CostumerUpdating.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomerOrderList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="customerOrderManaging.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -213,6 +265,26 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="OrderFromSupllierList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ordersType.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="purchaseFromSupllier.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PurchasingList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PurchasingUpdate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="supplierEmailSending.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -225,9 +297,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="supplierOrderManaging.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SupplierUpdating.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UpdateOrderFromSupplier.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateOrderOfCustomer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

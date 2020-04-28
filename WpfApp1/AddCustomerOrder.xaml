@@ -1,0 +1,42 @@
+﻿<Window x:Class="WpfApp1.AddCustomerOrder"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="AddCustomerOrder" Height="500" Width="900">
+    <Grid>
+        <Label Content="שם לקוח" HorizontalAlignment="Left" Margin="802,10,0,0" VerticalAlignment="Top" Width="90"/>
+        <Label Content="הנחה" HorizontalAlignment="Left" Margin="558,139,0,0" VerticalAlignment="Top" Width="90"/>
+        <Label Content="מחיר עלות" HorizontalAlignment="Left" Margin="558,97,0,0" VerticalAlignment="Top" Width="90"/>
+        <Label Content="מחיר " HorizontalAlignment="Left" Margin="558,54,0,0" VerticalAlignment="Top" Width="90"/>
+        <Label Content="שיוף" HorizontalAlignment="Left" Margin="558,10,0,0" VerticalAlignment="Top" Width="90"/>
+        <Label Content="צבע" HorizontalAlignment="Left" Margin="801,428,0,0" VerticalAlignment="Top" Width="90"/>
+        <Label Content="סוג עץ" HorizontalAlignment="Left" Margin="802,387,0,0" VerticalAlignment="Top" Width="90"/>
+        <Label Content="כמות" HorizontalAlignment="Left" Margin="802,346,0,0" VerticalAlignment="Top" Width="90"/>
+        <Label Content="סוג המוצר" HorizontalAlignment="Left" Margin="802,305,0,0" VerticalAlignment="Top" Width="90"/>
+        <Label Content="שם מוצר" HorizontalAlignment="Left" Margin="802,264,0,0" VerticalAlignment="Top" Width="90"/>
+        <Label Content="תאריך הספקה" HorizontalAlignment="Left" Margin="802,223,0,0" VerticalAlignment="Top" Width="90"/>
+        <Label Content="תאריך הזמנה" HorizontalAlignment="Left" Margin="801,180,0,0" VerticalAlignment="Top" Width="90"/>
+        <Label Content="מספר קבלה" HorizontalAlignment="Left" Margin="801,139,0,0" VerticalAlignment="Top" Width="90"/>
+        <Label Content="מספר משלוח" HorizontalAlignment="Left" Margin="801,97,0,0" VerticalAlignment="Top" Width="90"/>
+        <Label Content="הערות" HorizontalAlignment="Left" Margin="153,36,0,0" VerticalAlignment="Top" Width="90"/>
+        <Label Content="עובד שביצע את ההזמנה" HorizontalAlignment="Left" Margin="514,180,0,0" VerticalAlignment="Top" Width="134"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="433,14,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="653,428,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="193" Margin="28,97,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="188"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="653,391,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="653,346,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="653,305,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="653,268,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="653,227,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="653,184,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="653,139,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="653,101,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="433,139,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="433,101,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="433,54,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <ComboBox HorizontalAlignment="Left" Margin="653,10,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox HorizontalAlignment="Left" Margin="378,184,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="כתובת משלוח" HorizontalAlignment="Left" Margin="802,59,0,0" VerticalAlignment="Top" Width="90"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="653,62,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+
+    </Grid>
+</Window>

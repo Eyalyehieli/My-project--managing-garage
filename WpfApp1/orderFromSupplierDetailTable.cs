@@ -14,18 +14,17 @@ namespace WpfApp1
     
     public partial class orderFromSupplierDetailTable
     {
-        public orderFromSupplierDetailTable()
-        {
-            this.orderFromSupplierTable = new HashSet<orderFromSupplierTable>();
-        }
-    
         public int Id { get; set; }
-        public Nullable<int> material_id { get; set; }
         public Nullable<int> amount { get; set; }
         public string notes { get; set; }
         public Nullable<int> active { get; set; }
+        public string name { get; set; }
+        public string materialType { get; set; }
+        public Nullable<int> supplier_id { get; set; }
+        public Nullable<int> price { get; set; }
+        public Nullable<int> orderFromSupplier_id { get; set; }
     
-        public virtual MaterialsTable MaterialsTable { get; set; }
-        public virtual ICollection<orderFromSupplierTable> orderFromSupplierTable { get; set; }
+        public virtual orderFromSupplierTable orderFromSupplierTable { get; set; }
+        public virtual supplierTable supplierTable { get; set; }
     }
 }

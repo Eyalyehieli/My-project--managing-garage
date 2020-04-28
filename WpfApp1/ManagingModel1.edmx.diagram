@@ -4,35 +4,27 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f143f02ce0754284a2bd2c095705bf18" Name="Diagram1" ZoomLevel="72">
-        <EntityTypeShape EntityType="managingDataBaseModel.CostumersTable" Width="1.5" PointX="3" PointY="23" />
-        <EntityTypeShape EntityType="managingDataBaseModel.CurrentExpendsTable" Width="1.5" PointX="5.25" PointY="11.125" />
-        <EntityTypeShape EntityType="managingDataBaseModel.currentExpendsTypeTable" Width="1.5" PointX="3" PointY="15.125" />
-        <EntityTypeShape EntityType="managingDataBaseModel.EmployeeTable" Width="1.5" PointX="3" PointY="10.5" />
-        <EntityTypeShape EntityType="managingDataBaseModel.MaterialsTable" Width="1.5" PointX="0.75" PointY="3.25" />
-        <EntityTypeShape EntityType="managingDataBaseModel.MatrialPrice" Width="1.5" PointX="3" PointY="3.5" />
-        <EntityTypeShape EntityType="managingDataBaseModel.orderDetailsTable" Width="1.5" PointX="3" PointY="19.125" />
-        <EntityTypeShape EntityType="managingDataBaseModel.orderFromSupplierDetailTable" Width="1.5" PointX="3" PointY="7.125" />
-        <EntityTypeShape EntityType="managingDataBaseModel.orderFromSupplierTable" Width="1.5" PointX="5.25" PointY="6.5" />
-        <EntityTypeShape EntityType="managingDataBaseModel.OrdersTable" Width="1.5" PointX="5.25" PointY="14.375" />
-        <EntityTypeShape EntityType="managingDataBaseModel.ProductTable" Width="1.5" PointX="0.75" PointY="18.75" />
-        <EntityTypeShape EntityType="managingDataBaseModel.supplierTable" Width="1.5" PointX="0.75" PointY="9.125" />
-        <EntityTypeShape EntityType="managingDataBaseModel.variableExpendsTable" Width="1.5" PointX="8.25" PointY="11.125" />
-        <EntityTypeShape EntityType="managingDataBaseModel.variableExpendsTypeTable" Width="1.5" PointX="6" PointY="3.125" />
+      <Diagram DiagramId="f143f02ce0754284a2bd2c095705bf18" Name="Diagram1" ZoomLevel="92">
+        <EntityTypeShape EntityType="managingDataBaseModel.CostumersTable" Width="1.5" PointX="3.75" PointY="0.75" />
+        <EntityTypeShape EntityType="managingDataBaseModel.CurrentExpendsTable" Width="1.5" PointX="3" PointY="8.625" />
+        <EntityTypeShape EntityType="managingDataBaseModel.currentExpendsTypeTable" Width="1.5" PointX="0.75" PointY="12.625" />
+        <EntityTypeShape EntityType="managingDataBaseModel.EmployeeTable" Width="1.5" PointX="0.75" PointY="8" />
+        <EntityTypeShape EntityType="managingDataBaseModel.orderDetailsTable" Width="1.5" PointX="3.75" PointY="12.125" />
+        <EntityTypeShape EntityType="managingDataBaseModel.orderFromSupplierDetailTable" Width="3.875" PointX="5.25" PointY="19.625" />
+        <EntityTypeShape EntityType="managingDataBaseModel.orderFromSupplierTable" Width="1.5" PointX="3" PointY="19.75" />
+        <EntityTypeShape EntityType="managingDataBaseModel.OrdersTable" Width="1.5" PointX="6" PointY="8" />
+        <EntityTypeShape EntityType="managingDataBaseModel.supplierTable" Width="1.5" PointX="3" PointY="23.75" />
+        <EntityTypeShape EntityType="managingDataBaseModel.variableExpendsTable" Width="1.5" PointX="3" PointY="4.625" />
+        <EntityTypeShape EntityType="managingDataBaseModel.variableExpendsTypeTable" Width="1.5" PointX="0.75" PointY="4.625" />
         <AssociationConnector Association="managingDataBaseModel.FK_OrdersTable_CostumersTable" />
         <AssociationConnector Association="managingDataBaseModel.FK_CurrentExpendsTable_currentExpendsTypeTable" />
         <AssociationConnector Association="managingDataBaseModel.FK_CurrentExpendsTable_EmployeeTable" />
         <AssociationConnector Association="managingDataBaseModel.FK_orderFromSupplierTable_EmployeeTable" />
         <AssociationConnector Association="managingDataBaseModel.FK_OrdersTable_EmployeeTable" />
         <AssociationConnector Association="managingDataBaseModel.FK_variableExpendsTable_EmployeeTable" />
-        <AssociationConnector Association="managingDataBaseModel.FK_MaterialPrice_MaterialsTable" />
-        <AssociationConnector Association="managingDataBaseModel.FK_MaterialsTable_materialPriceTable" />
-        <AssociationConnector Association="managingDataBaseModel.FK_orderFromSupplierDetailTable_MaterialsTable" />
-        <AssociationConnector Association="managingDataBaseModel.FK_MaterialPrice_supplierTable" />
-        <AssociationConnector Association="managingDataBaseModel.FK_orderDetailsTable_ProductTable" />
         <AssociationConnector Association="managingDataBaseModel.FK_OrdersTable_orderDetailsTable" />
-        <AssociationConnector Association="managingDataBaseModel.FK_orderFromSupplierTable_orderFromSupplierDetailTable" />
-        <AssociationConnector Association="managingDataBaseModel.FK_orderFromSupplierTable_supplierTable" />
+        <AssociationConnector Association="managingDataBaseModel.FK_orderFromSupplierDetailTable_orderFromSupplierTable" />
+        <AssociationConnector Association="managingDataBaseModel.FK_orderFromSupplierDetailTable_supplierTable" />
         <AssociationConnector Association="managingDataBaseModel.FK_variableExpendsTable_variableExpendsTypeTable" />
       </Diagram>
     </edmx:Diagrams>

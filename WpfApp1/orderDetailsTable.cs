@@ -20,13 +20,18 @@ namespace WpfApp1
         }
     
         public int Id { get; set; }
-        public Nullable<int> product_id { get; set; }
         public Nullable<int> discount { get; set; }
         public Nullable<int> amount { get; set; }
         public string notes { get; set; }
         public Nullable<int> active { get; set; }
+        public string name { get; set; }
+        public string type { get; set; }
+        public string typeOfTree { get; set; }
+        public string color { get; set; }
+        public string shoeing { get; set; }
+        public string cost { get; set; }
+        public string costPrice { get; set; }
     
-        public virtual ProductTable ProductTable { get; set; }
         public virtual ICollection<OrdersTable> OrdersTable { get; set; }
     }
 }

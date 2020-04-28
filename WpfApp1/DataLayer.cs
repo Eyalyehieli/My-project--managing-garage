@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace WpfApp1
@@ -88,6 +89,74 @@ namespace WpfApp1
             db.SaveChanges();
         }
 
+        public static orderFromSupplierDetailTable AddOrderFromSupplier(string name, string type, int amount, int price,
+            supplierTable selectedSupplier, string notes)
+        {
+            orderFromSupplierDetailTable ofsdt=db.orderFromSupplierDetailTable.Add(new orderFromSupplierDetailTable()
+            {
+                amount = amount,
+                notes = notes,
+                active = 0,
+                name = name,
+                materialType = type,
+                price = price,
+                supplier_id = selectedSupplier.Id
+            });
+            db.SaveChanges();
+            return ofsdt;
+        }
+
+        public static void AddPurchaseFromSupplier(string shippingNumber, string receptionNumber, EmployeeTable employee,
+            DateTime orderDate, DateTime supplyingDate, string notes, List<orderFromSupplierDetailTable> Idlist)
+        {
+            orderFromSupplierTable ofst=db.orderFromSupplierTable.Add(new orderFromSupplierTable()
+            {
+               shippingNumber = shippingNumber,
+               receptionNumber = receptionNumber,
+               employee_id = employee.Id,
+               orderDate = orderDate,
+               supplyingDate = supplyingDate,
+               notes=notes,
+               active=0
+            });
+            db.SaveChanges();
+            foreach (orderFromSupplierDetailTable element in Idlist)
+            {
+                element.orderFromSupplier_id = ofst.Id;
+            }
+            db.SaveChanges();
+        }
+
+        public static void UpdateOrderFromSupplierDetail(string materialName, string materialType,
+            int amount, int price,
+            supplierTable selectedItem,orderFromSupplierDetailTable selectedOrder,int activity,string notes)
+        {
+            orderFromSupplierDetailTable ofsdt = selectedOrder;
+            ofsdt.name = materialName;
+            ofsdt.materialType = materialType;
+            ofsdt.amount = amount;
+            ofsdt.price = price;
+            ofsdt.supplierTable = selectedItem;
+            ofsdt.active = activity;
+            ofsdt.notes = notes;
+            db.SaveChanges();
+
+
+        }
+
+        public static void UpdatePurchaseFromSupplier(orderFromSupplierTable selectedOrder, string shippingNumber, string receptionNumber,
+            EmployeeTable selectedEmployee, DateTime orderDate, DateTime supplyingDate, string notes, int active)
+        {
+            selectedOrder.shippingNumber = shippingNumber;
+            selectedOrder.receptionNumber = receptionNumber;
+            selectedOrder.EmployeeTable = selectedEmployee;
+            selectedOrder.orderDate = orderDate;
+            selectedOrder.supplyingDate = supplyingDate;
+            selectedOrder.notes = notes;
+            selectedOrder.active = active;
+            db.SaveChanges();
+        }
+
        
         public static IList<CostumersTable> GetAllCostumersDL()
         {
@@ -103,6 +172,16 @@ namespace WpfApp1
 
         {
             return db.supplierTable.ToList();
+        }
+
+        public static IList<orderFromSupplierDetailTable> GetAllOrderFromSupplierDetailDL()
+        {
+            return db.orderFromSupplierDetailTable.ToList();
+        }
+
+        public static IList<orderFromSupplierTable> GetAllOrderFromSupplierDL()
+        {
+            return db.orderFromSupplierTable.ToList();
         }
     }
 }

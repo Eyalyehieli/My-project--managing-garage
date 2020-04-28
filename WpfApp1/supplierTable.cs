@@ -16,8 +16,7 @@ namespace WpfApp1
     {
         public supplierTable()
         {
-            this.MatrialPrice = new HashSet<MatrialPrice>();
-            this.orderFromSupplierTable = new HashSet<orderFromSupplierTable>();
+            this.orderFromSupplierDetailTable = new HashSet<orderFromSupplierDetailTable>();
         }
     
         public int Id { get; set; }
@@ -30,7 +29,6 @@ namespace WpfApp1
         public string address { get; set; }
         public Nullable<int> active { get; set; }
     
-        public virtual ICollection<MatrialPrice> MatrialPrice { get; set; }
-        public virtual ICollection<orderFromSupplierTable> orderFromSupplierTable { get; set; }
+        public virtual ICollection<orderFromSupplierDetailTable> orderFromSupplierDetailTable { get; set; }
     }
 }

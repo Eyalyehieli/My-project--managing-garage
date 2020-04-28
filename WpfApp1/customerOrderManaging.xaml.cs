@@ -10,44 +10,36 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace WpfApp1
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for customerOrderManaging.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class customerOrderManaging : Window
     {
-        public MainWindow()
+        public customerOrderManaging()
         {
             InitializeComponent();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            CostumersManaging cm = new CostumersManaging();
-            cm.ShowDialog();
-
+            AddCustomerOrder aco=new AddCustomerOrder();
+            aco.ShowDialog();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            EmployeeManaging em=new EmployeeManaging();
-            em.ShowDialog();
-        }
-
-        private void Button_Click_3(object sender, RoutedEventArgs e)
-        {
-            SupplierManaging sm=new SupplierManaging();
-           sm.ShowDialog();
+            CustomerOrderList col=new CustomerOrderList();
+            col.ShowDialog();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            ordersType ot = new ordersType();
-            ot.ShowDialog();
+            UpdateOrderOfCustomer uoos=new UpdateOrderOfCustomer();
+            uoos.ShowDialog();
         }
     }
 }
