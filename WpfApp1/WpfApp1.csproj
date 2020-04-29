@@ -91,9 +91,13 @@
     <Compile Include="AddSupplier.xaml.cs">
       <DependentUpon>AddSupplier.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ContinueOrderCostumer.xaml.cs">
+      <DependentUpon>ContinueOrderCostumer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ContinueOrderingMessage.xaml.cs">
       <DependentUpon>ContinueOrderingMessage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CostumerOrderBL.cs" />
     <Compile Include="CostumersBL.cs" />
     <Compile Include="CostumersTable.cs">
       <DependentUpon>ManagingModel1.tt</DependentUpon>
@@ -131,9 +135,16 @@
     <Compile Include="ordersType.xaml.cs">
       <DependentUpon>ordersType.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PurchaseCostumer.xaml.cs">
+      <DependentUpon>PurchaseCostumer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PurchasecostumerList.xaml.cs">
+      <DependentUpon>PurchasecostumerList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="purchaseFromSupllier.xaml.cs">
       <DependentUpon>purchaseFromSupllier.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PurchasingCotumer.cs" />
     <Compile Include="PurchasingFromSupplierBL.cs" />
     <Compile Include="PurchasingList.xaml.cs">
       <DependentUpon>PurchasingList.xaml</DependentUpon>
@@ -166,6 +177,9 @@
     <Compile Include="UpdateOrderOfCustomer.xaml.cs">
       <DependentUpon>UpdateOrderOfCustomer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UpdatePurchaseOfCostumer.xaml.cs">
+      <DependentUpon>UpdatePurchaseOfCostumer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="variableExpendsTable.cs">
       <DependentUpon>ManagingModel1.tt</DependentUpon>
     </Compile>
@@ -191,6 +205,10 @@
     <Page Include="AddSupplier.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ContinueOrderCostumer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ContinueOrderingMessage.xaml">
       <SubType>Designer</SubType>
@@ -273,6 +291,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PurchaseCostumer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PurchasecostumerList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="purchaseFromSupllier.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -310,6 +336,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UpdateOrderOfCustomer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdatePurchaseOfCostumer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

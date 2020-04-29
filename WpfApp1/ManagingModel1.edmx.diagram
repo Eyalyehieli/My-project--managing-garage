@@ -5,24 +5,24 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="f143f02ce0754284a2bd2c095705bf18" Name="Diagram1" ZoomLevel="92">
-        <EntityTypeShape EntityType="managingDataBaseModel.CostumersTable" Width="1.5" PointX="3.75" PointY="0.75" />
-        <EntityTypeShape EntityType="managingDataBaseModel.CurrentExpendsTable" Width="1.5" PointX="3" PointY="8.625" />
-        <EntityTypeShape EntityType="managingDataBaseModel.currentExpendsTypeTable" Width="1.5" PointX="0.75" PointY="12.625" />
-        <EntityTypeShape EntityType="managingDataBaseModel.EmployeeTable" Width="1.5" PointX="0.75" PointY="8" />
-        <EntityTypeShape EntityType="managingDataBaseModel.orderDetailsTable" Width="1.5" PointX="3.75" PointY="12.125" />
-        <EntityTypeShape EntityType="managingDataBaseModel.orderFromSupplierDetailTable" Width="3.875" PointX="5.25" PointY="19.625" />
-        <EntityTypeShape EntityType="managingDataBaseModel.orderFromSupplierTable" Width="1.5" PointX="3" PointY="19.75" />
-        <EntityTypeShape EntityType="managingDataBaseModel.OrdersTable" Width="1.5" PointX="6" PointY="8" />
-        <EntityTypeShape EntityType="managingDataBaseModel.supplierTable" Width="1.5" PointX="3" PointY="23.75" />
-        <EntityTypeShape EntityType="managingDataBaseModel.variableExpendsTable" Width="1.5" PointX="3" PointY="4.625" />
-        <EntityTypeShape EntityType="managingDataBaseModel.variableExpendsTypeTable" Width="1.5" PointX="0.75" PointY="4.625" />
-        <AssociationConnector Association="managingDataBaseModel.FK_OrdersTable_CostumersTable" />
+        <EntityTypeShape EntityType="managingDataBaseModel.CostumersTable" Width="1.5" PointX="3" PointY="1.75" />
+        <EntityTypeShape EntityType="managingDataBaseModel.CurrentExpendsTable" Width="1.5" PointX="6" PointY="10.875" />
+        <EntityTypeShape EntityType="managingDataBaseModel.currentExpendsTypeTable" Width="1.5" PointX="3.75" PointY="20.875" />
+        <EntityTypeShape EntityType="managingDataBaseModel.EmployeeTable" Width="1.5" PointX="0.75" PointY="7.25" />
+        <EntityTypeShape EntityType="managingDataBaseModel.orderDetailsTable" Width="1.5" PointX="5.25" PointY="5" />
+        <EntityTypeShape EntityType="managingDataBaseModel.orderFromSupplierDetailTable" Width="1.5" PointX="5.25" PointY="16.125" />
+        <EntityTypeShape EntityType="managingDataBaseModel.orderFromSupplierTable" Width="1.5" PointX="3" PointY="16.25" />
+        <EntityTypeShape EntityType="managingDataBaseModel.OrdersTable" Width="1.5" PointX="3" PointY="5.5" />
+        <EntityTypeShape EntityType="managingDataBaseModel.supplierTable" Width="1.5" PointX="3" PointY="24.25" />
+        <EntityTypeShape EntityType="managingDataBaseModel.variableExpendsTable" Width="1.5" PointX="3" PointY="9.875" />
+        <EntityTypeShape EntityType="managingDataBaseModel.variableExpendsTypeTable" Width="1.5" PointX="0.75" PointY="11.875" />
+        <AssociationConnector Association="managingDataBaseModel.FK_orderDetailsTable_CostumersTable" />
         <AssociationConnector Association="managingDataBaseModel.FK_CurrentExpendsTable_currentExpendsTypeTable" />
         <AssociationConnector Association="managingDataBaseModel.FK_CurrentExpendsTable_EmployeeTable" />
         <AssociationConnector Association="managingDataBaseModel.FK_orderFromSupplierTable_EmployeeTable" />
         <AssociationConnector Association="managingDataBaseModel.FK_OrdersTable_EmployeeTable" />
         <AssociationConnector Association="managingDataBaseModel.FK_variableExpendsTable_EmployeeTable" />
-        <AssociationConnector Association="managingDataBaseModel.FK_OrdersTable_orderDetailsTable" />
+        <AssociationConnector Association="managingDataBaseModel.FK_orderDetailsTable_OrdersTable" />
         <AssociationConnector Association="managingDataBaseModel.FK_orderFromSupplierDetailTable_orderFromSupplierTable" />
         <AssociationConnector Association="managingDataBaseModel.FK_orderFromSupplierDetailTable_supplierTable" />
         <AssociationConnector Association="managingDataBaseModel.FK_variableExpendsTable_variableExpendsTypeTable" />

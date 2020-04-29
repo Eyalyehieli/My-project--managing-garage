@@ -16,7 +16,7 @@ namespace WpfApp1
     {
         public CostumersTable()
         {
-            this.OrdersTable = new HashSet<OrdersTable>();
+            this.orderDetailsTable = new HashSet<orderDetailsTable>();
         }
     
         public int Id { get; set; }
@@ -28,6 +28,6 @@ namespace WpfApp1
         public string notes { get; set; }
         public Nullable<int> active { get; set; }
     
-        public virtual ICollection<OrdersTable> OrdersTable { get; set; }
+        public virtual ICollection<orderDetailsTable> orderDetailsTable { get; set; }
     }
 }

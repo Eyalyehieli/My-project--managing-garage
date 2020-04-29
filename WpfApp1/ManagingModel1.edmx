@@ -67,8 +67,10 @@
           <Property Name="typeOfTree" Type="nvarchar(max)" />
           <Property Name="color" Type="nvarchar(max)" />
           <Property Name="shoeing" Type="nvarchar(max)" />
-          <Property Name="cost" Type="nvarchar(max)" />
-          <Property Name="costPrice" Type="nvarchar(max)" />
+          <Property Name="cost" Type="int" />
+          <Property Name="costPrice" Type="int" />
+          <Property Name="orders_id" Type="int" />
+          <Property Name="costumers_id" Type="int" />
         </EntityType>
         <EntityType Name="orderFromSupplierDetailTable">
           <Key>
@@ -102,11 +104,9 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="costumer_id" Type="int" />
           <Property Name="shipping_number" Type="nvarchar(max)" />
           <Property Name="reception_number" Type="nvarchar(max)" />
           <Property Name="employee_id" Type="int" />
-          <Property Name="orderDetail_id" Type="int" />
           <Property Name="orderDate" Type="datetime" />
           <Property Name="supplyingDate" Type="datetime" />
           <Property Name="notes" Type="nvarchar(max)" />
@@ -172,6 +172,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_orderDetailsTable_CostumersTable">
+          <End Role="CostumersTable" Type="Self.CostumersTable" Multiplicity="0..1" />
+          <End Role="orderDetailsTable" Type="Self.orderDetailsTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CostumersTable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="orderDetailsTable">
+              <PropertyRef Name="costumers_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_orderDetailsTable_OrdersTable">
+          <End Role="OrdersTable" Type="Self.OrdersTable" Multiplicity="0..1" />
+          <End Role="orderDetailsTable" Type="Self.orderDetailsTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrdersTable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="orderDetailsTable">
+              <PropertyRef Name="orders_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_orderFromSupplierDetailTable_orderFromSupplierTable">
           <End Role="orderFromSupplierTable" Type="Self.orderFromSupplierTable" Multiplicity="0..1" />
           <End Role="orderFromSupplierDetailTable" Type="Self.orderFromSupplierDetailTable" Multiplicity="*" />
@@ -208,18 +232,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_OrdersTable_CostumersTable">
-          <End Role="CostumersTable" Type="Self.CostumersTable" Multiplicity="0..1" />
-          <End Role="OrdersTable" Type="Self.OrdersTable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CostumersTable">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="OrdersTable">
-              <PropertyRef Name="costumer_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_OrdersTable_EmployeeTable">
           <End Role="EmployeeTable" Type="Self.EmployeeTable" Multiplicity="0..1" />
           <End Role="OrdersTable" Type="Self.OrdersTable" Multiplicity="*" />
@@ -229,18 +241,6 @@
             </Principal>
             <Dependent Role="OrdersTable">
               <PropertyRef Name="employee_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_OrdersTable_orderDetailsTable">
-          <End Role="orderDetailsTable" Type="Self.orderDetailsTable" Multiplicity="0..1" />
-          <End Role="OrdersTable" Type="Self.OrdersTable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="orderDetailsTable">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="OrdersTable">
-              <PropertyRef Name="orderDetail_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -288,6 +288,14 @@
             <End Role="EmployeeTable" EntitySet="EmployeeTable" />
             <End Role="CurrentExpendsTable" EntitySet="CurrentExpendsTable" />
           </AssociationSet>
+          <AssociationSet Name="FK_orderDetailsTable_CostumersTable" Association="Self.FK_orderDetailsTable_CostumersTable">
+            <End Role="CostumersTable" EntitySet="CostumersTable" />
+            <End Role="orderDetailsTable" EntitySet="orderDetailsTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_orderDetailsTable_OrdersTable" Association="Self.FK_orderDetailsTable_OrdersTable">
+            <End Role="OrdersTable" EntitySet="OrdersTable" />
+            <End Role="orderDetailsTable" EntitySet="orderDetailsTable" />
+          </AssociationSet>
           <AssociationSet Name="FK_orderFromSupplierDetailTable_orderFromSupplierTable" Association="Self.FK_orderFromSupplierDetailTable_orderFromSupplierTable">
             <End Role="orderFromSupplierTable" EntitySet="orderFromSupplierTable" />
             <End Role="orderFromSupplierDetailTable" EntitySet="orderFromSupplierDetailTable" />
@@ -300,16 +308,8 @@
             <End Role="EmployeeTable" EntitySet="EmployeeTable" />
             <End Role="orderFromSupplierTable" EntitySet="orderFromSupplierTable" />
           </AssociationSet>
-          <AssociationSet Name="FK_OrdersTable_CostumersTable" Association="Self.FK_OrdersTable_CostumersTable">
-            <End Role="CostumersTable" EntitySet="CostumersTable" />
-            <End Role="OrdersTable" EntitySet="OrdersTable" />
-          </AssociationSet>
           <AssociationSet Name="FK_OrdersTable_EmployeeTable" Association="Self.FK_OrdersTable_EmployeeTable">
             <End Role="EmployeeTable" EntitySet="EmployeeTable" />
-            <End Role="OrdersTable" EntitySet="OrdersTable" />
-          </AssociationSet>
-          <AssociationSet Name="FK_OrdersTable_orderDetailsTable" Association="Self.FK_OrdersTable_orderDetailsTable">
-            <End Role="orderDetailsTable" EntitySet="orderDetailsTable" />
             <End Role="OrdersTable" EntitySet="OrdersTable" />
           </AssociationSet>
           <AssociationSet Name="FK_variableExpendsTable_EmployeeTable" Association="Self.FK_variableExpendsTable_EmployeeTable">
@@ -337,9 +337,9 @@
           <EntitySet Name="supplierTable" EntityType="managingDataBaseModel.supplierTable" />
           <EntitySet Name="variableExpendsTable" EntityType="managingDataBaseModel.variableExpendsTable" />
           <EntitySet Name="variableExpendsTypeTable" EntityType="managingDataBaseModel.variableExpendsTypeTable" />
-          <AssociationSet Name="FK_OrdersTable_CostumersTable" Association="managingDataBaseModel.FK_OrdersTable_CostumersTable">
+          <AssociationSet Name="FK_orderDetailsTable_CostumersTable" Association="managingDataBaseModel.FK_orderDetailsTable_CostumersTable">
             <End Role="CostumersTable" EntitySet="CostumersTable" />
-            <End Role="OrdersTable" EntitySet="OrdersTable" />
+            <End Role="orderDetailsTable" EntitySet="orderDetailsTable" />
           </AssociationSet>
           <AssociationSet Name="FK_CurrentExpendsTable_currentExpendsTypeTable" Association="managingDataBaseModel.FK_CurrentExpendsTable_currentExpendsTypeTable">
             <End Role="currentExpendsTypeTable" EntitySet="currentExpendsTypeTable" />
@@ -361,9 +361,9 @@
             <End Role="EmployeeTable" EntitySet="EmployeeTable" />
             <End Role="variableExpendsTable" EntitySet="variableExpendsTable" />
           </AssociationSet>
-          <AssociationSet Name="FK_OrdersTable_orderDetailsTable" Association="managingDataBaseModel.FK_OrdersTable_orderDetailsTable">
-            <End Role="orderDetailsTable" EntitySet="orderDetailsTable" />
+          <AssociationSet Name="FK_orderDetailsTable_OrdersTable" Association="managingDataBaseModel.FK_orderDetailsTable_OrdersTable">
             <End Role="OrdersTable" EntitySet="OrdersTable" />
+            <End Role="orderDetailsTable" EntitySet="orderDetailsTable" />
           </AssociationSet>
           <AssociationSet Name="FK_orderFromSupplierDetailTable_orderFromSupplierTable" Association="managingDataBaseModel.FK_orderFromSupplierDetailTable_orderFromSupplierTable">
             <End Role="orderFromSupplierTable" EntitySet="orderFromSupplierTable" />
@@ -390,7 +390,7 @@
           <Property Name="E_mail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="active" Type="Int32" />
-          <NavigationProperty Name="OrdersTable" Relationship="managingDataBaseModel.FK_OrdersTable_CostumersTable" FromRole="CostumersTable" ToRole="OrdersTable" />
+          <NavigationProperty Name="orderDetailsTable" Relationship="managingDataBaseModel.FK_orderDetailsTable_CostumersTable" FromRole="CostumersTable" ToRole="orderDetailsTable" />
         </EntityType>
         <EntityType Name="CurrentExpendsTable">
           <Key>
@@ -448,9 +448,12 @@
           <Property Name="typeOfTree" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="color" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="shoeing" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="cost" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="costPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="OrdersTable" Relationship="managingDataBaseModel.FK_OrdersTable_orderDetailsTable" FromRole="orderDetailsTable" ToRole="OrdersTable" />
+          <Property Name="cost" Type="Int32" />
+          <Property Name="costPrice" Type="Int32" />
+          <Property Name="orders_id" Type="Int32" />
+          <Property Name="costumers_id" Type="Int32" />
+          <NavigationProperty Name="CostumersTable" Relationship="managingDataBaseModel.FK_orderDetailsTable_CostumersTable" FromRole="orderDetailsTable" ToRole="CostumersTable" />
+          <NavigationProperty Name="OrdersTable" Relationship="managingDataBaseModel.FK_orderDetailsTable_OrdersTable" FromRole="orderDetailsTable" ToRole="OrdersTable" />
         </EntityType>
         <EntityType Name="orderFromSupplierDetailTable">
           <Key>
@@ -488,19 +491,16 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="costumer_id" Type="Int32" />
           <Property Name="shipping_number" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="reception_number" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="employee_id" Type="Int32" />
-          <Property Name="orderDetail_id" Type="Int32" />
           <Property Name="orderDate" Type="DateTime" Precision="3" />
           <Property Name="supplyingDate" Type="DateTime" Precision="3" />
           <Property Name="notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="active" Type="Int32" />
           <Property Name="shippingAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="CostumersTable" Relationship="managingDataBaseModel.FK_OrdersTable_CostumersTable" FromRole="OrdersTable" ToRole="CostumersTable" />
           <NavigationProperty Name="EmployeeTable" Relationship="managingDataBaseModel.FK_OrdersTable_EmployeeTable" FromRole="OrdersTable" ToRole="EmployeeTable" />
-          <NavigationProperty Name="orderDetailsTable" Relationship="managingDataBaseModel.FK_OrdersTable_orderDetailsTable" FromRole="OrdersTable" ToRole="orderDetailsTable" />
+          <NavigationProperty Name="orderDetailsTable" Relationship="managingDataBaseModel.FK_orderDetailsTable_OrdersTable" FromRole="OrdersTable" ToRole="orderDetailsTable" />
         </EntityType>
         <EntityType Name="supplierTable">
           <Key>
@@ -541,15 +541,15 @@
           <Property Name="active" Type="Int32" />
           <NavigationProperty Name="variableExpendsTable" Relationship="managingDataBaseModel.FK_variableExpendsTable_variableExpendsTypeTable" FromRole="variableExpendsTypeTable" ToRole="variableExpendsTable" />
         </EntityType>
-        <Association Name="FK_OrdersTable_CostumersTable">
+        <Association Name="FK_orderDetailsTable_CostumersTable">
           <End Type="managingDataBaseModel.CostumersTable" Role="CostumersTable" Multiplicity="0..1" />
-          <End Type="managingDataBaseModel.OrdersTable" Role="OrdersTable" Multiplicity="*" />
+          <End Type="managingDataBaseModel.orderDetailsTable" Role="orderDetailsTable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CostumersTable">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="OrdersTable">
-              <PropertyRef Name="costumer_id" />
+            <Dependent Role="orderDetailsTable">
+              <PropertyRef Name="costumers_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -613,15 +613,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_OrdersTable_orderDetailsTable">
-          <End Type="managingDataBaseModel.orderDetailsTable" Role="orderDetailsTable" Multiplicity="0..1" />
-          <End Type="managingDataBaseModel.OrdersTable" Role="OrdersTable" Multiplicity="*" />
+        <Association Name="FK_orderDetailsTable_OrdersTable">
+          <End Type="managingDataBaseModel.OrdersTable" Role="OrdersTable" Multiplicity="0..1" />
+          <End Type="managingDataBaseModel.orderDetailsTable" Role="orderDetailsTable" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="orderDetailsTable">
+            <Principal Role="OrdersTable">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="OrdersTable">
-              <PropertyRef Name="orderDetail_id" />
+            <Dependent Role="orderDetailsTable">
+              <PropertyRef Name="orders_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -722,6 +722,8 @@
           <EntitySetMapping Name="orderDetailsTable">
             <EntityTypeMapping TypeName="managingDataBaseModel.orderDetailsTable">
               <MappingFragment StoreEntitySet="orderDetailsTable">
+                <ScalarProperty Name="costumers_id" ColumnName="costumers_id" />
+                <ScalarProperty Name="orders_id" ColumnName="orders_id" />
                 <ScalarProperty Name="costPrice" ColumnName="costPrice" />
                 <ScalarProperty Name="cost" ColumnName="cost" />
                 <ScalarProperty Name="shoeing" ColumnName="shoeing" />
@@ -774,11 +776,9 @@
                 <ScalarProperty Name="notes" ColumnName="notes" />
                 <ScalarProperty Name="supplyingDate" ColumnName="supplyingDate" />
                 <ScalarProperty Name="orderDate" ColumnName="orderDate" />
-                <ScalarProperty Name="orderDetail_id" ColumnName="orderDetail_id" />
                 <ScalarProperty Name="employee_id" ColumnName="employee_id" />
                 <ScalarProperty Name="reception_number" ColumnName="reception_number" />
                 <ScalarProperty Name="shipping_number" ColumnName="shipping_number" />
-                <ScalarProperty Name="costumer_id" ColumnName="costumer_id" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -1,0 +1,11 @@
+﻿<Window x:Class="WpfApp1.ContinueOrderCostumer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ContinueOrderCostumer" Height="450" Width="800">
+    <Grid>
+        <Label Content="האם תרצה להוסיף עוד הזמנות" HorizontalAlignment="Left" Margin="283,67,0,0" VerticalAlignment="Top" Width="233"/>
+        <Button Content="כן" HorizontalAlignment="Left" Margin="555,175,0,0" VerticalAlignment="Top" Width="102" Height="67" Click="Button_Click"/>
+        <Button Content="לא" HorizontalAlignment="Left" Margin="140,175,0,0" VerticalAlignment="Top" Width="88" Height="67" Click="Button_Click_1"/>
+
+    </Grid>
+</Window>

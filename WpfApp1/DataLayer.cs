@@ -100,7 +100,8 @@ namespace WpfApp1
                 name = name,
                 materialType = type,
                 price = price,
-                supplier_id = selectedSupplier.Id
+                supplier_id = selectedSupplier.Id,
+                supplierTable=selectedSupplier
             });
             db.SaveChanges();
             return ofsdt;
@@ -114,6 +115,7 @@ namespace WpfApp1
                shippingNumber = shippingNumber,
                receptionNumber = receptionNumber,
                employee_id = employee.Id,
+               EmployeeTable=employee,
                orderDate = orderDate,
                supplyingDate = supplyingDate,
                notes=notes,
@@ -127,6 +129,57 @@ namespace WpfApp1
             db.SaveChanges();
         }
 
+        public static void AddPurchaseCostumer(string shippingNumber, string receptionNumber, EmployeeTable employee,
+            DateTime orderDste, DateTime supplyingDate, string notes, string shippingAddress,
+            List<orderDetailsTable> Idlist)
+        {
+            OrdersTable ot = db.OrdersTable.Add(new OrdersTable()
+            {
+                shipping_number = shippingNumber,
+                reception_number = receptionNumber,
+                employee_id = employee.Id,
+                EmployeeTable=employee,
+                orderDate = orderDste,
+                supplyingDate = supplyingDate,
+                notes = notes,
+                active = 0,
+                shippingAddress = shippingAddress
+            });
+            db.SaveChanges();
+            foreach (orderDetailsTable element in Idlist)
+            {
+                element.orders_id = ot.Id;
+            }
+            db.SaveChanges();
+
+        }
+        
+
+        public static orderDetailsTable AddCostumerOrder(int discount, int amount, string notes, int active, string name,
+            string type, string typeOfTree, string color, string shoeing, int cost, int costPrice,
+            CostumersTable selectedCostumer)
+        {
+             orderDetailsTable odt =db.orderDetailsTable.Add(new orderDetailsTable()
+            {
+                CostumersTable = selectedCostumer,
+                discount = discount,
+                amount = amount,
+                notes = notes,
+                active = active,
+                name = name,
+                type = type,
+                typeOfTree = typeOfTree,
+                color = color,
+                shoeing = shoeing,
+                cost = cost,
+                costPrice = costPrice,
+                costumers_id = selectedCostumer.Id
+            });
+            db.SaveChanges();
+            return odt;
+
+        }
+
         public static void UpdateOrderFromSupplierDetail(string materialName, string materialType,
             int amount, int price,
             supplierTable selectedItem,orderFromSupplierDetailTable selectedOrder,int activity,string notes)
@@ -137,11 +190,31 @@ namespace WpfApp1
             ofsdt.amount = amount;
             ofsdt.price = price;
             ofsdt.supplierTable = selectedItem;
+            ofsdt.orderFromSupplier_id = selectedOrder.Id;
             ofsdt.active = activity;
             ofsdt.notes = notes;
             db.SaveChanges();
+        }
 
-
+        public static void UpdateCostumerOrder(int discount, int amount, string notes, int active, string name,
+            string type, string typeOfTree, string color, string shoeing, int cost, int cosPrice,
+            CostumersTable selectedCostumer, orderDetailsTable selectedOrder)
+        {
+            orderDetailsTable odt = selectedOrder;
+            odt.discount = discount;
+            odt.amount = amount;
+            odt.notes = notes;
+            odt.active = active;
+            odt.name = name;
+            odt.type = type;
+            odt.typeOfTree = typeOfTree;
+            odt.color = color;
+            odt.shoeing = shoeing;
+            odt.cost = cost;
+            odt.costPrice = cosPrice;
+            odt.CostumersTable = selectedCostumer;
+            odt.costumers_id = selectedCostumer.Id;
+            db.SaveChanges();
         }
 
         public static void UpdatePurchaseFromSupplier(orderFromSupplierTable selectedOrder, string shippingNumber, string receptionNumber,
@@ -152,8 +225,25 @@ namespace WpfApp1
             selectedOrder.EmployeeTable = selectedEmployee;
             selectedOrder.orderDate = orderDate;
             selectedOrder.supplyingDate = supplyingDate;
+            selectedOrder.employee_id = selectedEmployee.Id;
             selectedOrder.notes = notes;
             selectedOrder.active = active;
+            db.SaveChanges();
+        }
+
+        public static void UpdatePurchaseCostumer(OrdersTable selectedOrder, string shippingNumber,
+            string receptionNumber, EmployeeTable selectedEmployee, DateTime orderDate, DateTime supplyingDate,
+            string notes, int active, string shippingAddress)
+        {
+            selectedOrder.shipping_number = shippingNumber;
+            selectedOrder.reception_number = receptionNumber;
+            selectedOrder.employee_id = selectedEmployee.Id;
+            selectedOrder.EmployeeTable = selectedEmployee;
+            selectedOrder.orderDate = orderDate;
+            selectedOrder.supplyingDate = supplyingDate;
+            selectedOrder.notes = notes;
+            selectedOrder.active = active;
+            selectedOrder.shippingAddress = shippingAddress;
             db.SaveChanges();
         }
 
@@ -182,6 +272,16 @@ namespace WpfApp1
         public static IList<orderFromSupplierTable> GetAllOrderFromSupplierDL()
         {
             return db.orderFromSupplierTable.ToList();
+        }
+
+        public static IList<orderDetailsTable> GetAllOrderDetailDL()
+        {
+            return db.orderDetailsTable.ToList();
+        }
+
+        public static IList<OrdersTable> GetAllOrderTableDL()
+        {
+            return db.OrdersTable.ToList();
         }
     }
 }

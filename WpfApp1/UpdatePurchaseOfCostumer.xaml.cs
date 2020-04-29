@@ -15,37 +15,35 @@ using System.Windows.Shapes;
 namespace WpfApp1
 {
     /// <summary>
-    /// Interaction logic for PurchasingUpdate.xaml
+    /// Interaction logic for UpdatePurchaseOfCostumer.xaml
     /// </summary>
-    public partial class PurchasingUpdate : Window
+    public partial class UpdatePurchaseOfCostumer : Window
     {
-        private EmployeesBL employeeBL=new EmployeesBL();
-        private PurchasingFromSupplierBL purchasingFromSupplierBL=new PurchasingFromSupplierBL();
-        public PurchasingUpdate()
+        private EmployeesBL employeeBL = new EmployeesBL();
+        private PurchasingCotumer purchasingCostumerBL = new PurchasingCotumer();
+        public UpdatePurchaseOfCostumer()
         {
             InitializeComponent();
             EmployeeSelectionComboBox.ItemsSource = employeeBL.GetAll();
             EmployeeSelectionComboBox.DisplayMemberPath = "full_Name";
-            purchasingUpdateComboBox.ItemsSource = purchasingFromSupplierBL.GetAll();
+            purchasingUpdateComboBox.ItemsSource = purchasingCostumerBL.GetAll();
             purchasingUpdateComboBox.DisplayMemberPath = "Id";
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            orderFromSupplierTable selectedOrder = (orderFromSupplierTable) purchasingUpdateComboBox.SelectedItem;
-            EmployeeTable selectedEmployee = (EmployeeTable) EmployeeSelectionComboBox.SelectedItem;
-            PurchasingFromSupplierBL.UpdateBL(selectedOrder,shippingNumber_txb.Text,receptoionNumber_txb.Text,selectedEmployee,DateTime.Parse(OrderDate_txb.Text),DateTime.Parse(supplyingDate_txb.Text),notes_txb.Text,Convert.ToInt32(activity_txb.Text));
+            OrdersTable selectedOrder = (OrdersTable)purchasingUpdateComboBox.SelectedItem;
+            EmployeeTable selectedEmployee = (EmployeeTable)EmployeeSelectionComboBox.SelectedItem;
+            PurchasingCotumer.UpdatePurchaseCostumerBL(selectedOrder,shippingNumber_txb.Text,receptoionNumber_txb.Text,selectedEmployee,DateTime.Parse(OrderDate_txb.Text),DateTime.Parse(supplyingDate_txb.Text),notes_txb.Text,Convert.ToInt32(activity_txb.Text),shippingAddress_txb.Text);
         }
 
         private void EmployeeSelectionComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            EmployeeTable selectedEmployee = (EmployeeTable) EmployeeSelectionComboBox.SelectedItem;
+            EmployeeTable selectedEmployee = (EmployeeTable)EmployeeSelectionComboBox.SelectedItem;
             if (selectedEmployee.full_Name != employee_txb.Text)
             {
                 employee_txb.Text = selectedEmployee.full_Name;
             }
         }
-
-
     }
 }

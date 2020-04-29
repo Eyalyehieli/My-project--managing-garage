@@ -19,7 +19,7 @@ namespace WpfApp1
     /// </summary>
     public partial class PurchasingList : Window
     {
-        private PurchasingFromSupplierBL purchasingFromSupplierBL;
+        private PurchasingFromSupplierBL purchasingFromSupplierBL=new PurchasingFromSupplierBL();
         public PurchasingList()
         {
             InitializeComponent();

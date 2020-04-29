@@ -20,7 +20,7 @@ namespace WpfApp1
           DataLayer.UpdateCostumerDL(ct, firstName, lastName, address, phone, mail, active);
         }
 
-        public  IList<CostumersTable> GetAll()
+        public IList<CostumersTable> GetAll()
         {
            return DataLayer.GetAllCostumersDL();
         }

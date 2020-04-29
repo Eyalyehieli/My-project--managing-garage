@@ -15,28 +15,31 @@ using System.Windows.Shapes;
 namespace WpfApp1
 {
     /// <summary>
-    /// Interaction logic for ContinueOrderingMessage.xaml
+    /// Interaction logic for ContinueOrderCostumer.xaml
     /// </summary>
-    public partial class ContinueOrderingMessage : Window
+    public partial class ContinueOrderCostumer : Window
     {
-        private AddOrderFromSupplier windowAddOrderFromSupplier;
-        private List<orderFromSupplierDetailTable> Idlist;
-        public ContinueOrderingMessage(AddOrderFromSupplier window,List<orderFromSupplierDetailTable> Idlist)
+        private AddCustomerOrder windowAddCostumerOrder;
+        private List<orderDetailsTable> Idlist;
+        public ContinueOrderCostumer(AddCustomerOrder window,List<orderDetailsTable> Idlist)
         {
             InitializeComponent();
-            windowAddOrderFromSupplier = window;
+            this.windowAddCostumerOrder = window;
             this.Idlist = Idlist;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            purchaseFromSupllier pfs=new purchaseFromSupllier(Idlist);
-            pfs.ShowDialog();
+            windowAddCostumerOrder.ShowDialog();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            windowAddOrderFromSupplier.ShowDialog();
+            PurchaseCostumer pc=new PurchaseCostumer(this.Idlist);
+            pc.ShowDialog();
+
         }
+
+
     }
 }

@@ -41,5 +41,17 @@ namespace WpfApp1
             UpdateOrderOfCustomer uoos=new UpdateOrderOfCustomer();
             uoos.ShowDialog();
         }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            PurchasecostumerList pcl=new PurchasecostumerList();
+            pcl.ShowDialog();
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            UpdatePurchaseOfCostumer upoc=new UpdatePurchaseOfCostumer();
+            upoc.ShowDialog();
+        }
     }
 }

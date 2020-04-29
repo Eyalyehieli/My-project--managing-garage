@@ -15,13 +15,13 @@ using System.Windows.Shapes;
 namespace WpfApp1
 {
     /// <summary>
-    /// Interaction logic for purchaseFromSupllier.xaml
+    /// Interaction logic for PurchaseCostumer.xaml
     /// </summary>
-    public partial class purchaseFromSupllier : Window
+    public partial class PurchaseCostumer : Window
     {
-        private List<orderFromSupplierDetailTable> Idlist;
+        private List<orderDetailsTable> Idlist;
         private EmployeesBL employeeBL=new EmployeesBL();
-        public purchaseFromSupllier(List<orderFromSupplierDetailTable> Idlist)
+        public PurchaseCostumer(List<orderDetailsTable> Idlist)
         {
             InitializeComponent();
             this.Idlist = Idlist;
@@ -29,13 +29,15 @@ namespace WpfApp1
             EmployeeSelectionComboBox.DisplayMemberPath = "full_Name";
             OrderIdSelectionComboBox.ItemsSource = Idlist;
             OrderIdSelectionComboBox.DisplayMemberPath = "Id";
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            PurchasingFromSupplierBL.AddPurchaseFromSupplier(shippingNumber_txb.Text,receptoionNumber_txb.Text,(EmployeeTable)EmployeeSelectionComboBox.SelectedItem,DateTime.Parse(OrderDate_txb.Text),DateTime.Parse(supplyingDate_txb.Text),notes_txb.Text,Idlist);
+            EmployeeTable selectedEmployee = (EmployeeTable) EmployeeSelectionComboBox.SelectedItem;
+            PurchasingCotumer.AddPurchaseCostumer(shippingNumber_txb.Text, receptoionNumber_txb.Text, selectedEmployee,
+                DateTime.Parse(OrderDate_txb.Text), DateTime.Parse(supplyingDate_txb.Text), notes_txb.Text, this.Idlist,
+                shippingAddress_txb.Text);
         }
-
-
     }
 }

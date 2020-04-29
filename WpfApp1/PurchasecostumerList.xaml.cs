@@ -15,19 +15,16 @@ using System.Windows.Shapes;
 namespace WpfApp1
 {
     /// <summary>
-    /// Interaction logic for OrderFromSupllierList.xaml
+    /// Interaction logic for PurchasecostumerList.xaml
     /// </summary>
-    public partial class OrderFromSupllierList : Window
+    public partial class PurchasecostumerList : Window
     {
-        private OrderFromSupplierBL orderFromSupplierBL=new OrderFromSupplierBL();
-        public OrderFromSupllierList()
+        private PurchasingCotumer purchaseCostumerBL=new PurchasingCotumer();
+        public PurchasecostumerList()
         {
-          
             InitializeComponent();
-            IdNumberComboBox.ItemsSource = orderFromSupplierBL.GetAll();
-            IdNumberComboBox.DisplayMemberPath = "Id";
+            purchasingUpdatComboBox.ItemsSource = purchaseCostumerBL.GetAll();
+            purchasingUpdatComboBox.DisplayMemberPath = "Id";
         }
-
-      
     }
 }

@@ -19,9 +19,13 @@ namespace WpfApp1
     /// </summary>
     public partial class CustomerOrderList : Window
     {
+        private CostumerOrderBL costumerOrderBL=new CostumerOrderBL();
         public CustomerOrderList()
         {
             InitializeComponent();
+            IdOrderSelectionComboBox.ItemsSource = CostumerOrderBL.GetAll();
+            IdOrderSelectionComboBox.DisplayMemberPath = "Id";
+
         }
     }
 }

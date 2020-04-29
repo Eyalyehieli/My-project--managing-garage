@@ -14,11 +14,6 @@ namespace WpfApp1
     
     public partial class orderDetailsTable
     {
-        public orderDetailsTable()
-        {
-            this.OrdersTable = new HashSet<OrdersTable>();
-        }
-    
         public int Id { get; set; }
         public Nullable<int> discount { get; set; }
         public Nullable<int> amount { get; set; }
@@ -29,9 +24,12 @@ namespace WpfApp1
         public string typeOfTree { get; set; }
         public string color { get; set; }
         public string shoeing { get; set; }
-        public string cost { get; set; }
-        public string costPrice { get; set; }
+        public Nullable<int> cost { get; set; }
+        public Nullable<int> costPrice { get; set; }
+        public Nullable<int> orders_id { get; set; }
+        public Nullable<int> costumers_id { get; set; }
     
-        public virtual ICollection<OrdersTable> OrdersTable { get; set; }
+        public virtual CostumersTable CostumersTable { get; set; }
+        public virtual OrdersTable OrdersTable { get; set; }
     }
 }

@@ -1,0 +1,24 @@
+﻿<Window x:Class="WpfApp1.PurchaseCostumer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="PurchaseCostumer" Height="450" Width="800">
+    <Grid>
+        <Label Content="מספר משלוח" HorizontalAlignment="Left" Margin="679,34,0,0" VerticalAlignment="Top" Width="103"/>
+        <Label Content="הערות" HorizontalAlignment="Left" Margin="109,52,0,0" VerticalAlignment="Top" Width="103"/>
+        <Label Content="תאריך הספקה" HorizontalAlignment="Left" Margin="679,161,0,0" VerticalAlignment="Top" Width="103"/>
+        <Label Content="תאריך הזמנה" HorizontalAlignment="Left" Margin="679,114,0,0" VerticalAlignment="Top" Width="103"/>
+        <Label Content="מספר קבלה" HorizontalAlignment="Left" Margin="679,70,0,0" VerticalAlignment="Top" Width="103"/>
+        <Label Content="עובד שרכש" HorizontalAlignment="Left" Margin="471,34,0,0" VerticalAlignment="Top" Height="26" Width="71"/>
+        <Label Content="מספר הזמנה" HorizontalAlignment="Left" Margin="457,78,0,0" VerticalAlignment="Top" Height="26" Width="85"/>
+        <TextBox x:Name="shippingNumber_txb" HorizontalAlignment="Left" Height="23" Margin="554,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="notes_txb" HorizontalAlignment="Left" Height="168" Margin="38,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="supplyingDate_txb" HorizontalAlignment="Left" Height="23" Margin="554,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="OrderDate_txb" HorizontalAlignment="Left" Height="23" Margin="554,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="receptoionNumber_txb" HorizontalAlignment="Left" Height="23" Margin="554,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="EmployeeSelectionComboBox" HorizontalAlignment="Left" Margin="332,39,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="OrderIdSelectionComboBox" HorizontalAlignment="Left" Margin="332,82,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button Content="סיים רכישה" HorizontalAlignment="Left" Margin="170,318,0,0" VerticalAlignment="Top" Width="75" Height="42" Click="Button_Click"/>
+        <Label Content="רחוב המשלוח" HorizontalAlignment="Left" Margin="679,211,0,0" VerticalAlignment="Top" Width="113"/>
+        <TextBox x:Name="shippingAddress_txb" HorizontalAlignment="Left" Height="23" Margin="554,211,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+    </Grid>
+</Window>

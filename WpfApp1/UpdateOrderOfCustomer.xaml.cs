@@ -19,9 +19,35 @@ namespace WpfApp1
     /// </summary>
     public partial class UpdateOrderOfCustomer : Window
     {
+        private CostumersBL cotumerBL=new CostumersBL();
+        private CostumerOrderBL orderDetailBL=new CostumerOrderBL();
         public UpdateOrderOfCustomer()
         {
             InitializeComponent();
+            CostumerSelectionComboBox.ItemsSource = CostumerOrderBL.GetAll();
+            CostumerSelectionComboBox.DisplayMemberPath = "full_Name";
+            IdOrderSelectionComboBox.ItemsSource = CostumerOrderBL.GetAll();
+            IdOrderSelectionComboBox.DisplayMemberPath = "Id";
         }
+
+        private void CostumerSelectionComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            CostumersTable selectedCostumer = (CostumersTable) CostumerSelectionComboBox.SelectedItem;
+            if (selectedCostumer.full_Name != costumerName_txb.Text)
+            {
+                costumerName_txb.Text = selectedCostumer.full_Name;
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            CostumersTable selectedCostumer = (CostumersTable) CostumerSelectionComboBox.SelectedItem;
+            orderDetailsTable selectedOrder = (orderDetailsTable) IdOrderSelectionComboBox.SelectedItem;
+            CostumerOrderBL.UpdateBL(Convert.ToInt32(discount_txb.Text), Convert.ToInt32(amount_txb.Text),
+                notes_txb.Text, Convert.ToInt32(active_txb.Text), productName_txb.Text, productType_txb.Text,
+                typeOfTree_txb.Text, color_txb.Text, shoeing_txb.Text, Convert.ToInt32(cost_txb.Text),
+                Convert.ToInt32(costPrice_txb.Text), selectedCostumer, selectedOrder);
+        }
+
     }
 }

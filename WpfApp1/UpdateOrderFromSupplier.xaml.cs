@@ -19,8 +19,8 @@ namespace WpfApp1
     /// </summary>
     public partial class UpdateOrderFromSupplier : Window
     {
-        private OrderFromSupplierBL orderFromSupplierBL;
-        private SupplierBL supplierBL;
+        private OrderFromSupplierBL orderFromSupplierBL=new OrderFromSupplierBL();
+        private SupplierBL supplierBL=new SupplierBL();
         public UpdateOrderFromSupplier()
         {
             InitializeComponent();

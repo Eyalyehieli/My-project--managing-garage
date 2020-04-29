@@ -19,7 +19,7 @@ namespace WpfApp1
     /// </summary>
     public partial class AddOrderFromSupplier : Window
     {
-        private SupplierBL supplierBL;
+        private SupplierBL supplierBL=new SupplierBL();
         private List<orderFromSupplierDetailTable> IdList;
         public AddOrderFromSupplier()
         {
