@@ -1,0 +1,10 @@
+﻿<Window x:Class="WpfApp1.ExpenseAndReportsManaging"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ExpenseAndReportsManaging" Height="450" Width="800">
+    <Grid>
+        <Button Content="דוחות" HorizontalAlignment="Left" Margin="548,139,0,0" VerticalAlignment="Top" Width="100" Height="97"/>
+        <Button Content="ניהול הוצאות" HorizontalAlignment="Left" Margin="168,139,0,0" VerticalAlignment="Top" Width="96" Height="97" Click="Button_Click"/>
+
+    </Grid>
+</Window>

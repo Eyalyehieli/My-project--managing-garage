@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -98,7 +99,7 @@ namespace WpfApp1
                 notes = notes,
                 active = 0,
                 name = name,
-                materialType = type,
+                materialType =type,
                 price = price,
                 supplier_id = selectedSupplier.Id,
                 supplierTable=selectedSupplier
@@ -247,6 +248,65 @@ namespace WpfApp1
             db.SaveChanges();
         }
 
+        public static void UpdateVariableExpend(variableExpendsTable selectedVariablrExp, EmployeeTable selectedEmployee,
+            string notes, string name, int cost,
+            DateTime date,int active)
+        {
+            selectedVariablrExp.EmployeeTable = selectedEmployee;
+            selectedVariablrExp.employee_id = selectedEmployee.Id;
+            selectedVariablrExp.notes = notes;
+            selectedVariablrExp.name = name;
+            selectedVariablrExp.cost = cost;
+            selectedVariablrExp.date = date;
+            selectedVariablrExp.active = active;
+            db.SaveChanges();
+        }
+
+        public static void UpdateCurrentExpend(CurrentExpendsTable selectedCurrentExp, EmployeeTable selectedEmployee,
+            string notes, string name, int cost,
+            DateTime date,int active)
+        {
+            selectedCurrentExp.EmployeeTable = selectedEmployee;
+            selectedCurrentExp.employee_id = selectedEmployee.Id;
+            selectedCurrentExp.notes = notes;
+            selectedCurrentExp.name = name;
+            selectedCurrentExp.cost = cost;
+            selectedCurrentExp.date = date;
+            selectedCurrentExp.active = active;
+            db.SaveChanges();
+        }
+
+        public static void AddVariableExpend(EmployeeTable selectedEmployee, string notes, string name, int cost,
+            DateTime date)
+        {
+            db.variableExpendsTable.Add(new variableExpendsTable()
+            {
+                EmployeeTable = selectedEmployee,
+                employee_id = selectedEmployee.Id,
+                notes=notes,
+                active=0,
+                name=name,
+                cost=cost,
+                date=date
+            });
+            db.SaveChanges();
+        }
+
+        public static void AddCurrentExpend(EmployeeTable selectedEmployee, string notes, string name, int cost,
+            DateTime date)
+        {
+            db.CurrentExpendsTable.Add(new CurrentExpendsTable()
+            {
+                EmployeeTable = selectedEmployee,
+                employee_id = selectedEmployee.Id,
+                notes = notes,
+                active = 0,
+                name = name,
+                cost = cost,
+                date = date
+            });
+            db.SaveChanges();
+        }
        
         public static IList<CostumersTable> GetAllCostumersDL()
         {
@@ -282,6 +342,16 @@ namespace WpfApp1
         public static IList<OrdersTable> GetAllOrderTableDL()
         {
             return db.OrdersTable.ToList();
+        }
+
+        public static IList<variableExpendsTable> GetAllVariableExpends()
+        {
+            return db.variableExpendsTable.ToList();
+        }
+
+        public static IList<CurrentExpendsTable> GetAllCurrentExpends()
+        {
+            return db.CurrentExpendsTable.ToList();
         }
     }
 }

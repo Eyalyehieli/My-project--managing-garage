@@ -18,7 +18,7 @@
         <ComboBox x:Name="EmployeeSelectionComboBox" HorizontalAlignment="Left" Margin="237,38,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="EmployeeSelectionComboBox_SelectionChanged"/>
         <Button Content="עדכן" HorizontalAlignment="Left" Margin="170,318,0,0" VerticalAlignment="Top" Width="75" Height="42" Click="Button_Click"/>
         <Label Content="עובד שרכש" HorizontalAlignment="Left" Margin="679,206,0,0" VerticalAlignment="Top" Width="103"/>
-        <TextBox x:Name="employee_txb" HorizontalAlignment="Left" Height="23" Text="{Binding ElementName=purchasingUpdateComboBox, Path=SelectedItem.(local:orderFromSupplierTable.EmployeeTable).full_Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="554,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="employee_txb" HorizontalAlignment="Left" Height="23" Text="{Binding ElementName=purchasingUpdateComboBox, Path=SelectedItem.(local:orderFromSupplierTable.EmployeeTable).full_Name, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Margin="554,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label Content="מספר קנייה" HorizontalAlignment="Left" Margin="679,52,0,0" VerticalAlignment="Top" Width="86"/>
         <ComboBox x:Name="purchasingUpdateComboBox" HorizontalAlignment="Left" Margin="554,56,0,0" VerticalAlignment="Top" Width="120"/>
         <Label Content="מצב" HorizontalAlignment="Left" Margin="679,304,0,0" VerticalAlignment="Top" Width="86"/>

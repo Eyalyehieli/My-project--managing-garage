@@ -16,11 +16,12 @@ namespace WpfApp1
     {
         public int Id { get; set; }
         public Nullable<int> employee_id { get; set; }
-        public Nullable<int> currExpType_id { get; set; }
         public string notes { get; set; }
         public Nullable<int> active { get; set; }
+        public string name { get; set; }
+        public Nullable<int> cost { get; set; }
+        public Nullable<System.DateTime> date { get; set; }
     
-        public virtual currentExpendsTypeTable currentExpendsTypeTable { get; set; }
         public virtual EmployeeTable EmployeeTable { get; set; }
     }
 }

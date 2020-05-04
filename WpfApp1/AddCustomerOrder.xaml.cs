@@ -20,7 +20,7 @@ namespace WpfApp1
     public partial class AddCustomerOrder : Window
     {
         private CostumersBL costumerBL=new CostumersBL();
-        private List<orderDetailsTable> idlist; 
+        private List<orderDetailsTable> idlist=new List<orderDetailsTable>(); 
         public AddCustomerOrder()
         {
             InitializeComponent();
@@ -48,6 +48,7 @@ namespace WpfApp1
             idlist.Add(odt);
 
             ContinueOrderCostumer coc= new ContinueOrderCostumer(this,this.idlist);
+            this.Hide();
             coc.ShowDialog();
 
         }

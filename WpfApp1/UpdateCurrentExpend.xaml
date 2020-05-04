@@ -1,0 +1,25 @@
+﻿<Window x:Class="WpfApp1.UpdateCurrentExpend"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:WpfApp1"
+        Title="UpdateCurrentExpend" Height="450" Width="800">
+    <Grid>
+        <ComboBox x:Name="employeeSlelctionComboBox" HorizontalAlignment="Left" Margin="506,208,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="employeeSlelctionComboBox_SelectionChanged"/>
+        <Label Content="שינוי עובד" HorizontalAlignment="Left" Margin="658,204,0,0" VerticalAlignment="Top" Width="111"/>
+        <Label Content="הערות" HorizontalAlignment="Left" Margin="203,33,0,0" VerticalAlignment="Top" Width="111"/>
+        <Label Content="תאריך" HorizontalAlignment="Left" Margin="658,165,0,0" VerticalAlignment="Top" Width="111"/>
+        <Label Content="סכום ההוצאה" HorizontalAlignment="Left" Margin="658,115,0,0" VerticalAlignment="Top" Width="111"/>
+        <Label Content="שם ההוצאה" HorizontalAlignment="Left" Margin="658,70,0,0" VerticalAlignment="Top" Width="111"/>
+        <TextBox x:Name="name_txb" HorizontalAlignment="Left" Height="23" Margin="506,70,0,0" TextWrapping="Wrap" Text="{Binding ElementName=selectionCurrentExpendComboBox, Path=SelectedItem.(local:CurrentExpendsTable.name), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="notes_txb" HorizontalAlignment="Left" Height="190" Margin="45,56,0,0" TextWrapping="Wrap" Text="{Binding ElementName=selectionCurrentExpendComboBox, Path=SelectedItem.(local:CurrentExpendsTable.notes), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="153"/>
+        <TextBox x:Name="date_txb" HorizontalAlignment="Left" Height="23" Margin="506,165,0,0" TextWrapping="Wrap" Text="{Binding ElementName=selectionCurrentExpendComboBox, Path=SelectedItem.(local:CurrentExpendsTable.date), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="cost_txb" HorizontalAlignment="Left" Height="23" Margin="506,115,0,0" TextWrapping="Wrap" Text="{Binding ElementName=selectionCurrentExpendComboBox, Path=SelectedItem.(local:CurrentExpendsTable.cost), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <Button Content="עדכן" HorizontalAlignment="Left" Margin="123,317,0,0" VerticalAlignment="Top" Width="93" Height="36" Click="Button_Click"/>
+        <Label Content="עובד" HorizontalAlignment="Left" Margin="658,258,0,0" VerticalAlignment="Top" Width="111"/>
+        <TextBox x:Name="employeeName_txb" HorizontalAlignment="Left" Height="23" Text="{Binding ElementName=selectionCurrentExpendComboBox, Path=SelectedItem.(local:CurrentExpendsTable.EmployeeTable).full_Name, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Margin="506,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="selectionCurrentExpendComboBox" HorizontalAlignment="Left" Margin="506,33,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="מספר הוצאה" HorizontalAlignment="Left" Margin="658,33,0,0" VerticalAlignment="Top" Width="111"/>
+        <Label Content="מצב" HorizontalAlignment="Left" Margin="658,306,0,0" VerticalAlignment="Top" Width="111"/>
+        <TextBox x:Name="active_txb" HorizontalAlignment="Left" Height="23" Text="{Binding ElementName=selectionCurrentExpendComboBox, Path=SelectedItem.(local:CurrentExpendsTable.active), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="506,306,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+    </Grid>
+</Window>

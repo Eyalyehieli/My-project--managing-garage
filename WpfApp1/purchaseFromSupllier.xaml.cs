@@ -34,6 +34,7 @@ namespace WpfApp1
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             PurchasingFromSupplierBL.AddPurchaseFromSupplier(shippingNumber_txb.Text,receptoionNumber_txb.Text,(EmployeeTable)EmployeeSelectionComboBox.SelectedItem,DateTime.Parse(OrderDate_txb.Text),DateTime.Parse(supplyingDate_txb.Text),notes_txb.Text,Idlist);
+            this.Close();
         }
 
 

@@ -15,30 +15,31 @@ using System.Windows.Shapes;
 namespace WpfApp1
 {
     /// <summary>
-    /// Interaction logic for ContinueOrderingMessage.xaml
+    /// Interaction logic for VariableExpendsManaging.xaml
     /// </summary>
-    public partial class ContinueOrderingMessage : Window
+    public partial class VariableExpendsManaging : Window
     {
-        private AddOrderFromSupplier windowAddOrderFromSupplier;
-        private List<orderFromSupplierDetailTable> Idlist;
-        public ContinueOrderingMessage(AddOrderFromSupplier window,List<orderFromSupplierDetailTable> Idlist)
+        public VariableExpendsManaging()
         {
             InitializeComponent();
-            windowAddOrderFromSupplier = window;
-            this.Idlist = Idlist;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            purchaseFromSupllier pfs=new purchaseFromSupllier(Idlist);
-            pfs.ShowDialog();
+            AddVariableExpend ave=new AddVariableExpend();
+            ave.ShowDialog();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            this.Hide();
-            windowAddOrderFromSupplier.Show();
-     
+            UpdateVariableExpend uve=new UpdateVariableExpend();
+            uve.ShowDialog();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            VariableExpendsList vel=new VariableExpendsList();
+            vel.ShowDialog();
         }
     }
 }

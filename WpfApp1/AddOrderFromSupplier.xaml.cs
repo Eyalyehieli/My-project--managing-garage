@@ -20,7 +20,7 @@ namespace WpfApp1
     public partial class AddOrderFromSupplier : Window
     {
         private SupplierBL supplierBL=new SupplierBL();
-        private List<orderFromSupplierDetailTable> IdList;
+        private List<orderFromSupplierDetailTable> IdList=new List<orderFromSupplierDetailTable>();
         public AddOrderFromSupplier()
         {
             InitializeComponent();
@@ -38,8 +38,10 @@ namespace WpfApp1
             type_txb.Text = "";
             price_txb.Text = "";
             notes_txb.Text = "";
+            amount_txb.Text = "";
             IdList.Add(id);
             ContinueOrderingMessage com =new ContinueOrderingMessage(this,this.IdList);
+            this.Hide();
             com.ShowDialog();
 
         }

@@ -47,6 +47,7 @@ namespace WpfApp1
                 notes_txb.Text, Convert.ToInt32(active_txb.Text), productName_txb.Text, productType_txb.Text,
                 typeOfTree_txb.Text, color_txb.Text, shoeing_txb.Text, Convert.ToInt32(cost_txb.Text),
                 Convert.ToInt32(costPrice_txb.Text), selectedCostumer, selectedOrder);
+            this.Close();
         }
 
     }

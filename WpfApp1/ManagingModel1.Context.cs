@@ -27,7 +27,6 @@ namespace WpfApp1
     
         public virtual DbSet<CostumersTable> CostumersTable { get; set; }
         public virtual DbSet<CurrentExpendsTable> CurrentExpendsTable { get; set; }
-        public virtual DbSet<currentExpendsTypeTable> currentExpendsTypeTable { get; set; }
         public virtual DbSet<EmployeeTable> EmployeeTable { get; set; }
         public virtual DbSet<orderDetailsTable> orderDetailsTable { get; set; }
         public virtual DbSet<orderFromSupplierDetailTable> orderFromSupplierDetailTable { get; set; }
@@ -35,6 +34,5 @@ namespace WpfApp1
         public virtual DbSet<OrdersTable> OrdersTable { get; set; }
         public virtual DbSet<supplierTable> supplierTable { get; set; }
         public virtual DbSet<variableExpendsTable> variableExpendsTable { get; set; }
-        public virtual DbSet<variableExpendsTypeTable> variableExpendsTypeTable { get; set; }
     }
 }

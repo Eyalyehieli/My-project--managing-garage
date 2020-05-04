@@ -22,22 +22,13 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="employee_id" Type="int" />
-          <Property Name="currExpType_id" Type="int" />
           <Property Name="notes" Type="nvarchar(max)" />
           <Property Name="active" Type="int" />
-        </EntityType>
-        <EntityType Name="currentExpendsTypeTable">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="name" Type="nvarchar(max)" />
           <Property Name="cost" Type="int" />
           <Property Name="date" Type="datetime" />
-          <Property Name="notes" Type="nvarchar(max)" />
-          <Property Name="active" Type="int" />
         </EntityType>
         <EntityType Name="EmployeeTable">
           <Key>
@@ -57,7 +48,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="discount" Type="int" />
           <Property Name="amount" Type="int" />
           <Property Name="notes" Type="nvarchar(max)" />
@@ -76,7 +67,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="amount" Type="int" />
           <Property Name="notes" Type="nvarchar(max)" />
           <Property Name="active" Type="int" />
@@ -131,35 +122,14 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="employee_id" Type="int" />
-          <Property Name="varExpType_id" Type="int" />
           <Property Name="notes" Type="nvarchar(max)" />
           <Property Name="active" Type="int" />
-        </EntityType>
-        <EntityType Name="variableExpendsTypeTable">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="name" Type="nvarchar(max)" />
           <Property Name="cost" Type="int" />
           <Property Name="date" Type="datetime" />
-          <Property Name="notes" Type="nvarchar(max)" />
-          <Property Name="active" Type="int" />
         </EntityType>
-        <Association Name="FK_CurrentExpendsTable_currentExpendsTypeTable">
-          <End Role="currentExpendsTypeTable" Type="Self.currentExpendsTypeTable" Multiplicity="0..1" />
-          <End Role="CurrentExpendsTable" Type="Self.CurrentExpendsTable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="currentExpendsTypeTable">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="CurrentExpendsTable">
-              <PropertyRef Name="currExpType_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_CurrentExpendsTable_EmployeeTable">
           <End Role="EmployeeTable" Type="Self.EmployeeTable" Multiplicity="0..1" />
           <End Role="CurrentExpendsTable" Type="Self.CurrentExpendsTable" Multiplicity="*" />
@@ -256,22 +226,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_variableExpendsTable_variableExpendsTypeTable">
-          <End Role="variableExpendsTypeTable" Type="Self.variableExpendsTypeTable" Multiplicity="0..1" />
-          <End Role="variableExpendsTable" Type="Self.variableExpendsTable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="variableExpendsTypeTable">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="variableExpendsTable">
-              <PropertyRef Name="varExpType_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="managingDataBaseModelStoreContainer">
           <EntitySet Name="CostumersTable" EntityType="Self.CostumersTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CurrentExpendsTable" EntityType="Self.CurrentExpendsTable" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="currentExpendsTypeTable" EntityType="Self.currentExpendsTypeTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EmployeeTable" EntityType="Self.EmployeeTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="orderDetailsTable" EntityType="Self.orderDetailsTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="orderFromSupplierDetailTable" EntityType="Self.orderFromSupplierDetailTable" Schema="dbo" store:Type="Tables" />
@@ -279,11 +236,6 @@
           <EntitySet Name="OrdersTable" EntityType="Self.OrdersTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="supplierTable" EntityType="Self.supplierTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="variableExpendsTable" EntityType="Self.variableExpendsTable" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="variableExpendsTypeTable" EntityType="Self.variableExpendsTypeTable" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_CurrentExpendsTable_currentExpendsTypeTable" Association="Self.FK_CurrentExpendsTable_currentExpendsTypeTable">
-            <End Role="currentExpendsTypeTable" EntitySet="currentExpendsTypeTable" />
-            <End Role="CurrentExpendsTable" EntitySet="CurrentExpendsTable" />
-          </AssociationSet>
           <AssociationSet Name="FK_CurrentExpendsTable_EmployeeTable" Association="Self.FK_CurrentExpendsTable_EmployeeTable">
             <End Role="EmployeeTable" EntitySet="EmployeeTable" />
             <End Role="CurrentExpendsTable" EntitySet="CurrentExpendsTable" />
@@ -316,10 +268,6 @@
             <End Role="EmployeeTable" EntitySet="EmployeeTable" />
             <End Role="variableExpendsTable" EntitySet="variableExpendsTable" />
           </AssociationSet>
-          <AssociationSet Name="FK_variableExpendsTable_variableExpendsTypeTable" Association="Self.FK_variableExpendsTable_variableExpendsTypeTable">
-            <End Role="variableExpendsTypeTable" EntitySet="variableExpendsTypeTable" />
-            <End Role="variableExpendsTable" EntitySet="variableExpendsTable" />
-          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -328,7 +276,6 @@
         <EntityContainer Name="managingDataBaseEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CostumersTable" EntityType="managingDataBaseModel.CostumersTable" />
           <EntitySet Name="CurrentExpendsTable" EntityType="managingDataBaseModel.CurrentExpendsTable" />
-          <EntitySet Name="currentExpendsTypeTable" EntityType="managingDataBaseModel.currentExpendsTypeTable" />
           <EntitySet Name="EmployeeTable" EntityType="managingDataBaseModel.EmployeeTable" />
           <EntitySet Name="orderDetailsTable" EntityType="managingDataBaseModel.orderDetailsTable" />
           <EntitySet Name="orderFromSupplierDetailTable" EntityType="managingDataBaseModel.orderFromSupplierDetailTable" />
@@ -336,14 +283,9 @@
           <EntitySet Name="OrdersTable" EntityType="managingDataBaseModel.OrdersTable" />
           <EntitySet Name="supplierTable" EntityType="managingDataBaseModel.supplierTable" />
           <EntitySet Name="variableExpendsTable" EntityType="managingDataBaseModel.variableExpendsTable" />
-          <EntitySet Name="variableExpendsTypeTable" EntityType="managingDataBaseModel.variableExpendsTypeTable" />
           <AssociationSet Name="FK_orderDetailsTable_CostumersTable" Association="managingDataBaseModel.FK_orderDetailsTable_CostumersTable">
             <End Role="CostumersTable" EntitySet="CostumersTable" />
             <End Role="orderDetailsTable" EntitySet="orderDetailsTable" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CurrentExpendsTable_currentExpendsTypeTable" Association="managingDataBaseModel.FK_CurrentExpendsTable_currentExpendsTypeTable">
-            <End Role="currentExpendsTypeTable" EntitySet="currentExpendsTypeTable" />
-            <End Role="CurrentExpendsTable" EntitySet="CurrentExpendsTable" />
           </AssociationSet>
           <AssociationSet Name="FK_CurrentExpendsTable_EmployeeTable" Association="managingDataBaseModel.FK_CurrentExpendsTable_EmployeeTable">
             <End Role="EmployeeTable" EntitySet="EmployeeTable" />
@@ -373,10 +315,6 @@
             <End Role="supplierTable" EntitySet="supplierTable" />
             <End Role="orderFromSupplierDetailTable" EntitySet="orderFromSupplierDetailTable" />
           </AssociationSet>
-          <AssociationSet Name="FK_variableExpendsTable_variableExpendsTypeTable" Association="managingDataBaseModel.FK_variableExpendsTable_variableExpendsTypeTable">
-            <End Role="variableExpendsTypeTable" EntitySet="variableExpendsTypeTable" />
-            <End Role="variableExpendsTable" EntitySet="variableExpendsTable" />
-          </AssociationSet>
         </EntityContainer>
         <EntityType Name="CostumersTable">
           <Key>
@@ -396,25 +334,14 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="employee_id" Type="Int32" />
-          <Property Name="currExpType_id" Type="Int32" />
           <Property Name="notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="active" Type="Int32" />
-          <NavigationProperty Name="currentExpendsTypeTable" Relationship="managingDataBaseModel.FK_CurrentExpendsTable_currentExpendsTypeTable" FromRole="CurrentExpendsTable" ToRole="currentExpendsTypeTable" />
-          <NavigationProperty Name="EmployeeTable" Relationship="managingDataBaseModel.FK_CurrentExpendsTable_EmployeeTable" FromRole="CurrentExpendsTable" ToRole="EmployeeTable" />
-        </EntityType>
-        <EntityType Name="currentExpendsTypeTable">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="cost" Type="Int32" />
           <Property Name="date" Type="DateTime" Precision="3" />
-          <Property Name="notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="active" Type="Int32" />
-          <NavigationProperty Name="CurrentExpendsTable" Relationship="managingDataBaseModel.FK_CurrentExpendsTable_currentExpendsTypeTable" FromRole="currentExpendsTypeTable" ToRole="CurrentExpendsTable" />
+          <NavigationProperty Name="EmployeeTable" Relationship="managingDataBaseModel.FK_CurrentExpendsTable_EmployeeTable" FromRole="CurrentExpendsTable" ToRole="EmployeeTable" />
         </EntityType>
         <EntityType Name="EmployeeTable">
           <Key>
@@ -438,7 +365,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="discount" Type="Int32" />
           <Property Name="amount" Type="Int32" />
           <Property Name="notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -459,7 +386,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="amount" Type="Int32" />
           <Property Name="notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="active" Type="Int32" />
@@ -521,25 +448,14 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="employee_id" Type="Int32" />
-          <Property Name="varExpType_id" Type="Int32" />
           <Property Name="notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="active" Type="Int32" />
-          <NavigationProperty Name="EmployeeTable" Relationship="managingDataBaseModel.FK_variableExpendsTable_EmployeeTable" FromRole="variableExpendsTable" ToRole="EmployeeTable" />
-          <NavigationProperty Name="variableExpendsTypeTable" Relationship="managingDataBaseModel.FK_variableExpendsTable_variableExpendsTypeTable" FromRole="variableExpendsTable" ToRole="variableExpendsTypeTable" />
-        </EntityType>
-        <EntityType Name="variableExpendsTypeTable">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="cost" Type="Int32" />
           <Property Name="date" Type="DateTime" Precision="3" />
-          <Property Name="notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="active" Type="Int32" />
-          <NavigationProperty Name="variableExpendsTable" Relationship="managingDataBaseModel.FK_variableExpendsTable_variableExpendsTypeTable" FromRole="variableExpendsTypeTable" ToRole="variableExpendsTable" />
+          <NavigationProperty Name="EmployeeTable" Relationship="managingDataBaseModel.FK_variableExpendsTable_EmployeeTable" FromRole="variableExpendsTable" ToRole="EmployeeTable" />
         </EntityType>
         <Association Name="FK_orderDetailsTable_CostumersTable">
           <End Type="managingDataBaseModel.CostumersTable" Role="CostumersTable" Multiplicity="0..1" />
@@ -550,18 +466,6 @@
             </Principal>
             <Dependent Role="orderDetailsTable">
               <PropertyRef Name="costumers_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CurrentExpendsTable_currentExpendsTypeTable">
-          <End Type="managingDataBaseModel.currentExpendsTypeTable" Role="currentExpendsTypeTable" Multiplicity="0..1" />
-          <End Type="managingDataBaseModel.CurrentExpendsTable" Role="CurrentExpendsTable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="currentExpendsTypeTable">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="CurrentExpendsTable">
-              <PropertyRef Name="currExpType_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -649,18 +553,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_variableExpendsTable_variableExpendsTypeTable">
-          <End Type="managingDataBaseModel.variableExpendsTypeTable" Role="variableExpendsTypeTable" Multiplicity="0..1" />
-          <End Type="managingDataBaseModel.variableExpendsTable" Role="variableExpendsTable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="variableExpendsTypeTable">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="variableExpendsTable">
-              <PropertyRef Name="varExpType_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -684,22 +576,12 @@
           <EntitySetMapping Name="CurrentExpendsTable">
             <EntityTypeMapping TypeName="managingDataBaseModel.CurrentExpendsTable">
               <MappingFragment StoreEntitySet="CurrentExpendsTable">
-                <ScalarProperty Name="active" ColumnName="active" />
-                <ScalarProperty Name="notes" ColumnName="notes" />
-                <ScalarProperty Name="currExpType_id" ColumnName="currExpType_id" />
-                <ScalarProperty Name="employee_id" ColumnName="employee_id" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="currentExpendsTypeTable">
-            <EntityTypeMapping TypeName="managingDataBaseModel.currentExpendsTypeTable">
-              <MappingFragment StoreEntitySet="currentExpendsTypeTable">
-                <ScalarProperty Name="active" ColumnName="active" />
-                <ScalarProperty Name="notes" ColumnName="notes" />
                 <ScalarProperty Name="date" ColumnName="date" />
                 <ScalarProperty Name="cost" ColumnName="cost" />
                 <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="employee_id" ColumnName="employee_id" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -801,22 +683,12 @@
           <EntitySetMapping Name="variableExpendsTable">
             <EntityTypeMapping TypeName="managingDataBaseModel.variableExpendsTable">
               <MappingFragment StoreEntitySet="variableExpendsTable">
-                <ScalarProperty Name="active" ColumnName="active" />
-                <ScalarProperty Name="notes" ColumnName="notes" />
-                <ScalarProperty Name="varExpType_id" ColumnName="varExpType_id" />
-                <ScalarProperty Name="employee_id" ColumnName="employee_id" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="variableExpendsTypeTable">
-            <EntityTypeMapping TypeName="managingDataBaseModel.variableExpendsTypeTable">
-              <MappingFragment StoreEntitySet="variableExpendsTypeTable">
-                <ScalarProperty Name="active" ColumnName="active" />
-                <ScalarProperty Name="notes" ColumnName="notes" />
                 <ScalarProperty Name="date" ColumnName="date" />
                 <ScalarProperty Name="cost" ColumnName="cost" />
                 <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="employee_id" ColumnName="employee_id" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

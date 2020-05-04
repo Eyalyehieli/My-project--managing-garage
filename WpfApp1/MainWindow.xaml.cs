@@ -49,5 +49,11 @@ namespace WpfApp1
             ordersType ot = new ordersType();
             ot.ShowDialog();
         }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            ExpenseAndReportsManaging ear=new ExpenseAndReportsManaging();
+            ear.ShowDialog();
+        }
     }
 }

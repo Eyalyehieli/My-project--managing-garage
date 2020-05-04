@@ -38,6 +38,7 @@ namespace WpfApp1
             PurchasingCotumer.AddPurchaseCostumer(shippingNumber_txb.Text, receptoionNumber_txb.Text, selectedEmployee,
                 DateTime.Parse(OrderDate_txb.Text), DateTime.Parse(supplyingDate_txb.Text), notes_txb.Text, this.Idlist,
                 shippingAddress_txb.Text);
+            this.Close();
         }
     }
 }

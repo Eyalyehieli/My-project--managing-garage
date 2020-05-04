@@ -1,0 +1,11 @@
+﻿<Window x:Class="WpfApp1.VariableExpendsManaging"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="VariableExpendsManaging" Height="450" Width="800">
+    <Grid>
+        <Button Content="הוספת הוצאה" HorizontalAlignment="Left" Margin="626,142,0,0" VerticalAlignment="Top" Width="96" Height="79" Click="Button_Click"/>
+        <Button Content="עדכון הוצאה" HorizontalAlignment="Left" Margin="351,142,0,0" VerticalAlignment="Top" Width="97" Height="79" Click="Button_Click_1"/>
+        <Button Content="רשימת הוצאות" HorizontalAlignment="Left" Margin="97,142,0,0" VerticalAlignment="Top" Width="93" Height="79" Click="Button_Click_2"/>
+
+    </Grid>
+</Window>

@@ -36,6 +36,7 @@ namespace WpfApp1
             supplierTable selectedItem = (supplierTable) supplierChangingComboBox.SelectedItem;
            OrderFromSupplierBL.UpdateBL (materialName.Text, materialType.Text, Convert.ToInt32(amount.Text), Convert.ToInt32(price.Text), selectedItem, selectedOrder, Convert.ToInt32(activity.Text),notes.Text)
             ;
+           this.Close();
         }
 
         private void supplierChangingComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

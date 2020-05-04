@@ -79,6 +79,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddCurrentExpend.xaml.cs">
+      <DependentUpon>AddCurrentExpend.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddCustomerOrder.xaml.cs">
       <DependentUpon>AddCustomerOrder.xaml</DependentUpon>
     </Compile>
@@ -90,6 +93,9 @@
     </Compile>
     <Compile Include="AddSupplier.xaml.cs">
       <DependentUpon>AddSupplier.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddVariableExpend.xaml.cs">
+      <DependentUpon>AddVariableExpend.xaml</DependentUpon>
     </Compile>
     <Compile Include="ContinueOrderCostumer.xaml.cs">
       <DependentUpon>ContinueOrderCostumer.xaml</DependentUpon>
@@ -103,10 +109,13 @@
       <DependentUpon>ManagingModel1.tt</DependentUpon>
     </Compile>
     <Compile Include="CostumersTableExt.cs" />
-    <Compile Include="CurrentExpendsTable.cs">
-      <DependentUpon>ManagingModel1.tt</DependentUpon>
+    <Compile Include="CurrentExpendsList.xaml.cs">
+      <DependentUpon>CurrentExpendsList.xaml</DependentUpon>
     </Compile>
-    <Compile Include="currentExpendsTypeTable.cs">
+    <Compile Include="CurrentExpendsManaging.xaml.cs">
+      <DependentUpon>CurrentExpendsManaging.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CurrentExpendsTable.cs">
       <DependentUpon>ManagingModel1.tt</DependentUpon>
     </Compile>
     <Compile Include="CustomerOrderList.xaml.cs">
@@ -116,6 +125,13 @@
       <DependentUpon>customerOrderManaging.xaml</DependentUpon>
     </Compile>
     <Compile Include="DataLayer.cs" />
+    <Compile Include="Expends.cs" />
+    <Compile Include="ExpenseAndReportsManaging.xaml.cs">
+      <DependentUpon>ExpenseAndReportsManaging.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ExpensesManaging.xaml.cs">
+      <DependentUpon>ExpensesManaging.xaml</DependentUpon>
+    </Compile>
     <Compile Include="orderDetailsTable.cs">
       <DependentUpon>ManagingModel1.tt</DependentUpon>
     </Compile>
@@ -171,6 +187,9 @@
     <Compile Include="SupplierUpdating.xaml.cs">
       <DependentUpon>SupplierUpdating.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UpdateCurrentExpend.xaml.cs">
+      <DependentUpon>UpdateCurrentExpend.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UpdateOrderFromSupplier.xaml.cs">
       <DependentUpon>UpdateOrderFromSupplier.xaml</DependentUpon>
     </Compile>
@@ -180,13 +199,23 @@
     <Compile Include="UpdatePurchaseOfCostumer.xaml.cs">
       <DependentUpon>UpdatePurchaseOfCostumer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UpdateVariableExpend.xaml.cs">
+      <DependentUpon>UpdateVariableExpend.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VariableExpendsList.xaml.cs">
+      <DependentUpon>VariableExpendsList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VariableExpendsManaging.xaml.cs">
+      <DependentUpon>VariableExpendsManaging.xaml</DependentUpon>
+    </Compile>
     <Compile Include="variableExpendsTable.cs">
       <DependentUpon>ManagingModel1.tt</DependentUpon>
     </Compile>
-    <Compile Include="variableExpendsTypeTable.cs">
-      <DependentUpon>ManagingModel1.tt</DependentUpon>
-    </Compile>
     <Page Include="AddCostumer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddCurrentExpend.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -205,6 +234,10 @@
     <Page Include="AddSupplier.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AddVariableExpend.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ContinueOrderCostumer.xaml">
       <SubType>Designer</SubType>
@@ -226,6 +259,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CurrentExpendsList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CurrentExpendsManaging.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CustomerOrderList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -243,6 +284,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="EmployeeUpdaing.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ExpenseAndReportsManaging.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ExpensesManaging.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -331,6 +380,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="UpdateCurrentExpend.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UpdateOrderFromSupplier.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -340,6 +393,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UpdatePurchaseOfCostumer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateVariableExpend.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VariableExpendsList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VariableExpendsManaging.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

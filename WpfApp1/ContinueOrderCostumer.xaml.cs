@@ -30,7 +30,8 @@ namespace WpfApp1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            windowAddCostumerOrder.ShowDialog();
+           this.Hide();
+            windowAddCostumerOrder.Show();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
