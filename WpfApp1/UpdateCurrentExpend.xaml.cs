@@ -47,10 +47,6 @@ namespace WpfApp1
             string dateString;
             DateTime dateValue;
             DateTime myDateTime;
-             //5/01/2009 8:30 AM
-            //3/1/2002 12:00:00 AM
-            //date_txb.Text
-            //myDateTime = DateTime.ParseExact(date_txb.Text, "MM/dd/yyyy hh:mm:ss tt zzz", enUS, DateTimeStyles.AdjustToUniversal);
              myDateTime = DateTime.Parse(date_txb.Text);
             
             Expends.UpdateCurrentExpend((CurrentExpendsTable)selectionCurrentExpendComboBox.SelectedItem, (EmployeeTable)employeeSlelctionComboBox.SelectedItem, notes_txb.Text, name_txb.Text, Convert.ToInt32(cost_txb.Text), myDateTime, Convert.ToInt32(active_txb.Text));

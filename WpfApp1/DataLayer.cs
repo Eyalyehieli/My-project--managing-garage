@@ -190,7 +190,11 @@ namespace WpfApp1
             ofsdt.materialType = materialType;
             ofsdt.amount = amount;
             ofsdt.price = price;
-            ofsdt.supplierTable = selectedItem;
+            if (selectedItem != null)
+            {
+                ofsdt.supplierTable = selectedItem;
+                ofsdt.supplierTable.Id = selectedItem.Id;
+            }
             ofsdt.orderFromSupplier_id = selectedOrder.Id;
             ofsdt.active = activity;
             ofsdt.notes = notes;
@@ -213,8 +217,11 @@ namespace WpfApp1
             odt.shoeing = shoeing;
             odt.cost = cost;
             odt.costPrice = cosPrice;
-            odt.CostumersTable = selectedCostumer;
-            odt.costumers_id = selectedCostumer.Id;
+            if (selectedCostumer != null)
+            {
+                odt.CostumersTable = selectedCostumer;
+                odt.costumers_id = selectedCostumer.Id;
+            }
             db.SaveChanges();
         }
 
@@ -223,10 +230,13 @@ namespace WpfApp1
         {
             selectedOrder.shippingNumber = shippingNumber;
             selectedOrder.receptionNumber = receptionNumber;
-            selectedOrder.EmployeeTable = selectedEmployee;
             selectedOrder.orderDate = orderDate;
             selectedOrder.supplyingDate = supplyingDate;
-            selectedOrder.employee_id = selectedEmployee.Id;
+            if (selectedEmployee != null)
+            {
+                selectedOrder.employee_id = selectedEmployee.Id;
+                selectedOrder.EmployeeTable = selectedEmployee;
+            }
             selectedOrder.notes = notes;
             selectedOrder.active = active;
             db.SaveChanges();
@@ -238,8 +248,11 @@ namespace WpfApp1
         {
             selectedOrder.shipping_number = shippingNumber;
             selectedOrder.reception_number = receptionNumber;
-            selectedOrder.employee_id = selectedEmployee.Id;
-            selectedOrder.EmployeeTable = selectedEmployee;
+            if (selectedEmployee != null)
+            {
+                selectedOrder.employee_id = selectedEmployee.Id;
+                selectedOrder.EmployeeTable = selectedEmployee;
+            }
             selectedOrder.orderDate = orderDate;
             selectedOrder.supplyingDate = supplyingDate;
             selectedOrder.notes = notes;
@@ -252,8 +265,11 @@ namespace WpfApp1
             string notes, string name, int cost,
             DateTime date,int active)
         {
-            selectedVariablrExp.EmployeeTable = selectedEmployee;
-            selectedVariablrExp.employee_id = selectedEmployee.Id;
+            if (selectedEmployee != null)
+            {
+                selectedVariablrExp.EmployeeTable = selectedEmployee;
+                selectedVariablrExp.employee_id = selectedEmployee.Id;
+            }
             selectedVariablrExp.notes = notes;
             selectedVariablrExp.name = name;
             selectedVariablrExp.cost = cost;
@@ -266,8 +282,11 @@ namespace WpfApp1
             string notes, string name, int cost,
             DateTime date,int active)
         {
-            selectedCurrentExp.EmployeeTable = selectedEmployee;
-            selectedCurrentExp.employee_id = selectedEmployee.Id;
+            if (selectedEmployee != null)
+            {
+                selectedCurrentExp.EmployeeTable = selectedEmployee;
+                selectedCurrentExp.employee_id = selectedEmployee.Id;
+            }
             selectedCurrentExp.notes = notes;
             selectedCurrentExp.name = name;
             selectedCurrentExp.cost = cost;
