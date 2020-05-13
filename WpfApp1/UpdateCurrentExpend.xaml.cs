@@ -42,14 +42,7 @@ namespace WpfApp1
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
-            CultureInfo enUS = new CultureInfo("en-US");
-            //dec.ToString(CultureInfo.InvariantCulture);
-            string dateString;
-            DateTime dateValue;
-            DateTime myDateTime;
-             myDateTime = DateTime.Parse(date_txb.Text);
-            
-            Expends.UpdateCurrentExpend((CurrentExpendsTable)selectionCurrentExpendComboBox.SelectedItem, (EmployeeTable)employeeSlelctionComboBox.SelectedItem, notes_txb.Text, name_txb.Text, Convert.ToInt32(cost_txb.Text), myDateTime, Convert.ToInt32(active_txb.Text));
+            Expends.UpdateCurrentExpend((CurrentExpendsTable)selectionCurrentExpendComboBox.SelectedItem, (EmployeeTable)employeeSlelctionComboBox.SelectedItem, notes_txb.Text, name_txb.Text, Convert.ToInt32(cost_txb.Text), Convert.ToDateTime(date_Picker.Text), Convert.ToInt32(active_txb.Text));
             this.Close();
         }
 

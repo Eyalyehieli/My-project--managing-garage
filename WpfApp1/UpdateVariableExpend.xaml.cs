@@ -20,7 +20,7 @@ namespace WpfApp1
     public partial class UpdateVariableExpend : Window
     {
         EmployeesBL employeeBL=new EmployeesBL();
-        private int flag;
+    
         public UpdateVariableExpend()
         {
             InitializeComponent();
@@ -28,11 +28,10 @@ namespace WpfApp1
             selectionVarialeExpendComboBox.DisplayMemberPath = "Id";
             employeeSlelctionComboBox.ItemsSource = employeeBL.GetAll();
             employeeSlelctionComboBox.DisplayMemberPath = "full_Name";
-            flag = 0;
+           
         }
         private void employeeSlelctionComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            int flag = 1;
             EmployeeTable selectedEmployee = (EmployeeTable) employeeSlelctionComboBox.SelectedItem;
             if (selectedEmployee.full_Name != employeeName_txb.Text)
             {
@@ -47,7 +46,7 @@ namespace WpfApp1
            
             selectedEmployee = (EmployeeTable) employeeSlelctionComboBox.SelectedItem;
            
-            Expends.UpdateVariableExpend((variableExpendsTable)selectionVarialeExpendComboBox.SelectedItem,selectedEmployee,notes_txb.Text,name_txb.Text,Convert.ToInt32(cost_txb.Text),DateTime.Parse(date_txb.Text),Convert.ToInt32(active_txb.Text));
+            Expends.UpdateVariableExpend((variableExpendsTable)selectionVarialeExpendComboBox.SelectedItem,selectedEmployee,notes_txb.Text,name_txb.Text,Convert.ToInt32(cost_txb.Text),Convert.ToDateTime(date_picker.Text),Convert.ToInt32(active_txb.Text));
             this.Close();
         }
 

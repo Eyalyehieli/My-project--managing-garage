@@ -11,8 +11,8 @@
         <Label Content="שם ההוצאה" HorizontalAlignment="Left" Margin="658,70,0,0" VerticalAlignment="Top" Width="111"/>
         <TextBox x:Name="name_txb" HorizontalAlignment="Left" Height="23" Margin="506,70,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="notes_txb" HorizontalAlignment="Left" Height="190" Margin="45,56,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="153"/>
-        <TextBox x:Name="date_txb" HorizontalAlignment="Left" Height="23" Margin="506,165,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="cost_txb" HorizontalAlignment="Left" Height="23" Margin="506,115,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <Button Content="הוסף" HorizontalAlignment="Left" Margin="123,317,0,0" VerticalAlignment="Top" Width="93" Height="36" Click="Button_Click"/>
+        <DatePicker x:Name="date_picker" HorizontalAlignment="Left" Margin="506,165,0,0" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>

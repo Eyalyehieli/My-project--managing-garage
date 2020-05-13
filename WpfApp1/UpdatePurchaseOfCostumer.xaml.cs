@@ -34,7 +34,7 @@ namespace WpfApp1
         {
             OrdersTable selectedOrder = (OrdersTable)purchasingUpdateComboBox.SelectedItem;
             EmployeeTable selectedEmployee = (EmployeeTable)EmployeeSelectionComboBox.SelectedItem;
-            PurchasingCotumer.UpdatePurchaseCostumerBL(selectedOrder,shippingNumber_txb.Text,receptoionNumber_txb.Text,selectedEmployee,DateTime.Parse(OrderDate_txb.Text),DateTime.Parse(supplyingDate_txb.Text),notes_txb.Text,Convert.ToInt32(activity_txb.Text),shippingAddress_txb.Text);
+            PurchasingCotumer.UpdatePurchaseCostumerBL(selectedOrder,shippingNumber_txb.Text,receptoionNumber_txb.Text,selectedEmployee,Convert.ToDateTime(order_datepicker.Text),Convert.ToDateTime(supplying_datepicker.Text),notes_txb.Text,Convert.ToInt32(activity_txb.Text),shippingAddress_txb.Text);
             this.Close();
         }
 

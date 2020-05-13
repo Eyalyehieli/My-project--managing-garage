@@ -31,9 +31,9 @@ namespace WpfApp1
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             //CultureInfo enUS = new CultureInfo("en-US");
-            DateTime myDateTime = DateTime.Parse(date_txb.Text);
+           //DateTime myDateTime = DateTime.Parse(date_txb.Text);
             //Expends.AddCurrentExpend((EmployeeTable)employeeSlelctionComboBox.SelectedItem, notes_txb.Text, name_txb.Text, Convert.ToInt32(cost_txb.Text), DateTime.ParseExact(date_txb.Text, "g", enUS, DateTimeStyles.AdjustToUniversal));
-            Expends.AddCurrentExpend((EmployeeTable)employeeSlelctionComboBox.SelectedItem, notes_txb.Text, name_txb.Text, Convert.ToInt32(cost_txb.Text), DateTime.Parse(date_txb.Text));
+            Expends.AddCurrentExpend((EmployeeTable)employeeSlelctionComboBox.SelectedItem, notes_txb.Text, name_txb.Text, Convert.ToInt32(cost_txb.Text), Convert.ToDateTime(date_picker.Text));
             this.Close();
         }
     }

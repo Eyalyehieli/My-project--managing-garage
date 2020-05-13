@@ -12,8 +12,6 @@
         <Label Content="שינוי עובד שרכש" HorizontalAlignment="Left" Margin="379,38,0,0" VerticalAlignment="Top" Height="26" Width="118"/>
         <TextBox x:Name="shippingNumber_txb" HorizontalAlignment="Left" Height="23"  Text="{Binding ElementName=purchasingUpdateComboBox, Path=SelectedItem.(local:orderFromSupplierTable.shippingNumber), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="554,242,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="notes_txb" HorizontalAlignment="Left" Height="168"  Text="{Binding ElementName=purchasingUpdateComboBox, Path=SelectedItem.(local:orderFromSupplierTable.notes), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="38,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="supplyingDate_txb" HorizontalAlignment="Left" Height="23" Text="{Binding ElementName=purchasingUpdateComboBox, Path=SelectedItem.(local:orderFromSupplierTable.supplyingDate), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="554,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="OrderDate_txb" HorizontalAlignment="Left" Height="23" Text="{Binding ElementName=purchasingUpdateComboBox, Path=SelectedItem.(local:orderFromSupplierTable.orderDate), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="554,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="receptoionNumber_txb" HorizontalAlignment="Left" Height="23"  Text="{Binding ElementName=purchasingUpdateComboBox, Path=SelectedItem.(local:orderFromSupplierTable.receptionNumber), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="554,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <ComboBox x:Name="EmployeeSelectionComboBox" HorizontalAlignment="Left" Margin="237,38,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="EmployeeSelectionComboBox_SelectionChanged"/>
         <Button Content="עדכן" HorizontalAlignment="Left" Margin="170,318,0,0" VerticalAlignment="Top" Width="75" Height="42" Click="Button_Click"/>
@@ -23,5 +21,7 @@
         <ComboBox x:Name="purchasingUpdateComboBox" HorizontalAlignment="Left" Margin="554,56,0,0" VerticalAlignment="Top" Width="120"/>
         <Label Content="מצב" HorizontalAlignment="Left" Margin="679,304,0,0" VerticalAlignment="Top" Width="86"/>
         <TextBox x:Name="activity_txb" HorizontalAlignment="Left" Height="23"  Text="{Binding ElementName=purchasingUpdateComboBox, Path=SelectedItem.(local:orderFromSupplierTable.active), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="554,307,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <DatePicker x:Name="supplying_datepicker" SelectedDate="{Binding Mode=TwoWay, ElementName=purchasingUpdateComboBox,Path=SelectedItem.(local:orderFromSupplierTable.supplyingDate),UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="554,161,0,0" VerticalAlignment="Top" Width="125"/>
+        <DatePicker x:Name="order_datepicker" SelectedDate="{Binding Mode=TwoWay, ElementName=purchasingUpdateComboBox,Path=SelectedItem.(local:orderFromSupplierTable.orderDate),UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="554,114,0,0" VerticalAlignment="Top" Width="125"/>
     </Grid>
 </Window>

@@ -36,7 +36,7 @@ namespace WpfApp1
         {
             EmployeeTable selectedEmployee = (EmployeeTable) EmployeeSelectionComboBox.SelectedItem;
             PurchasingCotumer.AddPurchaseCostumer(shippingNumber_txb.Text, receptoionNumber_txb.Text, selectedEmployee,
-                DateTime.Parse(OrderDate_txb.Text), DateTime.Parse(supplyingDate_txb.Text), notes_txb.Text, this.Idlist,
+               Convert.ToDateTime(order_datePicker.Text), Convert.ToDateTime(supplying_datePicker.Text), notes_txb.Text, this.Idlist,
                 shippingAddress_txb.Text);
             this.Close();
         }

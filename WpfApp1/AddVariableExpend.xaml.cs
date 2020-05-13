@@ -29,7 +29,7 @@ namespace WpfApp1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Expends.AddVariableExpend((EmployeeTable)employeeSlelctionComboBox.SelectedItem,notes_txb.Text,name_txb.Text,Convert.ToInt32(cost_txb.Text),DateTime.Parse(date_txb.Text));
+            Expends.AddVariableExpend((EmployeeTable)employeeSlelctionComboBox.SelectedItem,notes_txb.Text,name_txb.Text,Convert.ToInt32(cost_txb.Text),Convert.ToDateTime(date_picker.Text));
             this.Close();
         }
          
