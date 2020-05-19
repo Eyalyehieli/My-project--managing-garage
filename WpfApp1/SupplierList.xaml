@@ -3,6 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:WpfApp1"
         Title="SupplierList" Height="450" Width="800">
+    <Window.Background>
+        <ImageBrush ImageSource="images/backround1.jpg"></ImageBrush>
+    </Window.Background>
     <Grid>
         <Label Content="שם פרטי" HorizontalAlignment="Left" Margin="642,52,0,0" VerticalAlignment="Top" Width="102"/>
         <Label Content="שם משפחה" HorizontalAlignment="Left" Margin="642,111,0,0" VerticalAlignment="Top" Width="102"/>
@@ -11,13 +14,15 @@
         <Label Content="מייל" HorizontalAlignment="Left" Margin="642,282,0,0" VerticalAlignment="Top" Width="102"/>
         <Label Content="כתובת" HorizontalAlignment="Left" Margin="642,332,0,0" VerticalAlignment="Top" Width="102"/>
         <Label Content="הערות" HorizontalAlignment="Left" Margin="253,76,0,0" VerticalAlignment="Top" Width="90"/>
-        <TextBox  x:Name="firstName_txb" HorizontalAlignment="Left" Height="23" Margin="481,52,0,0" TextWrapping="Wrap" Text="{Binding ElementName=supplierSelectionComboBox, Path=SelectedItem.(local:supplierTable.firstName), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
-        <TextBox  x:Name="lastName_txb" HorizontalAlignment="Left" Height="23" Margin="481,111,0,0" TextWrapping="Wrap" Text="{Binding ElementName=supplierSelectionComboBox, Path=SelectedItem.(local:supplierTable.lastName), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
-        <TextBox  x:Name="country_txb" HorizontalAlignment="Left" Height="23" Margin="481,172,0,0" TextWrapping="Wrap"  Text="{Binding ElementName=supplierSelectionComboBox, Path=SelectedItem.(local:supplierTable.country), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
-        <TextBox  x:Name="phone_txb" HorizontalAlignment="Left" Height="23" Margin="481,228,0,0" TextWrapping="Wrap"  Text="{Binding ElementName=supplierSelectionComboBox, Path=SelectedItem.(local:supplierTable.phoneNumber), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
-        <TextBox  x:Name="Email_txb" HorizontalAlignment="Left" Height="23" Margin="481,282,0,0" TextWrapping="Wrap"  Text="{Binding ElementName=supplierSelectionComboBox, Path=SelectedItem.(local:supplierTable.E_mail), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="address_txb" HorizontalAlignment="Left" Height="23" Margin="481,332,0,0" TextWrapping="Wrap"  Text="{Binding ElementName=supplierSelectionComboBox, Path=SelectedItem.(local:supplierTable.address), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
-        <TextBox  x:Name="Notes_txb" HorizontalAlignment="Left" Height="171" Margin="66,80,0,0" TextWrapping="Wrap"  Text="{Binding ElementName=supplierSelectionComboBox, Path=SelectedItem.(local:supplierTable.notes), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="153"/>
+        <TextBox  x:Name="firstName_txb" IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="481,52,0,0" TextWrapping="Wrap" Text="{Binding ElementName=supplierSelectionComboBox, Path=SelectedItem.(local:supplierTable.firstName), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBox  x:Name="lastName_txb" IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="481,111,0,0" TextWrapping="Wrap" Text="{Binding ElementName=supplierSelectionComboBox, Path=SelectedItem.(local:supplierTable.lastName), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBox  x:Name="country_txb" IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="481,172,0,0" TextWrapping="Wrap"  Text="{Binding ElementName=supplierSelectionComboBox, Path=SelectedItem.(local:supplierTable.country), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBox  x:Name="phone_txb" IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="481,228,0,0" TextWrapping="Wrap"  Text="{Binding ElementName=supplierSelectionComboBox, Path=SelectedItem.(local:supplierTable.phoneNumber), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBox  x:Name="Email_txb" IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="481,282,0,0" TextWrapping="Wrap"  Text="{Binding ElementName=supplierSelectionComboBox, Path=SelectedItem.(local:supplierTable.E_mail), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="address_txb" IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="481,332,0,0" TextWrapping="Wrap"  Text="{Binding ElementName=supplierSelectionComboBox, Path=SelectedItem.(local:supplierTable.address), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBox  x:Name="Notes_txb" IsReadOnly="True" HorizontalAlignment="Left" Height="171" Margin="66,80,0,0" TextWrapping="Wrap"  Text="{Binding ElementName=supplierSelectionComboBox, Path=SelectedItem.(local:supplierTable.notes), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="153"/>
         <ComboBox  x:Name="supplierSelectionComboBox" HorizontalAlignment="Left" Margin="323,27,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="מצב" HorizontalAlignment="Left" Margin="642,375,0,0" VerticalAlignment="Top" Width="53"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="481,375,0,0" TextWrapping="Wrap" Text="{Binding  ElementName=supplierSelectionComboBox, Path=SelectedItem.(local:supplierTable.active), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>

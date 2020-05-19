@@ -29,5 +29,13 @@ namespace WpfApp1
             ExpensesManaging em=new ExpensesManaging();
             em.ShowDialog();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            ReportsManaging rm=new ReportsManaging();
+            rm.ShowDialog();
+
+
+        }
     }
 }

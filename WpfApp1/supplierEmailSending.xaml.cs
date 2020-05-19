@@ -50,10 +50,10 @@ namespace WpfApp1
                 client.Timeout = 10000;
                 client.DeliveryMethod = SmtpDeliveryMethod.Network;
                 client.UseDefaultCredentials = false;
-                client.Credentials = new NetworkCredential("lior.yehieli@gmail.com", "Eyal1234");
+                client.Credentials = new NetworkCredential("eyal.yehieli2@gmail.com", "eyal2002");
                 MailMessage msg = new MailMessage();
                 msg.To.Add(toLabel.Content.ToString());
-                msg.From = new MailAddress("lior.yehieli@gmail.com");
+                msg.From = new MailAddress("eyal.yehieli2@gmail.com");
                 msg.Subject = subjuct_txb.Text;
                 msg.Body = body_txb.Text;
                 client.Send(msg);

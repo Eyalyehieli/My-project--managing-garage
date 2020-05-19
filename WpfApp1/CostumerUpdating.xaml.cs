@@ -32,7 +32,7 @@ namespace WpfApp1
         {
 
             CostumersTable selected_costumer = (CostumersTable)CustomerSelectionComboBox.SelectedItem;
-            CostumersBL.UpdateBL(selected_costumer, firstname_txb.Text, lastName_txb.Text, address_txb.Text, phone_txb.Text, mail_txb.Text, Int32.Parse(status_txb.Text));
+            CostumersBL.UpdateBL(selected_costumer, firstname_txb.Text, lastName_txb.Text, address_txb.Text, phone_txb.Text, mail_txb.Text, Int32.Parse(status_txb.Text),notes_txb.Text);
             this.Close();
             
         }

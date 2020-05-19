@@ -168,6 +168,10 @@
     <Compile Include="PurchasingUpdate.xaml.cs">
       <DependentUpon>PurchasingUpdate.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Reports.cs" />
+    <Compile Include="ReportsManaging.xaml.cs">
+      <DependentUpon>ReportsManaging.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SupplierBL.cs" />
     <Compile Include="supplierEmailSending.xaml.cs">
       <DependentUpon>supplierEmailSending.xaml</DependentUpon>
@@ -360,6 +364,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ReportsManaging.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="supplierEmailSending.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -459,6 +467,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="images\backround1.jpg" />
     <Content Include="managingDataBase.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -497,5 +506,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

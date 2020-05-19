@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         Title="AddCostumer" Height="450" Width="800">
+    <Window.Background>
+        <ImageBrush ImageSource="images/backround1.jpg"></ImageBrush>
+    </Window.Background>
     <Grid>
         <Label Content="שם פרטי" HorizontalAlignment="Left" Margin="626,69,0,0" VerticalAlignment="Top" Width="66"/>
         <Label Content="שם משפחה" HorizontalAlignment="Left" Margin="626,139,0,0" VerticalAlignment="Top" Width="78"/>

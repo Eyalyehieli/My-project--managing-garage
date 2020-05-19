@@ -3,6 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:WpfApp1"
         Title="EmployeesList" Height="450" Width="800">
+    <Window.Background>
+        <ImageBrush ImageSource="images/backround1.jpg"></ImageBrush>
+    </Window.Background>
     <Grid>
         <Label Content="שם לקוח" HorizontalAlignment="Left" Margin="455,50,0,0" VerticalAlignment="Top" Width="63"/>
         <ComboBox Name="CustomerSelectionComboBox" HorizontalAlignment="Left" Margin="301,54,0,0" VerticalAlignment="Top" Width="120" />
@@ -11,14 +14,14 @@
         <Label Content="כתובת" HorizontalAlignment="Left" Margin="654,208,0,0" VerticalAlignment="Top" Width="77"/>
         <Label Content="מספר פלאפון" HorizontalAlignment="Left" Margin="654,250,0,0" VerticalAlignment="Top" Width="87"/>
         <Label Content="מייל" HorizontalAlignment="Left" Margin="654,294,0,0" VerticalAlignment="Top" Width="87"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="499,125,0,0" TextWrapping="Wrap" Text="{Binding ElementName=CustomerSelectionComboBox, Path=SelectedItem.(local:EmployeeTable.first_Name), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  VerticalAlignment="Top" Width="120" />
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="499,211,0,0" TextWrapping="Wrap" Text="{Binding ElementName=CustomerSelectionComboBox, Path=SelectedItem.(local:EmployeeTable.address),Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120" />
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="499,167,0,0" TextWrapping="Wrap" Text="{Binding ElementName=CustomerSelectionComboBox, Path=SelectedItem.(local:EmployeeTable.last_Name),Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120" />
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="499,253,0,0" TextWrapping="Wrap" Text="{Binding ElementName=CustomerSelectionComboBox, Path=SelectedItem.(local:EmployeeTable.phoneNumber),Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120" />
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="499,294,0,0" TextWrapping="Wrap" Text="{Binding ElementName=CustomerSelectionComboBox, Path=SelectedItem.(local:EmployeeTable.E_mail),Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120" />
-        <TextBox HorizontalAlignment="Left" Height="210" Margin="45,124,0,0" TextWrapping="Wrap" Text="{Binding ElementName=CustomerSelectionComboBox, Path=SelectedItem.(local:EmployeeTable.notes),Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="143"/>
+        <TextBox HorizontalAlignment="Left"  IsReadOnly="True" Height="23" Margin="499,125,0,0" TextWrapping="Wrap" Text="{Binding ElementName=CustomerSelectionComboBox, Path=SelectedItem.(local:EmployeeTable.first_Name), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  VerticalAlignment="Top" Width="120" />
+        <TextBox HorizontalAlignment="Left" IsReadOnly="True" Height="23" Margin="499,211,0,0" TextWrapping="Wrap" Text="{Binding ElementName=CustomerSelectionComboBox, Path=SelectedItem.(local:EmployeeTable.address),Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120" />
+        <TextBox HorizontalAlignment="Left" IsReadOnly="True" Height="23" Margin="499,167,0,0" TextWrapping="Wrap" Text="{Binding ElementName=CustomerSelectionComboBox, Path=SelectedItem.(local:EmployeeTable.last_Name),Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120" />
+        <TextBox HorizontalAlignment="Left" IsReadOnly="True" Height="23" Margin="499,253,0,0" TextWrapping="Wrap" Text="{Binding ElementName=CustomerSelectionComboBox, Path=SelectedItem.(local:EmployeeTable.phoneNumber),Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120" />
+        <TextBox HorizontalAlignment="Left" IsReadOnly="True" Height="23" Margin="499,294,0,0" TextWrapping="Wrap" Text="{Binding ElementName=CustomerSelectionComboBox, Path=SelectedItem.(local:EmployeeTable.E_mail),Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120" />
+        <TextBox HorizontalAlignment="Left" IsReadOnly="True" Height="210" Margin="45,124,0,0" TextWrapping="Wrap" Text="{Binding ElementName=CustomerSelectionComboBox, Path=SelectedItem.(local:EmployeeTable.notes),Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="143"/>
         <Label Content="הערות" HorizontalAlignment="Left" Margin="233,125,0,0" VerticalAlignment="Top" Width="55"/>
         <Label Content="שכר" HorizontalAlignment="Left" Margin="654,342,0,0" VerticalAlignment="Top" Width="77"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="499,342,0,0" TextWrapping="Wrap" Text="{Binding ElementName=CustomerSelectionComboBox, Path=SelectedItem.(local:EmployeeTable.salary),Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" IsReadOnly="True" Height="23" Margin="499,342,0,0" TextWrapping="Wrap" Text="{Binding ElementName=CustomerSelectionComboBox, Path=SelectedItem.(local:EmployeeTable.salary),Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>

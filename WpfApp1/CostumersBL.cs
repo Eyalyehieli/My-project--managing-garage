@@ -15,9 +15,9 @@ namespace WpfApp1
             DataLayer.InsertCostumerDL(firstName, lastName, address, phone, eMail,activity,notes);
         }
 
-        public static void UpdateBL(CostumersTable ct, string firstName, string lastName, string address, string phone, string mail, int active)
+        public static void UpdateBL(CostumersTable ct, string firstName, string lastName, string address, string phone, string mail, int active,string notes)
         {
-          DataLayer.UpdateCostumerDL(ct, firstName, lastName, address, phone, mail, active);
+          DataLayer.UpdateCostumerDL(ct, firstName, lastName, address, phone, mail, active,notes);
         }
 
         public IList<CostumersTable> GetAll()

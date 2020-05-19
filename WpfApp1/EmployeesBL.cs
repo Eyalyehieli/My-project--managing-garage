@@ -15,9 +15,9 @@ namespace WpfApp1
         }
 
         public static void UpdateBL(EmployeeTable et, string firstName, string lastName, string address, string phone,
-            string mail, int active, int salary)
+            string mail, int active, int salary,string notes)
         {
-           DataLayer.UpdateEmployeeDL(et,firstName,lastName,address,phone,mail,active,salary);
+           DataLayer.UpdateEmployeeDL(et,firstName,lastName,address,phone,mail,active,salary,notes);
         }
         public IList<EmployeeTable> GetAll()
         {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -37,6 +38,12 @@ namespace WpfApp1
            OrderFromSupplierBL.UpdateBL (materialName.Text, materialType.Text, Convert.ToInt32(amount.Text), Convert.ToInt32(price.Text), selectedItem, selectedOrder, Convert.ToInt32(activity.Text),notes.Text)
             ;
            this.Close();
+        }
+
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
 
         private void supplierChangingComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

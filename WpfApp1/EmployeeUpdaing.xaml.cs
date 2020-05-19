@@ -32,7 +32,7 @@ namespace WpfApp1
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             EmployeeTable selected_employee = (EmployeeTable)CustomerSelectionComboBox.SelectedItem;
-            EmployeesBL.UpdateBL(selected_employee, firstname_txb.Text, lastName_txb.Text, address_txb.Text, phone_txb.Text, mail_txb.Text, Int32.Parse(status_txb.Text),Int32.Parse(salary_txb.Text));
+            EmployeesBL.UpdateBL(selected_employee, firstname_txb.Text, lastName_txb.Text, address_txb.Text, phone_txb.Text, mail_txb.Text, Int32.Parse(status_txb.Text),Int32.Parse(salary_txb.Text),notes_txb.Text);
             this.Close();
         }
 

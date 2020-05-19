@@ -30,7 +30,7 @@ namespace WpfApp1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            purchaseFromSupllier pfs=new purchaseFromSupllier(Idlist);
+            purchaseFromSupllier pfs=new purchaseFromSupllier(Idlist,this);
             pfs.ShowDialog();
         }
 

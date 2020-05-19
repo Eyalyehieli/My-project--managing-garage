@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,10 +22,12 @@ namespace WpfApp1
     {
         private List<orderDetailsTable> Idlist;
         private EmployeesBL employeeBL=new EmployeesBL();
-        public PurchaseCostumer(List<orderDetailsTable> Idlist)
+        private ContinueOrderCostumer coc;
+        public PurchaseCostumer(List<orderDetailsTable> Idlist,ContinueOrderCostumer coc)
         {
             InitializeComponent();
             this.Idlist = Idlist;
+            this.coc = coc;
             EmployeeSelectionComboBox.ItemsSource = employeeBL.GetAll();
             EmployeeSelectionComboBox.DisplayMemberPath = "full_Name";
             OrderIdSelectionComboBox.ItemsSource = Idlist;
@@ -38,7 +41,15 @@ namespace WpfApp1
             PurchasingCotumer.AddPurchaseCostumer(shippingNumber_txb.Text, receptoionNumber_txb.Text, selectedEmployee,
                Convert.ToDateTime(order_datePicker.Text), Convert.ToDateTime(supplying_datePicker.Text), notes_txb.Text, this.Idlist,
                 shippingAddress_txb.Text);
+            coc.Close();
             this.Close();
         }
+
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
     }
 }

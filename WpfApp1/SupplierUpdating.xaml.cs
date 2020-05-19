@@ -51,7 +51,7 @@ namespace WpfApp1
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             supplierTable selected_supplier = (supplierTable) SupllierSelectionComboBox.SelectedItem;
-            SupplierBL.UpdateBL(selected_supplier,firstName_txb.Text,lastName_txb.Text,country_txb.Text,phone_txb.Text,Email_txb.Text,Notes_txb.Text,address_txb.Text);
+            SupplierBL.UpdateBL(selected_supplier,firstName_txb.Text,lastName_txb.Text,country_txb.Text,phone_txb.Text,Email_txb.Text,Notes_txb.Text,address_txb.Text,active_txb.Text);
             this.Close();
         }
     }

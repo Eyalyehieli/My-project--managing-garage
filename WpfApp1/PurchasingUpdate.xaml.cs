@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -36,6 +37,12 @@ namespace WpfApp1
             EmployeeTable selectedEmployee = (EmployeeTable) EmployeeSelectionComboBox.SelectedItem;
             PurchasingFromSupplierBL.UpdateBL(selectedOrder,shippingNumber_txb.Text,receptoionNumber_txb.Text,selectedEmployee,Convert.ToDateTime(order_datepicker.Text),Convert.ToDateTime(supplying_datepicker.Text),notes_txb.Text,Convert.ToInt32(activity_txb.Text));
             this.Close();
+        }
+
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
 
         private void EmployeeSelectionComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

@@ -13,7 +13,7 @@ namespace WpfApp1
         private static managingDataBaseEntities db = new managingDataBaseEntities();
         public static void InsertCostumerDL(string firstName, string lastName, string address, string phone, string eMail,int activity,string notes)
         {
-            db.CostumersTable.Add(new CostumersTable { first_Name = firstName, last_Name = lastName, address = address, phoneNumber = phone, E_mail = eMail, active = activity,notes = notes});
+            db.CostumersTable.Add(new CostumersTable { first_Name = firstName, last_Name = lastName, address = address, phoneNumber = phone, E_mail = eMail, active = 0,notes = notes});
             db.SaveChanges();
         }
 
@@ -27,7 +27,7 @@ namespace WpfApp1
                 address = address,
                 phoneNumber = phone,
                 E_mail = eMail,
-                active = activity,
+                active = 0,
                 notes = notes,
                 salary = salary
             });
@@ -45,12 +45,13 @@ namespace WpfApp1
                 phoneNumber = PhoneNumber,
                 E_mail = Email,
                 notes = Notes,
-                address = Address
+                address = Address,
+                active=0
             });
             db.SaveChanges();
         }
 
-        public static void UpdateCostumerDL(CostumersTable ct,string firstName,string lastName,string address, string phone,string mail, int active)
+        public static void UpdateCostumerDL(CostumersTable ct,string firstName,string lastName,string address, string phone,string mail, int active,string notes)
         {
             CostumersTable selected_costumer = ct;
             selected_costumer.first_Name = firstName;
@@ -59,11 +60,12 @@ namespace WpfApp1
             selected_costumer.phoneNumber = phone;
             selected_costumer.E_mail =mail;
             selected_costumer.active = active;
+            selected_costumer.notes = notes;
             db.SaveChanges();
         }
 
         public static void UpdateEmployeeDL(EmployeeTable et, string firstName, string lastName, string address,
-            string phone, string mail, int active, int salary)
+            string phone, string mail, int active, int salary,string notes)
         {
             EmployeeTable selected_employee = et;
             selected_employee.first_Name = firstName;
@@ -73,11 +75,12 @@ namespace WpfApp1
             selected_employee.E_mail = mail;
             selected_employee.active = active;
             selected_employee.salary = salary;
+            selected_employee.notes = notes;
             db.SaveChanges();
         }
 
         public static void UpdateSupplierDL(supplierTable st, string FirstName, string LastName, string Country,
-            string PhoneNumber, string Email, string Notes, string Address)
+            string PhoneNumber, string Email, string Notes, string Address,string active)
         {
             supplierTable selected_supplier = st;
             selected_supplier.firstName = FirstName;
@@ -87,6 +90,7 @@ namespace WpfApp1
             selected_supplier.E_mail = Email;
             selected_supplier.notes = Notes;
             selected_supplier.address = Address;
+            selected_supplier.active = Convert.ToInt32(active);
             db.SaveChanges();
         }
 
@@ -166,7 +170,7 @@ namespace WpfApp1
                 discount = discount,
                 amount = amount,
                 notes = notes,
-                active = active,
+                active = 0,
                 name = name,
                 type = type,
                 typeOfTree = typeOfTree,

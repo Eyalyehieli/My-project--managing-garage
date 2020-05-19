@@ -17,9 +17,9 @@ namespace WpfApp1
         }
 
         public static void UpdateBL (supplierTable st, string FirstName, string LastName, string Country,
-            string PhoneNumber,string Email, string Notes, string Address)
+            string PhoneNumber,string Email, string Notes, string Address,string active)
         {
-            DataLayer.UpdateSupplierDL(st,FirstName,LastName,Country,PhoneNumber,Email,Notes,Address);
+            DataLayer.UpdateSupplierDL(st,FirstName,LastName,Country,PhoneNumber,Email,Notes,Address,active);
         }
 
 

@@ -3,6 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:WpfApp1"
         Title="SupplierUpdating" Height="470" Width="800">
+    <Window.Background>
+        <ImageBrush ImageSource="images/backround1.jpg"></ImageBrush>
+    </Window.Background>
     <Grid>
         <Label Content="שם פרטי" HorizontalAlignment="Left" Margin="642,52,0,0" VerticalAlignment="Top" Width="102"/>
         <Label Content="שם משפחה" HorizontalAlignment="Left" Margin="642,111,0,0" VerticalAlignment="Top" Width="102"/>
@@ -21,6 +24,6 @@
         <ComboBox x:Name="SupllierSelectionComboBox" HorizontalAlignment="Left" Margin="323,27,0,0" VerticalAlignment="Top" Width="120"/>
         <Button Content="עדכן" HorizontalAlignment="Left" Margin="66,309,0,0" VerticalAlignment="Top" Width="137" Height="46" Click="Button_Click"/>
         <Label Content="מצב" HorizontalAlignment="Left" Margin="642,388,0,0" VerticalAlignment="Top" Width="102"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Text="{Binding ElementName=SupllierSelectionComboBox, Path=SelectedItem.(local:supplierTable.active), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="481,388,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="active_txb" HorizontalAlignment="Left" Height="23" Text="{Binding ElementName=SupllierSelectionComboBox, Path=SelectedItem.(local:supplierTable.active), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="481,388,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="NumberValidationTextBox"/>
     </Grid>
 </Window>
