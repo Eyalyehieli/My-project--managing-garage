@@ -174,7 +174,8 @@ namespace WpfApp1
                           "table { width: 100%; } " + "thead th { background: gray; }</style>" +
                           "<title>דוח הזמנות של לקוחות</title>" + "</head><body><h1>תוצאות דוח הזמנות של לקוחות</h1>" +
                           "<table>" +
-                          "<thead><tr><th>מזהה</th><th>הנחה</th><th>כמות</th><th>הערות</th><th>מצב פעילות</th><th>שם מוצר</th><th>סוג מוצר</th><th>סוג עץ</th><th>צבע</th><th>פרזול</th><th>מחיר</th><th>מחיר עלות</th><th>מזהה רכישה</th><th>מזהה לקוח</th></tr></thead>" +
+                          "<thead><tr><th>מזהה</th><th>הנחה</th><th>כמות</th><th>הערות</th><th>מצב פעילות</th><th>שם מוצר</th>" +
+                          "<th>סוג מוצר</th><th>סוג עץ</th><th>צבע</th><th>פרזול</th><th>מחיר</th><th>מחיר עלות</th><th>מזהה רכישה</th><th>מזהה לקוח</th></tr></thead>" +
                           "<tbody>";
             foreach (orderDetailsTable elemant in orders)
             {
@@ -188,7 +189,8 @@ namespace WpfApp1
                     active = false;
                 }
                 body += "<tr><td>" + elemant.Id.ToString() + "</td><td>" + elemant.discount.ToString() + "</td><td>" + elemant.amount.ToString() +
-                    "</td><td>" + elemant.notes+ "</td><td>" + active.ToString() + "</td><td>" + elemant.name + "</td><td>" + elemant.type + "</td><td>" + elemant.typeOfTree + "</td><td>" + elemant.color + "</td<td>" + elemant.shoeing + "</td<td>" + elemant.cost.ToString() + "</td<td>" + elemant.costPrice.ToString() + "</td<td>" + elemant.orders_id.ToString() + "</td<td>" + elemant.costumers_id.ToString() + "</td</tr>";
+                    "</td><td>" + elemant.notes+ "</td><td>" + active.ToString() + "</td><td>" + elemant.name + "</td><td>" + elemant.type + "</td>" +
+                        "<td>" + elemant.typeOfTree + "</td><td>" + elemant.color + "</td><td>" + elemant.shoeing + "</td><td>" + elemant.cost.ToString() + "</td><td>" + elemant.costPrice.ToString() + "</td><td>" + elemant.orders_id.ToString() + "</td><td>" + elemant.costumers_id.ToString() + "</td></tr>";
             }
             body += "</tbody></table></body></html>";
             File.WriteAllText(fileName, body);
@@ -250,7 +252,7 @@ namespace WpfApp1
                     active = false;
                 }
                 body += "<tr><td>" + elemant.Id.ToString() + "</td><td>" + elemant.employee_id.ToString() + "</td><td>" + elemant.notes +
-                    "</td><td>" + active.ToString() + "</td><td>" + elemant.notes + "</td><td>" + elemant.cost + "</td><td>" + elemant.date.ToString() + "</td></tr>";
+                    "</td><td>" + active.ToString() + "</td><td>" + elemant.name + "</td><td>" + elemant.cost + "</td><td>" + elemant.date.ToString() + "</td></tr>";
             }
             body += "</tbody></table></body></html>";
             File.WriteAllText(fileName, body);
@@ -281,7 +283,7 @@ namespace WpfApp1
                     active = false;
                 }
                 body += "<tr><td>" + elemant.Id.ToString() + "</td><td>" + elemant.employee_id.ToString() + "</td><td>" + elemant.notes +
-                    "</td><td>" + active.ToString() + "</td><td>" + elemant.notes + "</td><td>" + elemant.cost + "</td><td>" + elemant.date.ToString() + "</td></tr>";
+                    "</td><td>" + active.ToString() + "</td><td>" + elemant.name + "</td><td>" + elemant.cost + "</td><td>" + elemant.date.ToString() + "</td></tr>";
             }
             body += "</tbody></table></body></html>";
             File.WriteAllText(fileName, body);
